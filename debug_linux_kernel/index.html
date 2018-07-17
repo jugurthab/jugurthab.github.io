@@ -7,53 +7,62 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 			  crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="style/jtag-basic-operation.css" />
 	</head>
 
 
 	<body>
-		<h1>Hello Antoine Debug</h1>
+		<header>
+			<h1>JTAG Basic Operations</h1>
+		</header>
 
-		 <canvas id="JtagAnim" width="400px" height="450px">
 
-        </canvas>
+		<article>
+		 	<canvas id="JtagAnim" width="400px" height="450px">
 
-<table>
-	<tr>
-		<th>JTAG CPU Operation</th><th colspan="3">Connect more ships (Daisy chaining)</th>
-	</tr>
+		        </canvas>
 
-	<tr>
-		 <td>
-            		<button id="playAnimationJtag">Start Animation</button>
-        	</td>
-		<td>	 	
+			<table>
+				<tr>
+					<th>JTAG CPU Operation</th><th colspan="3">Connect more ships (Daisy chaining)</th>
+				</tr>
 
-<select id="operationPerform">
-                          <option selected="selected" value="boundaryScan">EXTEST</option> 
-                          <option value="bypassMode">BYPASS</option>
-                         <option value="SAMPLE">SAMPLE</option>
-                          <option value="IDCODE">IDCODE</option>
-                          
-                        </select>
-		<td>         
-                        <input type="checkbox" id="chip" value="dsp">DSP	
-		</td>
+				<tr>
+					 <td>
+				    		<button id="playAnimationJtag">Start Animation</button>
+					</td>
+					<td>	 	
+
+			<select id="operationPerform">
+						  <option selected="selected" value="boundaryScan">EXTEST</option> 
+						  <option value="bypassMode">BYPASS</option>
+						 <option value="SAMPLE">SAMPLE</option>
+						  <option value="IDCODE">IDCODE</option>
+						  
+						</select>
+					<td>         
+						<input type="checkbox" id="chip" value="dsp">DSP	
+					</td>
 		
-		<td>
+					<td>
 
 
-<select id="operationPerformDSP">
-                          <option selected="selected" value="boundaryScan">EXTEST</option> 
-                          <option value="bypassMode">BYPASS</option>
-                        <option value="SAMPLE">SAMPLE</option>
-                          <option value="IDCODE">IDCODE</option>
-                       </select>
-		</td>
+			<select id="operationPerformDSP">
+						  <option selected="selected" value="boundaryScan">EXTEST</option> 
+						  <option value="bypassMode">BYPASS</option>
+						<option value="SAMPLE">SAMPLE</option>
+						  <option value="IDCODE">IDCODE</option>
+					       </select>
+					</td>
 
-       
+			       
 	
-	</tr>
-</table>
+				</tr>
+			</table>
+
+
+		</article>
 
 	<script src="script/animateOpenOCDJTAG.js">
 

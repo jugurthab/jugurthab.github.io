@@ -30,6 +30,7 @@ var streamDataUnit = function(x,y,width,height,text,color,backColor){
 
 
 var timerJavascript;
+var animateScene = false;
 
 var realCPUJTag;
 var realSOCJTAG;
@@ -63,6 +64,24 @@ $(document).ready(function(e){
         	$(window).resize(resizeCanvasJTAG);
 
 		$("#chip").on("change",resizeCanvasJTAG);
+
+		var startJtagAnimation = $("#playAnimationJtag");
+		startJtagAnimation.on("click",function() {
+			
+			if(animateScene){
+				animateScene = false;
+				$("#playAnimationJtag").text('Start Discovery');
+			
+			}
+			else {
+				animateScene = true;
+				$("#playAnimationJtag").text('Stop Discovery');
+			}
+				
+			resizeCanvasJTAG();
+			
+		});
+
 
 		$("#operationPerform").on("change",resizeCanvasJTAG);
 		$("#operationPerformDSP").on("change",resizeCanvasJTAG);
@@ -1958,9 +1977,11 @@ BypassData.push(new streamDataUnit(canvasWidthJTAG/2.5 + realSOCJTAG.x +realSOCJ
             else if($("#operationPerform").val()=="bypassMode" && $("#operationPerformDSP").val()=="boundaryScan")
                 bypassAndExtest();
        
-
-             timerJavascript = setTimeout(drawJtagScene, 100);
+		if(animateScene){
+             		timerJavascript = setTimeout(drawJtagScene, 100);
+		
 		}
+	}
                 
             
                 function resizeCanvasJTAG(){
