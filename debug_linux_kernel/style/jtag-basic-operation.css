@@ -1,7 +1,6 @@
 body{
 	width:80%;
 	margin:auto;
-	background-color:rgba(128,128,128,0.2);
 }
 
 header h1{
@@ -19,21 +18,24 @@ table{
 
 th,td{
 	border: 1px inset black;
+	text-align:center;
 }
 
 th, td {
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
 
 canvas{
+	/*background-color:#72A2C0;*/
+	background-color:rgba(128,128,128,0.1);
 	margin : 40px;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-    background-color: #4CAF50;
+    background-color: #00743F;
     color: white;
 }
 
@@ -45,8 +47,20 @@ select,button {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
+	font-size:150%;
 }
-button:hover, input[type=radio],select:hover{
+
+
+button{
+	background-color: #72A2C0;
+	border-radius: 4px;
+	color:white;
+}
+button:hover{
+	cursor:pointer;
+	background-color: #1D65A6;	
+}
+input[type=radio],select:hover{
 	cursor:pointer;			
 }
  

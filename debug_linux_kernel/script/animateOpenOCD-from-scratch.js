@@ -131,7 +131,7 @@ $(document).ready(function(e){
 
                         
                         context.fillStyle ="rgb(255,255,255)"; 
-                        context.font = "30px serif"; // Change the size and font
+                        context.font = "30px Arial"; // Change the size and font
                         context.fillText(singleTimeUnit.text, singleTimeUnit.x-8,singleTimeUnit.y+7);
 			
 			
@@ -178,7 +178,8 @@ $(document).ready(function(e){
                 function drawOpenOCD(){
                     myOpenOCD = new OpenOCD(canvasWidth/4, canvasHeight/3,canvasHeight/8, "OpenOCD");
 
-                    context.fillStyle ="rgb(255,0,255)";                   
+                    //context.fillStyle ="rgb(255,0,255)";   
+                    context.fillStyle ="#563838";                
                     context.beginPath();
                     context.arc(myOpenOCD.x + realSOC.width/2,myOpenOCD.y + realSOC.height - 20,myOpenOCD.radius, 0, Math.PI*2, false);
                     context.closePath();
@@ -186,7 +187,7 @@ $(document).ready(function(e){
 
                     
                     context.fillStyle ="rgb(255,255,255)"; 
-                    context.font = "22px serif"; // Change the size and font
+                    context.font = "22px Arial"; // Change the size and font
                     context.fillText(myOpenOCD.text, myOpenOCD.x + realSOC.width/2 - 54, myOpenOCD.y + realSOC.height-15);
                 }                
 
@@ -194,7 +195,7 @@ $(document).ready(function(e){
 		function executeStep1(){
 			var text = "set _CHIPNAME stm32f0407"
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "13px serif"; // Change the size and font
+                    	context.font = "16px Arial"; // Change the size and font
                     	context.fillText(text, canvasWidth/2 - 90, canvasHeight - 20);	
 		}
 		
@@ -212,7 +213,7 @@ $(document).ready(function(e){
 		function executeStep2(){
 			var text = "set _ENDIAN little"
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "13px serif"; // Change the size and font
+                    	context.font = "16px Arial"; // Change the size and font
                     	context.fillText(text, canvasWidth/2 - 60, canvasHeight - 20);
 		}
 
@@ -228,7 +229,7 @@ $(document).ready(function(e){
 		function executeStep3(){
 			var text = "set _CPUTAPID 0x4ba00477"
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "13px serif"; // Change the size and font
+                    	context.font = "16px Arial"; // Change the size and font
                     	context.fillText(text, canvasWidth/2 - 86, canvasHeight - 20);
 		}
 
@@ -249,7 +250,7 @@ $(document).ready(function(e){
 		function executeStep4(){
 			var text = "jtag newtap $_CHIPNAME cpu -irlen 4 -expected-id $_CPUTAPID"
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "13px serif"; // Change the size and font
+                    	context.font = "16px Arial"; // Change the size and font
                     	context.fillText(text, canvasWidth/2 - 210, canvasHeight - 20);
 		}
 		
@@ -268,7 +269,7 @@ $(document).ready(function(e){
 		function executeStep5(){
 			var text = "target create $_TARGETNAME cortex_m -chain-position $_TARGETNAME"
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "13px serif"; // Change the size and font
+                    	context.font = "16px Arial"; // Change the size and font
                     	context.fillText(text, canvasWidth/2 - 245, canvasHeight - 20);
 		}
 
@@ -286,7 +287,7 @@ $(document).ready(function(e){
 		function executeStep6(){
 			var text = "$_TARGETNAME configure -work-area-phys 0x00200000 -work-area-size 0x8000 -work-area-backup 0"
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "13px serif"; // Change the size and font
+                    	context.font = "16px Arial"; // Change the size and font
                     	context.fillText(text, canvasWidth/2 - 320, canvasHeight - 20);
 		}
 
@@ -305,19 +306,20 @@ $(document).ready(function(e){
 
                 function drawTap(){
                     realTap = new Tap(canvasWidth/4,canvasHeight/12,canvasWidth/4,canvasHeight/12,"TAP Controller"); 
-                    context.fillStyle ="rgb(255,125,0)";                   
+                    context.fillStyle ="#563838";                   
                     context.beginPath();
                     context.fillRect(realTap.x + realSOC.width/4,realTap.y/8 + realSOC.height,realTap.width,realTap.height);
                     context.fill();
 
                     if(animationStepCounter>3){
-		            context.fillStyle ="rgb(255,255,255)"; 
-		            context.font = "20px serif"; // Change the size and font
+		            //context.fillStyle ="rgb(255,255,255)";
+			    context.fillStyle ="#A37C27"; 
+		            context.font = "20px Arial"; // Change the size and font
 		            context.fillText(realTap.text, realSOC.x + realSOC.width/2 - 70, realTap.y/2 + realSOC.height);
 
 				
-			    context.fillStyle ="rgb(255,255,0)"; 
-		            context.font = "15px serif"; // Change the size and font
+			    context.fillStyle ="#6A8A82"; 
+		            context.font = "15px Arial"; // Change the size and font
 		            context.fillText("0x4ba00477", realSOC.x + realSOC.width/2 - 40, realTap.y/2 + realSOC.height+15);
 		    }
 
@@ -325,13 +327,14 @@ $(document).ready(function(e){
 
                 function drawSOC(){
                     realSOC = new Soc(canvasWidth/4, canvasHeight/16, canvasWidth/2,canvasHeight/2);
-                    context.fillStyle ="rgba(255,0,0,0.7)";
+                    context.fillStyle ="#A7414A";
                     context.fillRect(realSOC.x,realSOC.y,realSOC.width,realSOC.height);
                 }
 
                 function drawCPU(){
                     realCPU = new Cpu(canvasWidth/4,canvasHeight/10,canvasWidth/3,canvasHeight/5, "CPU");
-                    context.fillStyle ="rgb(255,125,255)";                   
+                   // context.fillStyle ="rgb(255,125,255)";
+		    context.fillStyle ="#282726";                   
                     context.beginPath();
                     context.fillRect(realCPU.x + realSOC.width/6,realCPU.y/2 + realSOC.y,realCPU.width,realCPU.height);
                     context.fill();
@@ -339,11 +342,11 @@ $(document).ready(function(e){
 
 		    if(animationStepCounter>4){
 		            context.fillStyle ="rgb(255,255,255)"; 
-		            context.font = "60px serif"; // Change the size and font
+		            context.font = "60px Arial"; // Change the size and font
 		            context.fillText(realCPU.text, realSOC.x + realSOC.width/2 - 65, realCPU.y + realCPU.height/2 + 35);
 
 			    context.fillStyle ="rgb(125,255,255)"; 
-			    context.font = "30px serif"; // Change the size and font
+			    context.font = "30px Arial"; // Change the size and font
 		            context.fillText("stm32f0407", realSOC.x + realSOC.width/2 - 90, realCPU.y + 35);	
 		    }
 			
@@ -354,15 +357,16 @@ $(document).ready(function(e){
 
                 function drawInstructionRegister(){
                     var instRegister = new Register(canvasWidth/4,canvasHeight/10,canvasWidth/4,canvasHeight/10, "Instruction Register");
-                    context.fillStyle ="rgb(0,125,125)";                   
-                    context.beginPath();
+                    //context.fillStyle ="rgb(0,125,125)";                   
+                    context.fillStyle ="#6A8A82"; 
+		    context.beginPath();
                     context.fillRect(instRegister.x + realSOC.width/4,instRegister.y/2 + realCPU.y + realCPU.height + 10,instRegister.width,instRegister.height);
                     context.fill();
                     
                     
                     context.fillStyle ="rgb(255,255,255)"; 
-                    context.font = "15px serif"; // Change the size and font
-                    context.fillText(instRegister.text, realSOC.x + realSOC.width/2 - 79, instRegister.y + realCPU.y + realCPU.height + 15);
+                    context.font = "25px Arial"; // Change the size and font
+                    context.fillText(instRegister.text, realSOC.x + realSOC.width/2 - 110, instRegister.y + realCPU.y + realCPU.height + 18);
                     
                 }
 
@@ -373,9 +377,9 @@ $(document).ready(function(e){
 
 			if(animationStepCounter>5){
 				context.fillStyle ="rgb(0,0,0)"; 
-		           	context.font = "15px serif"; // Change the size and font
+		           	context.font = "30px Arial"; // Change the size and font
 			
-		            	context.fillText(realSDRam.text, realSDRam.x,realSDRam.y + realSDRam.height/2);
+		            	context.fillText(realSDRam.text , realSDRam.x+ 22,realSDRam.y + realSDRam.height/2+8);
 			}
 			
 			
@@ -391,8 +395,8 @@ $(document).ready(function(e){
 
 			var text = "TCK";
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "15px serif"; // Change the size and font
-                    	context.fillText(text,myOpenOCD.x + realSOC.width/2,myOpenOCD.y/2 + realSOC.height-10);
+                    	context.font = "20px Arial"; // Change the size and font
+                    	context.fillText(text,myOpenOCD.x + realSOC.width/2 + 10,myOpenOCD.y/2 + realSOC.height-5);
 			
 			
 		}
@@ -400,7 +404,7 @@ $(document).ready(function(e){
 
 		function drawTMS(){
 			context.beginPath();
-			context.moveTo(myOpenOCD.x+ realSOC.width/3 + 7,myOpenOCD.y + realSOC.height - 23);
+			context.moveTo(myOpenOCD.x + realSOC.width/2 - myOpenOCD.radius,myOpenOCD.y + realSOC.height - 23);
 
 			context.lineTo(realTap.x + realSOC.width/3.5 - 1,myOpenOCD.y + realSOC.height - 23);
 
@@ -410,14 +414,14 @@ $(document).ready(function(e){
 
 			var text = "TMS";
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "15px serif"; // Change the size and font
-                    	context.fillText(text,myOpenOCD.x+ realSOC.width/6 + 7,myOpenOCD.y + realSOC.height - 23);
+                    	context.font = "20px Arial"; // Change the size and font
+                    	context.fillText(text,realTap.x + realSOC.width/3.5 - 55,myOpenOCD.y + realSOC.height - 23);
 		}
 
 		function drawTRST(){
 			context.beginPath();
 
-			context.moveTo(realTap.x + realSOC.width/2+ realTap.width/3.5,myOpenOCD.y + realSOC.height - 23);
+			context.moveTo(myOpenOCD.x + realSOC.width/2 + myOpenOCD.radius,myOpenOCD.y + realSOC.height - 23);
 
 			context.lineTo(realTap.x + realSOC.width/2+ realTap.width/2.5,myOpenOCD.y + realSOC.height - 23);
 
@@ -430,14 +434,14 @@ $(document).ready(function(e){
 			
 			var text = "TRST";
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "15px serif"; // Change the size and font
-                    	context.fillText(text,realTap.x + realSOC.width/2+ realTap.width/2.5,myOpenOCD.y + realSOC.height - 23);
+                    	context.font = "20px Arial"; // Change the size and font
+                    	context.fillText(text,realTap.x + realSOC.width/2+ realTap.width/2.5 + 10,myOpenOCD.y + realSOC.height - 23);
 		}
 
 		
 		function drawTDI(){
 			context.beginPath();
-			context.moveTo(myOpenOCD.x+ realSOC.width/3 + 7,myOpenOCD.y + realSOC.height);
+			context.moveTo(myOpenOCD.x + realSOC.width/2 - myOpenOCD.radius +4,myOpenOCD.y + realSOC.height);
 
 			context.lineTo(realTap.x + realSOC.width/7 - 1,myOpenOCD.y + realSOC.height);
 
@@ -447,14 +451,14 @@ $(document).ready(function(e){
 
 			var text = "TDI";
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "15px serif"; // Change the size and font
-                    	context.fillText(text,realTap.x + realSOC.width/18 - 1,myOpenOCD.y + realSOC.height);
+                    	context.font = "20px Arial"; // Change the size and font
+                    	context.fillText(text,realTap.x + realSOC.width/7 - 50,myOpenOCD.y + realSOC.height);
 		}
 		
 		function drawTDO(){
 			context.beginPath();
 
-			context.moveTo(realTap.x + realSOC.width/2+ realTap.width/3.5,myOpenOCD.y + realSOC.height);
+			context.moveTo(myOpenOCD.x + realSOC.width/2 + myOpenOCD.radius -4,myOpenOCD.y + realSOC.height);
 
 			context.lineTo(realTap.x + realSOC.width/2 + realTap.width/1.5,myOpenOCD.y + realSOC.height);
 
@@ -467,8 +471,8 @@ $(document).ready(function(e){
 
 			var text = "TDO";
 			context.fillStyle ="rgb(0,0,0)"; 
-                    	context.font = "15px serif"; // Change the size and font
-                    	context.fillText(text,realTap.x + realSOC.width/2 + realTap.width/1.5,myOpenOCD.y + realSOC.height);
+                    	context.font = "20px Arial"; // Change the size and font
+                    	context.fillText(text,realTap.x + realSOC.width/2 + realTap.width/1.5 +10,myOpenOCD.y + realSOC.height);
 		}
 
 
@@ -510,6 +514,7 @@ $(document).ready(function(e){
 		function drawSignals(){
 
 			if(animationStepCounter>3){
+				context.lineWidth = 5;
 				drawTCK();
 
 				drawTMS();
@@ -518,6 +523,7 @@ $(document).ready(function(e){
 
 				drawTDI();
 				drawTDO();
+				context.lineWidth = 1;
 			}
 
 			if(animationStepCounter>4){
@@ -528,7 +534,7 @@ $(document).ready(function(e){
                 function resizeCanvas(){
                     if(timerJavascriptJTAGSctrach)
                         clearTimeout(timerJavascriptJTAGSctrach);
-                    canvas.attr("width",$(window).get(0).innerWidth);
+                    canvas.attr("width",$(window).get(0).innerWidth - 480);
                     canvasWidth = canvas.width();
                     canvasHeight = canvas.height();
                     animateOpenOCDCustomScripts();
@@ -538,8 +544,8 @@ $(document).ready(function(e){
 		function drawOpenOCDKnowledge(){
 			context.save();
 			context.rotate(-Math.PI/2);
-			context.font = "20px serif"; // Change the size and font
-                    	context.fillText("OpenOCD knowledge",-(canvasHeight/2)-100,50);
+			context.font = "30px Arial"; // Change the size and font
+                    	context.fillText("OpenOCD knowledge",-(canvasHeight/2)-150,50);
 			context.restore();
 		}
 

@@ -7,3 +7,25 @@ header h1{
 	text-align:center;
 	color:red;
 }
+
+section{
+	text-align:center;
+}
+
+section .debugTopic{
+	display:inline-block;
+	vertical-align:top;
+	margin:20px;
+	height:80px;
+	width:40%;
+	background-color:yellow;
+}
+
+footer{
+	width:85%;
+}
+
+footer #copyright{
+	display:block;
+	text-align:right;
+}

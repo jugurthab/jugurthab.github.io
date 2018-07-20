@@ -86,7 +86,7 @@ $(document).ready(function(e){
 		$("#operationPerform").on("change",resizeCanvasJTAG);
 		$("#operationPerformDSP").on("change",resizeCanvasJTAG);
 		function drawIDCodeJTAG(){
-			realIDCodeRegister = new socJTAG(canvasWidthJTAG/5,canvasHeightJTAG/2,canvasWidthJTAG/10,canvasHeightJTAG/18,"rgba(255,128,0,0.5)", "ID Code","rgba(255,255,255,1.0)");
+			realIDCodeRegister = new socJTAG(canvasWidthJTAG/5,canvasHeightJTAG/2 - 40,canvasWidthJTAG/10,canvasHeightJTAG/12,"rgba(255,128,0,0.5)", "ID Code Register","rgba(255,255,255,1.0)");
 
 			contextJTAG.fillStyle = realIDCodeRegister.color;
 			contextJTAG.fillRect(realIDCodeRegister.x, realIDCodeRegister.y, realIDCodeRegister.width, realIDCodeRegister.height);
@@ -94,13 +94,13 @@ $(document).ready(function(e){
 			
 			contextJTAG.fillStyle = realIDCodeRegister.colorText;
 			contextJTAG.font = "15px serif";
-			contextJTAG.fillText(realIDCodeRegister.text, realIDCodeRegister.x + realIDCodeRegister.width/2 - 30, realIDCodeRegister.y+15);
+			contextJTAG.fillText(realIDCodeRegister.text, realIDCodeRegister.x + realIDCodeRegister.width/2 - 67, realIDCodeRegister.y+15);
 
 		}
 
 
 		function drawIDCodeJTAGDSP(){
-			realIDCodeRegisterDSP = new socJTAG(canvasWidthJTAG/5,canvasHeightJTAG/2,canvasWidthJTAG/10,canvasHeightJTAG/18,"rgba(255,128,0,0.5)", "ID Code","rgba(255,255,255,1.0)");
+			realIDCodeRegisterDSP = new socJTAG(canvasWidthJTAG/5,canvasHeightJTAG/2 - 40,canvasWidthJTAG/10,canvasHeightJTAG/12,"rgba(255,128,0,0.5)", "ID Code Register","rgba(255,255,255,1.0)");
 
 			contextJTAG.fillStyle = realIDCodeRegisterDSP.color;
 			contextJTAG.fillRect(realIDCodeRegisterDSP.x, realIDCodeRegisterDSP.y, realIDCodeRegisterDSP.width, realIDCodeRegisterDSP.height);
@@ -108,34 +108,34 @@ $(document).ready(function(e){
 			
 			contextJTAG.fillStyle = realIDCodeRegisterDSP.colorText;
 			contextJTAG.font = "15px serif";
-			contextJTAG.fillText(realIDCodeRegisterDSP.text, realIDCodeRegisterDSP.x + realIDCodeRegisterDSP.width/2 - 30, realIDCodeRegisterDSP.y+15);
+			contextJTAG.fillText(realIDCodeRegisterDSP.text, realIDCodeRegisterDSP.x + realIDCodeRegisterDSP.width/2 - 67, realIDCodeRegisterDSP.y+15);
 
 		}
 
 
 		function drawBypassJTAG(){
-			realBypassRegister = new socJTAG(canvasWidthJTAG/5 + canvasWidthJTAG/70,canvasHeightJTAG/2 + 35,canvasWidthJTAG/14,canvasHeightJTAG/20,"rgba(128,128,0,0.5)", "Bypass","rgba(255,255,255,1.0)");
+			realBypassRegister = new socJTAG(canvasWidthJTAG/5 + canvasWidthJTAG/80,canvasHeightJTAG/2 + 20,canvasWidthJTAG/12,canvasHeightJTAG/20,"#00743F", "Bypass Register","rgba(255,255,255,1.0)");
 
 			contextJTAG.fillStyle = realBypassRegister.color;
 			contextJTAG.fillRect(realBypassRegister.x, realBypassRegister.y, realBypassRegister.width, realBypassRegister.height);
 
 			
 			contextJTAG.fillStyle = realBypassRegister.colorText;
-			contextJTAG.font = "13px serif";
-			contextJTAG.fillText(realBypassRegister.text, realBypassRegister.x + realBypassRegister.width/2 - 23, realBypassRegister.y+15);
+			contextJTAG.font = "15px Arial";
+			contextJTAG.fillText(realBypassRegister.text, realBypassRegister.x + realBypassRegister.width/2 - 56, realBypassRegister.y+17);
 
 		}
 
 		function drawBypassJTAGDSP(){
-			realBypassRegisterDSP = new socJTAG(canvasWidthJTAG/5 + canvasWidthJTAG/70,canvasHeightJTAG/2 + 35,canvasWidthJTAG/14,canvasHeightJTAG/20,"rgba(128,128,0,0.5)", "Bypass","rgba(255,255,255,1.0)");
+			realBypassRegisterDSP = new socJTAG(canvasWidthJTAG/5 + canvasWidthJTAG/80,canvasHeightJTAG/2 + 20,canvasWidthJTAG/12,canvasHeightJTAG/20,"#00743F", "Bypass Register","rgba(255,255,255,1.0)");
 
 			contextJTAG.fillStyle = realBypassRegisterDSP.color;
 			contextJTAG.fillRect(realBypassRegisterDSP.x, realBypassRegisterDSP.y, realBypassRegisterDSP.width, realBypassRegisterDSP.height);
 
 			
 			contextJTAG.fillStyle = realBypassRegisterDSP.colorText;
-			contextJTAG.font = "13px serif";
-			contextJTAG.fillText(realBypassRegisterDSP.text, realBypassRegisterDSP.x + realBypassRegisterDSP.width/2 - 23, realBypassRegisterDSP.y+15);
+			contextJTAG.font = "15px Arial";
+			contextJTAG.fillText(realBypassRegisterDSP.text, realBypassRegisterDSP.x + realBypassRegisterDSP.width/2 - 56, realBypassRegisterDSP.y+17);
 
 		}
 
@@ -569,45 +569,45 @@ function drawDrivingSignalsDSP(){
 
 		function drawInstructionRegisterJTAG(){
 
-			realIRRegister = new socJTAG(canvasWidthJTAG/6 ,canvasHeightJTAG/2 + 75, canvasWidthJTAG/6,canvasHeightJTAG/20,"rgba(128,0,0,0.5)", "Instruction Register","rgba(255,255,255,1.0)");
+			realIRRegister = new socJTAG(canvasWidthJTAG/6 ,canvasHeightJTAG/2 + 65, canvasWidthJTAG/6,canvasHeightJTAG/14,"rgba(128,0,0,0.8)", "Instruction Register","rgba(255,255,255,1.0)");
 
 			contextJTAG.fillStyle = realIRRegister.color;
 			contextJTAG.fillRect(realIRRegister.x, realIRRegister.y, realIRRegister.width, realIRRegister.height);
 
 			
 			contextJTAG.fillStyle = realIRRegister.colorText;
-			contextJTAG.font = "13px serif";
-			contextJTAG.fillText(realIRRegister.text, realIRRegister.x + realIRRegister.width/2 - 65, realIRRegister.y+15);
+			contextJTAG.font = "20px Arial";
+			contextJTAG.fillText(realIRRegister.text, realIRRegister.x + realIRRegister.width/2 - 85, realIRRegister.y+17);
 
 		}
 
 
 		function drawInstructionRegisterJTAGDSP(){
 
-			realIRRegisterDSP = new socJTAG(canvasWidthJTAG/6 ,canvasHeightJTAG/2 + 75, canvasWidthJTAG/6,canvasHeightJTAG/20,"rgba(128,0,0,0.5)", "Instruction Register","rgba(255,255,255,1.0)");
+			realIRRegisterDSP = new socJTAG(canvasWidthJTAG/6 ,canvasHeightJTAG/2 + 65, canvasWidthJTAG/6,canvasHeightJTAG/14,"rgba(128,0,0,0.8)", "Instruction Register","rgba(255,255,255,1.0)");
 
 			contextJTAG.fillStyle = realIRRegisterDSP.color;
 			contextJTAG.fillRect(realIRRegisterDSP.x, realIRRegisterDSP.y, realIRRegisterDSP.width, realIRRegisterDSP.height);
 
 			
 			contextJTAG.fillStyle = realIRRegisterDSP.colorText;
-			contextJTAG.font = "13px serif";
-			contextJTAG.fillText(realIRRegisterDSP.text, realIRRegisterDSP.x + realIRRegisterDSP.width/2 - 65, realIRRegisterDSP.y+15);
+			contextJTAG.font = "20px Arial";
+			contextJTAG.fillText(realIRRegisterDSP.text, realIRRegisterDSP.x + realIRRegisterDSP.width/2 - 85, realIRRegisterDSP.y+15);
 
 		}
 		
 
 		function drawTapJTAGCPU(){
 
-			realTAPJTAGCPU = new socJTAG(canvasWidthJTAG/8 ,canvasHeightJTAG/2 + 122, canvasWidthJTAG/4,canvasHeightJTAG/20,"rgba(128,0,128,0.5)", "TAP controller","rgba(255,255,255,1.0)");
+			realTAPJTAGCPU = new socJTAG(canvasWidthJTAG/8 ,canvasHeightJTAG/2 + 122, canvasWidthJTAG/4,canvasHeightJTAG/12,"#1D65A6", "TAP controller","rgba(255,255,255,1.0)");
 
 			contextJTAG.fillStyle = realTAPJTAGCPU.color;
 			contextJTAG.fillRect(realTAPJTAGCPU.x, realTAPJTAGCPU.y, realTAPJTAGCPU.width, realTAPJTAGCPU.height);
 
 			
 			contextJTAG.fillStyle = realTAPJTAGCPU.colorText;
-			contextJTAG.font = "13px serif";
-			contextJTAG.fillText(realTAPJTAGCPU.text, realTAPJTAGCPU.x + realTAPJTAGCPU.width/2 - 45, realTAPJTAGCPU.y+15);
+			contextJTAG.font = "20px Arial";
+			contextJTAG.fillText(realTAPJTAGCPU.text, realTAPJTAGCPU.x + realTAPJTAGCPU.width/2 - 70, realTAPJTAGCPU.y+28);
 
 
 			drawDrivingSignals();
@@ -617,15 +617,15 @@ function drawDrivingSignalsDSP(){
 		
 		function drawTapJTAGCPUDSP(){
 
-			realTAPJTAGCPUDSP = new socJTAG(canvasWidthJTAG/8 ,canvasHeightJTAG/2 + 122, canvasWidthJTAG/4,canvasHeightJTAG/20,"rgba(128,0,128,0.5)", "TAP controller","rgba(255,255,255,1.0)");
+			realTAPJTAGCPUDSP = new socJTAG(canvasWidthJTAG/8 ,canvasHeightJTAG/2 + 122, canvasWidthJTAG/4,canvasHeightJTAG/12,"rgba(128,0,128,0.5)", "TAP controller","rgba(255,255,255,1.0)");
 
 			contextJTAG.fillStyle = realTAPJTAGCPUDSP.color;
 			contextJTAG.fillRect(realTAPJTAGCPUDSP.x, realTAPJTAGCPUDSP.y, realTAPJTAGCPUDSP.width, realTAPJTAGCPUDSP.height);
 
 			
 			contextJTAG.fillStyle = realTAPJTAGCPUDSP.colorText;
-			contextJTAG.font = "13px serif";
-			contextJTAG.fillText(realTAPJTAGCPUDSP.text, realTAPJTAGCPUDSP.x + realTAPJTAGCPUDSP.width/2 - 45, realTAPJTAGCPUDSP.y+15);
+			contextJTAG.font = "20px Arial";
+			contextJTAG.fillText(realTAPJTAGCPUDSP.text, realTAPJTAGCPUDSP.x + realTAPJTAGCPUDSP.width/2 - 70, realTAPJTAGCPUDSP.y+28);
 
 
 			drawDrivingSignalsDSP();
@@ -634,14 +634,14 @@ function drawDrivingSignalsDSP(){
 
 
 		function drawSOCJTAG(){
-			realSOCJTAG = new socJTAG(canvasWidthJTAG/12,canvasHeightJTAG/12,canvasWidthJTAG/3,canvasHeightJTAG/2 + 100,"rgba(255,255,0,0.5)", "SOC-1","rgba(0,0,0,0.7)");
+			realSOCJTAG = new socJTAG(canvasWidthJTAG/12,canvasHeightJTAG/12,canvasWidthJTAG/3,canvasHeightJTAG/2 + 100,"#F2A104", "SOC-1","rgba(0,0,0,0.7)");
 
 			contextJTAG.fillStyle = realSOCJTAG.color;
 			contextJTAG.fillRect(realSOCJTAG.x, realSOCJTAG.y, realSOCJTAG.width, realSOCJTAG.height);
 
 			contextJTAG.fillStyle = realSOCJTAG.colorText;
-			contextJTAG.font = "15px serif";
-			contextJTAG.fillText(realSOCJTAG.text, realSOCJTAG.x + realSOCJTAG.width/2 - 20, realSOCJTAG.y+20);	
+			contextJTAG.font = "22px serif";
+			contextJTAG.fillText(realSOCJTAG.text, realSOCJTAG.x + realSOCJTAG.width/2 - 37, realSOCJTAG.y+20);	
 
 
 			drawFullDataRegister();
@@ -670,8 +670,8 @@ function drawDrivingSignalsDSP(){
 			contextJTAG.fillRect(realSOCJTAGDSP.x, realSOCJTAGDSP.y, realSOCJTAGDSP.width, realSOCJTAGDSP.height);
 
 			contextJTAG.fillStyle = realSOCJTAGDSP.colorText;
-			contextJTAG.font = "15px serif";
-			contextJTAG.fillText(realSOCJTAGDSP.text, realSOCJTAGDSP.x + realSOCJTAGDSP.width/2 - 20, realSOCJTAGDSP.y+20);	
+			contextJTAG.font = "22px serif";
+			contextJTAG.fillText(realSOCJTAGDSP.text, realSOCJTAGDSP.x + realSOCJTAGDSP.width/2 - 37, realSOCJTAGDSP.y+20);	
 
 
 			
@@ -692,7 +692,7 @@ function drawDrivingSignalsDSP(){
 
 
 		function drawCPUJTAG(){
-			 realCPUJTag = new socJTAG(canvasWidthJTAG/6,canvasHeightJTAG/5,canvasWidthJTAG/6,canvasHeightJTAG/5,"rgba(255,0,0,0.5)", "CPU","rgba(255,255,255,1.0)");
+			 realCPUJTag = new socJTAG(canvasWidthJTAG/6,canvasHeightJTAG/5,canvasWidthJTAG/6,canvasHeightJTAG/5,"#192E5B", "CPU","rgba(255,255,255,1.0)");
 
 			contextJTAG.fillStyle = realCPUJTag.color;
 			contextJTAG.fillRect(realCPUJTag.x, realCPUJTag.y, realCPUJTag.width, realCPUJTag.height);
@@ -735,36 +735,40 @@ function drawDrivingSignalsDSP(){
 			bsrsJTAG = new Array();
 
 			// draw left boudary scan registers
-			bsrsJTAG.push(new bsr(realSOCJTAG.x + (realCPUJTag.x - realSOCJTAG.x)/3,  realCPUJTag.y,(realCPUJTag.y - realSOCJTAG.y)/3,(realCPUJTag.y - realSOCJTAG.y)/3,"rgba(255,0,255,0.5)"))
+			bsrsJTAG.push(new bsr(realSOCJTAG.x + (realCPUJTag.x - realSOCJTAG.x)/3,  realCPUJTag.y,(realCPUJTag.y - realSOCJTAG.y)/3,(realCPUJTag.y - realSOCJTAG.y)/3,"rgb(255,255,255)"))
 
 			
-			bsrsJTAG.push(new bsr(bsrsJTAG[0].x,  bsrsJTAG[0].y+10 + bsrsJTAG[0].height, bsrsJTAG[0].width, bsrsJTAG[0].width,"rgba(255,0,255,0.5)"))
+			bsrsJTAG.push(new bsr(bsrsJTAG[0].x,  bsrsJTAG[0].y+10 + bsrsJTAG[0].height, bsrsJTAG[0].width, bsrsJTAG[0].width,"rgb(255,255,255)"))
 
 
-			bsrsJTAG.push(new bsr(bsrsJTAG[1].x,  bsrsJTAG[1].y+10 + bsrsJTAG[1].height, bsrsJTAG[1].width, bsrsJTAG[1].width,"rgba(255,0,255,0.5)"))
+			bsrsJTAG.push(new bsr(bsrsJTAG[1].x,  bsrsJTAG[1].y+10 + bsrsJTAG[1].height, bsrsJTAG[1].width, bsrsJTAG[1].width,"rgb(255,255,255)"))
 
 
 
 			// draw right boundary registers
-			bsrsJTAG.push(new bsr(realSOCJTAG.x + realSOCJTAG.width - (realSOCJTAG.x + realSOCJTAG.width - realCPUJTag.x + realCPUJTag.width)/8,  realCPUJTag.y,(realCPUJTag.y - realSOCJTAG.y)/3,(realCPUJTag.y - realSOCJTAG.y)/3,"rgba(255,0,255,0.5)"))
+			bsrsJTAG.push(new bsr(realSOCJTAG.x + realSOCJTAG.width - (realSOCJTAG.x + realSOCJTAG.width - realCPUJTag.x + realCPUJTag.width)/8,  realCPUJTag.y,(realCPUJTag.y - realSOCJTAG.y)/3,(realCPUJTag.y - realSOCJTAG.y)/3,"rgb(255,255,255)"))
 			
-			bsrsJTAG.push(new bsr(bsrsJTAG[3].x,  bsrsJTAG[3].y+10 + bsrsJTAG[3].height, bsrsJTAG[3].width, bsrsJTAG[3].width,"rgba(255,0,255,0.5)"))
+			bsrsJTAG.push(new bsr(bsrsJTAG[3].x,  bsrsJTAG[3].y+10 + bsrsJTAG[3].height, bsrsJTAG[3].width, bsrsJTAG[3].width,"rgb(255,255,255)"))
 
-			bsrsJTAG.push(new bsr(bsrsJTAG[4].x,  bsrsJTAG[4].y+10 + bsrsJTAG[4].height, bsrsJTAG[4].width, bsrsJTAG[4].width,"rgba(255,0,255,0.5)"))
+			bsrsJTAG.push(new bsr(bsrsJTAG[4].x,  bsrsJTAG[4].y+10 + bsrsJTAG[4].height, bsrsJTAG[4].width, bsrsJTAG[4].width,"rgb(255,255,255)"))
 
 			
 
 
 			// draw upper boundary registers
-			bsrsJTAG.push(new bsr(realCPUJTag.x, realCPUJTag.y - 25, bsrsJTAG[5].width, bsrsJTAG[5].height,"rgba(255,0,255,0.5)"))
+			bsrsJTAG.push(new bsr(realCPUJTag.x + bsrsJTAG[4].width/6, realCPUJTag.y - 28, bsrsJTAG[5].width, bsrsJTAG[5].height,"rgb(255,255,255)"))
 			
-			bsrsJTAG.push(new bsr(bsrsJTAG[6].x + bsrsJTAG[6].width + 10,  bsrsJTAG[6].y, bsrsJTAG[6].width, bsrsJTAG[6].width,"rgba(255,0,255,0.5)"))
+			//bsrsJTAG.push(new bsr(bsrsJTAG[6].x + bsrsJTAG[6].width + 10,  bsrsJTAG[6].y, bsrsJTAG[6].width, bsrsJTAG[6].width,"rgba(255,0,255,0.5)"))
 
-			bsrsJTAG.push(new bsr(bsrsJTAG[7].x + bsrsJTAG[7].width + 10 ,  bsrsJTAG[7].y , bsrsJTAG[7].width, bsrsJTAG[7].width,"rgba(255,0,255,0.5)"))			
-			
-			
-			bsrsJTAG.push(new bsr(bsrsJTAG[8].x + bsrsJTAG[8].width + 10 ,  bsrsJTAG[8].y , bsrsJTAG[8].width, bsrsJTAG[8].width,"rgba(255,0,255,0.5)"))
+			bsrsJTAG.push(new bsr(realCPUJTag.x + realCPUJTag.width/3,  bsrsJTAG[6].y, bsrsJTAG[6].width, bsrsJTAG[6].width,"rgb(255,255,255)"))
 
+			bsrsJTAG.push(new bsr(realCPUJTag.x + realCPUJTag.width/2 + realCPUJTag.width/17 ,  bsrsJTAG[7].y , bsrsJTAG[7].width, bsrsJTAG[7].width,"rgb(255,255,255)"))			
+			
+			
+			//bsrsJTAG.push(new bsr(bsrsJTAG[8].x + bsrsJTAG[8].width + 10 ,  bsrsJTAG[8].y , bsrsJTAG[8].width, bsrsJTAG[8].width,"rgba(255,0,255,0.5)"))
+
+
+			bsrsJTAG.push(new bsr(realCPUJTag.x + realCPUJTag.width - bsrsJTAG[7].width ,  bsrsJTAG[8].y , bsrsJTAG[8].width, bsrsJTAG[8].width,"rgb(255,255,255)"))
 
 			for(var i=0;i<bsrsJTAG.length;i++){
 				var bsrJTAGTmp = bsrsJTAG[i];
@@ -780,7 +784,7 @@ function drawDrivingSignalsDSP(){
 		
 
 		function drawFullDataRegister(){
-			var dataRegister = new socJTAG(canvasWidthJTAG/9.5 ,canvasHeightJTAG/7, canvasWidthJTAG/3.5,canvasHeightJTAG/2,"rgba(128,0,128,0.2)", "Data register","rgba(255,255,255,1.0)");
+			var dataRegister = new socJTAG(canvasWidthJTAG/9.5 ,canvasHeightJTAG/7, canvasWidthJTAG/3.5,canvasHeightJTAG/2,"#72A2C0", "Data register","rgba(255,255,255,1.0)");
 		
 			contextJTAG.fillStyle = dataRegister.color;
 			contextJTAG.fillRect(dataRegister.x, dataRegister.y, dataRegister.width, dataRegister.height);
@@ -838,8 +842,9 @@ function drawDrivingSignalsDSP(){
         }           
 
      else if(bothInExtestVariableSelector >= ExtestData.length && bothInExtestVariableSelector<(ExtestData.length+10)){
-            contextJTAG.font = "17px serif";
-            contextJTAG.fillText("Calculate result",realCPUJTag.x + realCPUJTag.width/2 - 53, realCPUJTag.y+realCPUJTag.height-17);
+            contextJTAG.font = "20px serif";
+	    contextJTAG.fillStyle="#f2f2f2";
+            contextJTAG.fillText("Process result",realCPUJTag.x + realCPUJTag.width/2 - 75, realCPUJTag.y+realCPUJTag.height-10);
              bothInExtestVariableSelector++;
      }   
 
@@ -1112,8 +1117,9 @@ function drawDrivingSignalsDSP(){
             
             else if(bothInExtestVariableSelector >= (ExtestData.length+90) && bothInExtestVariableSelector<(ExtestData.length+100) && $('#chip').is(':checked')){
            
-                contextJTAG.font = "17px serif";
-            contextJTAG.fillText("Calculate result",canvasWidthJTAG/2.5+realCPUJTag.x + realCPUJTag.width/2 - 53, realCPUJTag.y+realCPUJTag.height-17);
+                contextJTAG.font = "20px Arial";
+		contextJTAG.fillStyle="#00743F";
+            contextJTAG.fillText("Process result",canvasWidthJTAG/2.5+realCPUJTag.x + realCPUJTag.width/2 - 75, realCPUJTag.y+realCPUJTag.height-14);
 
                 bothInExtestVariableSelector++;
 
@@ -1258,7 +1264,8 @@ function extestAndBypass(){
 
      else if(extestBypassVariableSelector >= ExtestBypassData.length && extestBypassVariableSelector<(ExtestBypassData.length+10)){
             contextJTAG.font = "17px serif";
-            contextJTAG.fillText("Calculate result",realCPUJTag.x + realCPUJTag.width/2 - 53, realCPUJTag.y+realCPUJTag.height-17);
+	    contextJTAG.fillStyle="#00743F";
+            contextJTAG.fillText("Process result",realCPUJTag.x + realCPUJTag.width/2 - 75, realCPUJTag.y+realCPUJTag.height-14);
              extestBypassVariableSelector++;
      }   
 
@@ -1559,7 +1566,7 @@ function extestAndBypass(){
 
                 else if(bypassExtestVariableSelector >= (BypassExtestData.length) && bypassExtestVariableSelector<(BypassExtestData.length+20)){
                 
-                out1.x = realBypassRegister.x -out1.width-10;
+                out1.x = realBypassRegister.x;
                 out1.y = realBypassRegister.y + 5;
 
                 contextJTAG.fillStyle = "rgb(0,0,0)";
@@ -1568,7 +1575,7 @@ function extestAndBypass(){
                 contextJTAG.fillText(out1.text, out1.x+out1.width/2-3, out1.y+10);
                 contextJTAG.stroke();
 
-                out2.x = realBypassRegister.x;
+                out2.x = realBypassRegister.x + realBypassRegister.width/2 - out2.width/2;
                 out2.y = realBypassRegister.y + 5;
 
                 contextJTAG.fillStyle = "rgb(0,255,0)";
@@ -1579,7 +1586,7 @@ function extestAndBypass(){
 
 
                 contextJTAG.fillStyle = "rgb(255,0,0)";
-                out3.x = realBypassRegister.x + out1.width+10;
+                out3.x = realBypassRegister.x + realBypassRegister.width - out3.width;
                 out3.y = realBypassRegister.y + 5;
 
            
@@ -1634,29 +1641,32 @@ function extestAndBypass(){
 
                
                 contextJTAG.fillStyle = "rgb(0,0,0)";
-                out1.x = realSOCJTAG.x +realSOCJTAG.width -10 - out1.width/2;
+                out1.x = realSOCJTAG.x +realSOCJTAG.width -10;
                 out1.y = canvasHeightJTAG - 70 - out1.height/2;
                 contextJTAG.fillRect(out1.x, out1.y , out1.width, out1.height);
                 contextJTAG.fillStyle = out1.color;
-                contextJTAG.fillText(out1.text, out1.x+out1.width/2-3, out1.y+10);
+                contextJTAG.fillText(out1.text, out1.x+out1.width/2-3, out1.y+12);
                 contextJTAG.stroke();
 
 
-                contextJTAG.fillStyle = "rgb(0,255,0)";
-                out2.x = out1.x + out2.width +10;
-                out2.y = canvasHeightJTAG - 70 - out1.height/2;
-                contextJTAG.fillRect(out2.x, out2.y , out2.width, out2.height);
-                contextJTAG.fillStyle = "rgb(0,0,0)";
-                contextJTAG.fillText(out2.text, out2.x+out2.width/2-3, out2.y+10);
-                contextJTAG.stroke();
+                
 
 
                 contextJTAG.fillStyle = "rgb(255,0,0)";
-                out3.x = out2.x + out3.width +10;
+                out3.x = realSOCJTAG.x +canvasWidthJTAG/2.5 - out3.width/2;
                 out3.y = canvasHeightJTAG - 70 - out1.height/2;                
                 contextJTAG.fillRect(out3.x, out3.y , out3.width, out3.height);
                 contextJTAG.fillStyle = "rgb(0,0,0)";
-                contextJTAG.fillText(out3.text, out3.x+out3.width/2-3, out3.y+10);
+                contextJTAG.fillText(out3.text, out3.x+out3.width/2-3, out3.y+12);
+                contextJTAG.stroke();
+
+
+		contextJTAG.fillStyle = "rgb(0,255,0)";
+                out2.x = out1.x + (out3.x - out1.x)/2;
+                out2.y = canvasHeightJTAG - 70 - out1.height/2;
+                contextJTAG.fillRect(out2.x, out2.y , out2.width, out2.height);
+                contextJTAG.fillStyle = "rgb(0,0,0)";
+                contextJTAG.fillText(out2.text, out2.x+out2.width/2-3, out2.y+12);
                 contextJTAG.stroke();
 
                 bypassExtestVariableSelector++;
@@ -1794,7 +1804,8 @@ function extestAndBypass(){
             else if(bypassExtestVariableSelector >= (BypassExtestData.length+90) && bypassExtestVariableSelector<(BypassExtestData.length+100) && $('#chip').is(':checked')){
            
                 contextJTAG.font = "17px serif";
-            contextJTAG.fillText("Calculate result",canvasWidthJTAG/2.5+realCPUJTag.x + realCPUJTag.width/2 - 53, realCPUJTag.y+realCPUJTag.height-17);
+		contextJTAG.fillStyle="rgb(255,255,255)";
+            contextJTAG.fillText("Process result",canvasWidthJTAG/2.5+realCPUJTag.x + realCPUJTag.width/2 - 53, realCPUJTag.y+realCPUJTag.height-17);
 
                 bypassExtestVariableSelector++;
 
@@ -1987,15 +1998,15 @@ BypassData.push(new streamDataUnit(canvasWidthJTAG/2.5 + realSOCJTAG.x +realSOCJ
                 function resizeCanvasJTAG(){
                     if(timerJavascript)
                         clearTimeout(timerJavascript);
-                    canvasJTAG.attr("width",$(window).get(0).innerWidth);
+                    canvasJTAG.attr("width",$(window).get(0).innerWidth - 450);
                     canvasWidthJTAG = canvasJTAG.width();
                     canvasHeightJTAG = canvasJTAG.height();
                     
 
 		    if($('#chip').is(':checked')){
-			$("#operationPerformDSP").show();
+			$("#operationPerformDSP").prop('disabled', false);
 		    } else {
-			$("#operationPerformDSP").hide();
+			$("#operationPerformDSP").prop('disabled', true);
 			}
 
 		    if($("#operationPerform").val()=="IDCODE"){
