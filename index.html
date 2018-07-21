@@ -2,62 +2,140 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Website test</title>
+		<title>Jugurtha BELKALEM Resume</title>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 			  crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+       <link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css"> 
 	</head>
 
 
 	<body>
-		<h1>JTAG Basic Operations</h1>
+		<!--<h1>JTAG Basic Operations</h1>-->
 
-		 <canvas id="JtagAnim" width="400px" height="450px">
+        <div class="reveal">
+			<div class="slides">
+				<section>
+                        <h1 style="color:red;">Jugurtha BELKALEM</h1>
+                        <img src="" alt="Jugurtha_BELKALEM_Picture"/>
 
-        </canvas>
+                        <h3>Master 2 Degree Computer Engineering</h3>
 
-<table>
-	<tr>
-		<th>JTAG CPU Operation</th><th colspan="3">Connect more ships (Daisy chaining)</th>
-	</tr>
-
-	<tr>
-		 <td>
-            		<button id="playAnimationJtag">Start Animation</button>
-        	</td>
-		<td>	 	
-
-<select id="operationPerform">
-                          <option selected="selected" value="boundaryScan">EXTEST</option> 
-                          <option value="bypassMode">BYPASS</option>
-                         <option value="SAMPLE">SAMPLE</option>
-                          <option value="IDCODE">IDCODE</option>
-                          
-                        </select>
-		<td>         
-                        <input type="checkbox" id="chip" value="dsp">DSP	
-		</td>
-		
-		<td>
+                        <h4>Software for embedded systems</h4>
+                </section>
 
 
-<select id="operationPerformDSP">
-                          <option selected="selected" value="boundaryScan">EXTEST</option> 
-                          <option value="bypassMode">BYPASS</option>
-                        <option value="SAMPLE">SAMPLE</option>
-                          <option value="IDCODE">IDCODE</option>
-                       </select>
-		</td>
+				<section>
+                        <h3>Working Skills</h3>
+                                <section>
+<canvas id="myChart" width="400"></canvas>
+                                </section>                
 
-       
+                                <section>
+<h4 >Programming languages</h4>
+C/C++, Java (J2SE, JavaCard), Python, Visual Basic
+                                </section>
+
+                                <section>
+<h4>Web developement</h4> 
+HTML5, CSS3, Javascript (Jquery, ThreeJS, D3JS), PHP   
+                                </section>
+                                <section>
+<h4>Hardware description languages</h4> 
+
+VHDL
+                                </section>
+
+                                <section>
+<h4>Database developing</h4> 
+SQL (MySQL, MsSQL), indexedBD
+                                </section>
+                                <section>
+<h4>Hardware developement boards</h4> 
+FPGA, Beaglebone black, Raspberry PI, Arduino
+                                </section>
+                        
+                                <section>
+<h4>Integrated developement environment</h4> 
+Buildroot, Vivado Design Suite, Visual Studio, Android Studio, Eclipse, Code-
+    blocks, Arduino IDE, Processing IDE
+                                </section>
+                </section>
+
+                
+
+                <section>
+                        <h3>Working Experience</h3>
+                                <section>
+<h4>Embedded Linux Engineer Internship</h4> 
+<h4>March to August 2018</h4>
+<a href="https://www.smile.eu/en"><img src="img/smile.png" alt="SMILE OpenSOurce"/>
+<h5>Topic : Debugging Linux OS</h5>
+<h6>Tools : OpenOCD, GDB, strace, ltrace, KGDB/KDB, FTrace (trace-cmd, Kernelshark), Perf, LTTng</h6>
+                                </section>                            
+
+                </section>
+
+			</div>
+		</div>		
+    
+    <script src="js/reveal.js"></script>
+    <script>
+			Reveal.initialize();
 	
-	</tr>
-</table>
-
-	<script src="script/animateOpenOCDJTAG.js">
-
 	</script>
+
+    <script>
+$(document).ready(function(){
+
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: {
+            labels: ["C", "C++", "Python", "Javascript", "PHP", "HTML5", "CSS3", "VHDL","Visual Basic", "Android"],
+            datasets: [{
+                label: '# of Votes',
+                data: [100, 80, 50, 50, 60, 70, 80, 40, 60, 30],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(75, 159, 64, 1)',
+                    'rgba(255, 100, 64, 1)',
+                    'rgba(255, 120, 0, 1)',
+                    'rgba(0, 255, 125, 1)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+             
+        }
+    });
+});
+</script>
+
 	</body>
 
 </html>
