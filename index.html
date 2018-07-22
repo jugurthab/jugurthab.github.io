@@ -19,57 +19,57 @@
         <div class="reveal">
 			<div class="slides">
 				<section>
-                        <h1 style="color:red;">Jugurtha BELKALEM</h1>
-                        <img src="" alt="Jugurtha_BELKALEM_Picture"/>
+                        <h1 style="color:red;font-size:180%;">Jugurtha BELKALEM</h1>
+                        <img src="img/BELKALEM_JUGURTHA.JPG" alt="Jugurtha_BELKALEM_Picture" width="20%"/>
 
                         <h3>Master 2 Degree Computer Engineering</h3>
 
-                        <h4>Software for embedded systems</h4>
+                        <h4>Option : Software for embedded systems</h4>
                 </section>
 
 
 				<section>
-                        <h3>Working Skills</h3>
-                                <section>
-<canvas id="myChart" width="400"></canvas>
-                                </section>                
-
-                                <section>
-<h4 >Programming languages</h4>
-C/C++, Java (J2SE, JavaCard), Python, Visual Basic
-                                </section>
-
-                                <section>
-<h4>Web developement</h4> 
-HTML5, CSS3, Javascript (Jquery, ThreeJS, D3JS), PHP   
-                                </section>
-                                <section>
-<h4>Hardware description languages</h4> 
-
-VHDL
-                                </section>
-
-                                <section>
-<h4>Database developing</h4> 
-SQL (MySQL, MsSQL), indexedBD
-                                </section>
-                                <section>
-<h4>Hardware developement boards</h4> 
-FPGA, Beaglebone black, Raspberry PI, Arduino
-                                </section>
                         
                                 <section>
-<h4>Integrated developement environment</h4> 
-Buildroot, Vivado Design Suite, Visual Studio, Android Studio, Eclipse, Code-
-    blocks, Arduino IDE, Processing IDE
+<h3>Working Skills</h3>
+<canvas id="ProgrammingSkills" width="400"></canvas>
+                                </section>                
+
+                                <section style="font-size:70%;">
+<h3>Background Education</h3>
+<div>
+<h4>2017-2018 : Master 2 Degree  (Option : Software for embedded systems)</h4>
+
+<h5><a href="https://www.univ-brest.fr/GB" target="_blank">University of western britanny</a></h5>
+<a href="https://www.univ-brest.fr/GB" target="_blank"><img src="img/ubo.png" alt="university of western britanny" width="20%"/></a>
+</div>
+
+<div>
+<h4>2014-2016 : Master 2 Degree  (Option : Industrial Computing)</h4>
+
+<h5><a href="http://igee.univ-boumerdes.dz/Graduation.html" target="_blank">Institute of Electrical and Electronics Engineering</a></h5>
+<a href="http://igee.univ-boumerdes.dz/Graduation.html" target="_blank"><img src="img/umbb.png" alt="Institute of electrical and electronics engineering" width="20%"/></a>
+</div>  
+                                </section>
+
+                                <section>
+<h3>Languages</h3>
+<!--<table>
+    <tr><td>English</td><td></td></tr>
+    <tr><td>Frensh</td><td></td></tr>
+    <tr><td>Arabic</td><td></td></tr>
+</table>-->
+<canvas id="spokenLanguages" width="400"></canvas>
+
                                 </section>
                 </section>
 
 
-                <section>
+                <section style="font-size:80%;">
                         <h3>Working Experience</h3>
 <h4>Embedded Linux Engineer Internship</h4> 
-<h4>March to August 2018</h4>
+<h4>March 2018 - August 2018</h4>
+<h5><a href="https://www.smile.eu/en" target="_blank">AT SMILE Open Source Solutions</a></h5>
 <a href="https://www.smile.eu/en" target="_blank"><img src="img/smile.png" alt="SMILE OpenSOurce"/></a>
 <h5>Topic : Debugging Linux OS</h5>
 <h6>Tools : OpenOCD, GDB, strace, ltrace, KGDB/KDB, FTrace (trace-cmd, Kernelshark), Perf, LTTng</h6>
@@ -88,7 +88,8 @@ Buildroot, Vivado Design Suite, Visual Studio, Android Studio, Eclipse, Code-
 
         <tr>
             <td colspan="3"><a href="resume/BELKALEM_Jugurtha_CV.pdf">
-                <button style="width:100%; cursor:pointer;">
+                <button style="width:100%; cursor:pointer;color: white;padding: 15px 32px;text-align: center;display: inline-block;font-size: 16px;background-color: #4CAF50; font-size:150%;
+">
                         Resume
                 </button>
                 </a>
@@ -109,13 +110,13 @@ Buildroot, Vivado Design Suite, Visual Studio, Android Studio, Eclipse, Code-
     <script>
 $(document).ready(function(){
 
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
+    var ctx = document.getElementById("ProgrammingSkills").getContext('2d');
+    var ProgrammingSkills = new Chart(ctx, {
         type: 'polarArea',
         data: {
             labels: ["C", "C++", "Python", "Javascript", "PHP", "HTML5", "CSS3", "VHDL","Visual Basic", "Android"],
             datasets: [{
-                label: '# of Votes',
+                label: 'Programming languages skills',
                 data: [100, 80, 50, 50, 60, 70, 80, 40, 60, 30],
                 backgroundColor: [
                     'rgba(255, 99, 132, 1)',
@@ -130,14 +131,18 @@ $(document).ready(function(){
                     'rgba(0, 255, 125, 1)'
                 ],
                 borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)',
+                    'rgba(255, 255, 255, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 2
             }]
         },
         options: {
@@ -147,10 +152,77 @@ $(document).ready(function(){
                         beginAtZero:true
                     }
                 }]
+            },
+
+            legend: {
+               display: true,
+                   labels: {
+                       fontColor: 'rgb(255, 255, 255)',
+                       fontSize: 20
+                   }
             }
+
              
         }
     });
+
+
+
+    var ctx2 = document.getElementById("spokenLanguages").getContext('2d');
+    var spokenLanguages = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ["English", "French", "Arabic"],
+            datasets: [{
+                label: 'Spoken and written languages',
+                data: [80, 60, 100],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            animate :true,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true,
+                        fontSize: 20
+                    }
+                    
+                }],
+
+                xAxes: [{
+                    ticks: {
+                        beginAtZero:false,
+                        fontColor: 'rgb(255, 99, 132)',
+                        fontSize: 30
+                    }
+                    
+                }]
+            },
+
+            
+
+
+            legend: {
+               display: true,
+                   labels: {
+                       fontColor: 'rgb(255, 99, 132)',
+                       fontSize: 20
+                   }
+            }
+        }
+
+    });
+
+
+
+
 });
 </script>
 
