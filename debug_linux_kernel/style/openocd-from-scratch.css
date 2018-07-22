@@ -1,16 +1,12 @@
-body{
-	width:80%;
-	margin:auto;
-	font-size:120%;
-}
-
-header h1{
-	text-align:center;
-	color:red;
-}
+*{
+    margin:0;
+    padding:0; 
+    }
+html, body { height: 100%; width: 100%; }
+canvas { display: block; }
 
 table{
-	width:100%;
+	width:75%;
 	margin-left:auto;
 	margin-right:auto;
 	border-collapse: collapse;
@@ -23,7 +19,7 @@ th, td {
 }
 
 canvas{
-	background-color:rgba(255,255,0,0.3);
+	background-color:rgba(128,128,128,0.2);
 	margin : 40px;
 }
 
@@ -44,10 +40,13 @@ select,button {
 	box-sizing: border-box;
 	font-size:150%;
 }
-button:hover, input[type=radio],select:hover{
-	cursor:pointer;			
+
+button{
+    background-color:#A7414A;
+    color:white;
+    font-size:140%;
 }
  
-input[type=checkbox]:hover{
-	cursor:pointer;
+button:hover, input[type=radio],select:hover{
+	cursor:pointer;			
 }

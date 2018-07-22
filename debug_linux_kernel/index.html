@@ -3,32 +3,55 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Learning Debug With Animations</title>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+        
+       <link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/beige.css"> 
+
+
 		<link rel="stylesheet" href="style/main.css" />
 	</head>
 
 
 	<body>
-		<header>
-			<h1>Dive into friendly debugging</h1>
-		</header>
+        <div class="reveal">
+			<div class="slides">
+		        <section>
+			        <h1>Dive into friendly debugging</h1>
+		        </section>
 
 
-		<section>
-			<div class="debugTopic">			
-				<a href="https://jugurthab.github.io/debug_linux_kernel/jtag-basic-operation.html">jtag-basic-operation.html</a>
-			</div>
+		        <section data-background="#34495e">
+			        <section>			
+				        <h2><a href="https://jugurthab.github.io/debug_linux_kernel/jtag-basic-operation.html">Basic JTAG Instructions</a></h2>
 
-			<div class="debugTopic">
-				<a href="https://jugurthab.github.io/debug_linux_kernel/zero-to-hero-openocd.html">zero-to-hero-openocd.html</a>
-			</div>	
-		</section>
+                        <h3>Learn basic JTAG operations</h3>
+                        <h4>Dicover : Boundary scan, Bypass register, JTAG signals, Tap controller, ...</h4>
+			        </section>
+
+			        <section>
+				        <h2><a href="https://jugurthab.github.io/debug_linux_kernel/zero-to-hero-openocd.html">OpenOCD From Scratch</a></h2>
+
+                        <h3>Understand Basic OpenOCD syntax</h3>
+                        <h4>Learn : initialize variables, declare processors, definning Tap controller, ...</h4>
+			        </section>	
+		        </section>
 
 
-		<footer>
+		        <section>
 			
-<p>Email contact : <a href="mailto:jugurthabelkalem@gmail.com">jugurthabelkalem@gmail.com</a>.</p>
-		   <small id="copyright">&copy; Copyright 2018, Jugurtha BELKALEM</small>
-		</footer>
-
+        <p>Email contact : <a href="mailto:jugurthabelkalem@gmail.com">jugurthabelkalem@gmail.com</a>.</p>
+		           <small id="copyright">&copy; Copyright 2018, Jugurtha BELKALEM</small>
+		        </section>
+             </div>
+        </div>
+ <script src="../js/reveal.js"></script>
+         <script>
+			Reveal.initialize();
+	
+	</script>
 	</body>
 </html>
