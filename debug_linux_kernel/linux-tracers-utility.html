@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Understand tracers utility</title>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="style/linux-tracers.css"/>
+	</head>
+
+	<body>
+		<h1>Linux tracers and profilers</h1>
+
+                <article>
+		 	<canvas id="linuxTracersAnim" width="400px" height="550px">
+
+		        </canvas>
+
+<table>
+	<tr><th>Tool</th><th>Randomize function</th></tr>
+	<tr>
+
+            <td> 
+		<select>
+			  <option value="tracer" selected>Tracer</option>
+			  <option value="profiler">Profiler</option>
+  
+		</select> 
+
+	    </td>
+	
+	    <td><input type="checkbox" id="geenrateRandom"/>Generate random functions</td>
+	</tr>
+	<tr>
+		<td colspan="2"><button>Start Tracing</button></td>
+	</tr>
+</table>
+		</article>
+
+             	<script src="script/linux-tracers.js"></script>
+	</body>
+</html>
