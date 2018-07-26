@@ -9,9 +9,9 @@ h1{
 	text-align:center;
 }
 
-canvas{
-	background-color:yellow;
-}
+/*canvas{
+	background-color:rgba(128,128,128,0.1);
+}*/
 
 table{
 	width:85%;
@@ -58,7 +58,7 @@ button:hover{
 	cursor:pointer;
 	background-color: #1D65A6;	
 }
-input[type=radio],select:hover{
+input[type=checkbox],select:hover{
 	cursor:pointer;			
 }
  
