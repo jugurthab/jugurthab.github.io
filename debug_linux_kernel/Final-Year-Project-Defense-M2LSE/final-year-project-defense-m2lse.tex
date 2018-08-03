@@ -1,0 +1,169 @@
+\documentclass[12pt,oneside]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{graphicx} 
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage[toc,page]{appendix}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{xcolor,colortbl}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\usepackage[toc,page]{appendix}
+
+
+\author{Jugurtha BELKALEM}
+\title{Debugging Linux OS \\ \vspace{20px} }
+%{\footnotesize \textcopyright \hspace{5px} Ce document est la propri\'et\'e exclusive de Smile et ne peut \^etre ni reproduit, ni communiqu\'e, sans autorisation pr\'ealable.}
+\date{\today}
+
+\setcounter{secnumdepth}{4}
+
+\addto\captionsfrench{
+   \renewcommand{\chaptername}{Chapter} 
+   \renewcommand{\contentsname}{Table of contents}
+   \renewcommand{\bibname}{Bibliography}
+}
+
+
+
+\lstdefinestyle{BashInputStyle}{
+  language=bash,
+  basicstyle=\small\sffamily,
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=3pt,
+  frame=tb,
+  columns=fullflexible,
+  backgroundcolor=\color{yellow!10},
+  linewidth=0.9\linewidth,
+  xleftmargin=0.1\linewidth
+}
+
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+
+\lstdefinestyle{PythonStyle}{
+language        = Python,
+    basicstyle      = \ttfamily,
+    keywordstyle    = \color{blue},
+    keywordstyle    = \color{teal}, % just to check that it works
+    stringstyle     = \color{green},
+    numbers=left,                    
+    numbersep=5pt,
+    tabsize=2,
+    commentstyle    = \color{red}\ttfamily
+}
+
+\begin{document}
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%   HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE University of western Brittany}\\[1.5cm] % Name of your university/college
+\textsc{\Large Final Year Project Defense}\\[0.5cm] % Major heading such as course name
+\textsc{\large Dive into practical Linux debugging}\\[0.5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Debugging Linux OS}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%   AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+\Large \emph{By :}\\
+Jugurtha \textsc{BELKALEM}\\[3cm] % Your name
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Tutor :}\\
+David \textsc{GARIOU} % Your name rubini
+\end{flushleft}
+\end{minipage}
+%~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor :} \\
+Jalil \textsc{boukhobza} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[2cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+
+%----------------------------------------------------------------------------------------
+%   DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%   LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+%\includegraphics{img/embLinux.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\tableofcontents
+
+\include{internship-introduction}
+
+\include{internship-objectives}
+
+\include{internship-means}
+
+\include{internship-solution}
+
+\include{internship-difficulties}
+
+\include{internship-conclusion}
+
+
+\include{appendix}
+
+\end{document}

@@ -1,0 +1,64 @@
+\begin{appendices}
+
+\section{eBPF}
+\subsection{Attaching eBPF kprobe}
+\label{Attaching eBPF kprobe}
+
+\begin{lstlisting}[style=PythonStyle]
+from bcc import BPF
+
+# prog will store the eBPF C program
+prog = """
+int detect(void *ctx){
+	// write message into trace_pip
+	bpf_trace_printk("sys_mkdir detected!\\n");
+	return 0; // always return 0
+}
+"""
+
+# Loads eBPF program
+b = BPF(text=prog)
+
+# Attach kprobe to kernel function and sets  ... as jprobe handler
+b.attach_kprobe(event="sys_mkdir", fn_name="detect")
+
+# Show message when ePBF stats
+print("Detection stated .... Ctrl-C to end")
+
+# print result to user
+while 1:
+	# read messages from trace_pip and display them to user
+	b.trace_print()
+\end{lstlisting}
+
+
+
+\subsection{Enabling eBPF Tracepoint}
+\label{Enabling eBPF Tracepoint}
+\begin{lstlisting}[style=PythonStyle]
+from bcc import BPF
+
+# prog will store the eBPF C program
+prog = """
+TRACEPOINT_PROBE(module, module_load){
+	// events are from /sys/kernel/debug/tracing/events/module/module_load/format 
+	bpf_trace_printk("Module has been loaded!\\n");
+	return 0; // always return 0
+};
+"""
+
+# Loads eBPF program
+b = BPF(text=prog)
+
+# Show message when ePBF stats
+print("Loading module snooping stated .... Ctrl-C to end")
+
+# print result to user
+while 1:
+	# read messages from trace_pip and display them to user
+	b.trace_print()
+\end{lstlisting}
+
+
+
+\end{appendices}

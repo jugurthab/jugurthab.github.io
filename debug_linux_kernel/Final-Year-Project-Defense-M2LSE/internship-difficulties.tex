@@ -1,0 +1,39 @@
+\section{Encountered difficulties}
+Debugging is a rare skill, only few resources are available. We can point out some difficulties that We have seen during internship :
+
+\subsection{Hardware issues}
+Hardware problems were a real bottlenecks, as they are more difficult to locate.
+\subsubsection{JTAG}
+Some manufacturers try to hide \textbf{JTAG connectors} to make it difficult to access (\textit{due to security reasons}). Beaglebone black wireless is an example of those boards. Soldering a JTAG connector was mandatory (\textit{it is not easy on those tiny devices}).
+
+\textbf{\color{orange}Note : } sometimes JTAG connection is encrypted or even damaged by manufacturers (\textit{but this is rare}). 
+More can be said about \textbf{JTAG} as connectors are different and pinout definition is not always easy to find.
+\subsubsection{OpenOCD hardware interfacing}
+As mentionned previously, \textbf{OpenOCD} is a hardware debugging solution (it is complicated). It took me 1.5 week to understand how to make a correct hardware setup. Interfacing OpenOCD compliant adapter with the target is far to be easy.
+
+\subsection{Software}
+
+\subsubsection{Debugging symbols}
+Most kernels in production are compiled stripping this option. The advantage is to reduce kernel's image size, however, tools like : GDB becomes practically useless as they require debugging symbols. some solutions exist to reconstruct it (without recompiling the kernel) but works only fine on x86 (see {\color{blue}\url{https://github.com/elfmaster/kdress}}).
+
+Even worse, /proc/kcore does not exist on most embedded systems (like ARM)\footnote{More details about /proc/kcore are available at :  {\color{blue}\url{https://lwn.net/Articles/45315/}}}.
+
+
+\subsubsection{Yama blocks ptrace}
+Yama is a security module that disables ptrace. GDB, strace and ltrace make use of ptrace which must be enabled.
+\subsubsection{JTAG lockers}
+Even if OpenOCD hardware interfacing is correct, some boards have software protections to disable JTAG. Raspberry PI is an example. The firmware refuses any JTAG connection by default. Workarounds were made to disable such mechanisms.
+
+
+\subsubsection{OpenOCD scripts}
+As We have already mentionned, OpenOCD does not support every board. Custom configuration files must be written to include new platforms. We have made scripts generation easier with OESdebug, provided step by step documentation of OpenOCD and an animation that helps to understand more ({\color{blue} \url{https://jugurthab.github.io/debug_linux_kernel/zero-to-hero-openocd.html}}) 
+
+\subsubsection{Tracers in embedded systems}
+Tracers are not always easy to port on embedded systems, especially if DebugFS does not exist (kernel has not been compiled with it).
+
+Some troubles were noticed with trace-cmd and perf.
+
+LTTng on the otherside is not supported by every kernel.
+
+\subsubsection{DebugFs absent}
+Security engineers drops down DebugFs support as it is allows anyone to get insight into the Kernel. Only Hardware debugging can help in such case. 
