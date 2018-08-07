@@ -1,19 +1,24 @@
-\section{Solutions}
+\section{Internship solutions summary}
 The following section discusses results of my intership. We are going to highlight the main points and illustrate with a couple of examples.
 
-
 \begin{center}
-\fbox{
-  \parbox{\textwidth}{
-  	\begin{center}
-		\textbf{\Large \color{red} About report}\\
-			This report gives only some samples of what was made, entire project can be accessed at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug}}.
+\begin{mdframed}[
+        linecolor=red,linewidth=2pt,% 
+        frametitlerule=true,% 
+        apptotikzsetting={\tikzset{mdfframetitlebackground/.append style={%
+            shade,left color=white, right color=blue!20}}}, 
+        frametitlerulecolor=blue,
+        frametitlerulewidth=1pt, innertopmargin=\topskip,
+        frametitle={About report},
+        outerlinewidth=1.25pt
+    ]
+    % ----------
+			This report gives only some samples of what was made, the entire project can be accessed at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug}}.
 			
 			Full report (over 200 pages) is also available at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/blob/master/debugging-linux-kernel.pdf}}
-	\end{center}
-  }
-}
+\end{mdframed}
 \end{center}
+
 
 
 
@@ -25,6 +30,9 @@ Understading userspace bottlenecks is an everyday's job for every software devel
         \caption{Linux userspace debugging methodologies}
         \label{Linux userspace debugging methodologies}
     \end{figure}
+ 
+ 
+ 
     
 \textbf{\color{red}Important : } We are going to introduce each tool.
 \subsubsection{Querying the filesystem}
@@ -47,6 +55,7 @@ Other files can be also helpful like : \textbf{/proc/meminfo} and \textbf{/proc/
 \end{itemize}
 
 \subsubsection{System calls and library calls}
+\label{System calls and library calls}
 \textbf{Ptrace} is the most valuable mechanism to debug userspace applications. Most of utilities that are covered later (\emph{strace}, \emph{ltrace} and \emph{GDB}) rely on \textbf{ptrace} in the background (\emph{without it they will be useless}).\\
 
 However, attackers uses it extensively too to escalate privileges.
@@ -313,6 +322,7 @@ application}
 \begin{center}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
+		\rowcolor{LightCyan} 
 			\textbf{Specifier} & \textbf{\%e} & \textbf{\%p} & \textbf{\%t} & \textbf{\%h}\\	   		
    		\hline
    		\textbf{Meaning} & Executable & process & timestamp & hostname\\
@@ -420,17 +430,23 @@ Buggy code in a driver or a module may lead to one of the states : \textbf{kerne
 	\item \textbf{Kernel oops : } Sometimes called \emph{Soft panics} (as opposed to hard kernel panic). Generally, they result from dereferencing a NULL pointer, overflowing kernel buffers and others faulty kernel code.\\
 \vspace{5px}	
 
+
 \begin{center}
-\fbox{
-  \parbox{\textwidth}{
-  	\begin{center}
-	{\Large \textbf{\color{red}Reading Kernel Oops}}\\
+\begin{mdframed}[
+        linecolor=red,linewidth=2pt,% 
+        frametitlerule=true,% 
+        apptotikzsetting={\tikzset{mdfframetitlebackground/.append style={%
+            shade,left color=white, right color=blue!20}}}, 
+        frametitlerulecolor=blue,
+        frametitlerulewidth=1pt, innertopmargin=\topskip,
+        frametitle={Reading Kernel Oop},
+        outerlinewidth=1.25pt
+    ]
+    % ----------
 Kernel oops can be obtained by reading kernel's ring buffer with : \og \textbf{dmesg} \fg.
-	\end{center}	
-  
-  }
-}
-\end{center}	
+\end{mdframed}
+\end{center}
+	
 \vspace{6px}	
 We are going to take a look at 2 particular messages (We have provided a more detailed page at {\color{blue}\url{http://fdeszffffffffff}}) : 	
 
@@ -488,17 +504,21 @@ ALT + Print Screen + <command key>
 
 
 \begin{center}
-\fbox{
-  \parbox{\textwidth}{
-  	\begin{center}
-	{\Large \textbf{\color{red}SysRq involves QWERTY Keyboard}}\\
-	\vspace{5px}
-	The kernel pretends a \textbf{QWERTY} keyboard when using \textbf{SysRq}.
-	\end{center}	
-  
-  }
-}
+\begin{mdframed}[
+        linecolor=red,linewidth=2pt,% 
+        frametitlerule=true,% 
+        apptotikzsetting={\tikzset{mdfframetitlebackground/.append style={%
+            shade,left color=white, right color=blue!20}}}, 
+        frametitlerulecolor=blue,
+        frametitlerulewidth=1pt, innertopmargin=\topskip,
+        frametitle={SysRq involves QWERTY Keyboard},
+        outerlinewidth=1.25pt
+    ]
+    % ----------
+		The kernel pretends a \textbf{QWERTY} keyboard when using \textbf{SysRq}.
+\end{mdframed}
 \end{center}
+
 
 \vspace{10px}
 
@@ -558,16 +578,28 @@ If the kernel was not compiled using debugging symbols, one may try to add them 
 	\item[$\bullet$] \textbf{Post kernel crash analysis : } Kernel panic can be hard to troubleshoot (especially that bugs are almost impossible to reproduce in practice). We can get a kernel dump file in case of panic using Kdump and Kexec.
 	
 \begin{itemize}
-	\item \textbf{kdump : }
-	\item \textbf{kexec : }
 	
+	\item \textbf{kexec : } which allows to load quickly a new kernel from a running one (\textit{it does not perform any basic setup initialization like those made by BIOS}).
+	\item \textbf{kdump : } uses kexec to start a new kernel when Panic is detected in the current one. Then dumps virtual memory (what can be dumped can be configured) of the crashed kernel from the newly launched one and saves result into a core dump file (can be stored in disk or sent through network which is ideal for embedded devices) as shown in \textbf{Figure \ref{Dumping Linux address space using kdump and kexec} - taken from Adrien Mahieux presentation- Linux crashdump analysis}. 
+	\begin{figure}[H]
+		\centering
+        \includegraphics[scale=0.40]{img/solution/kdump-kexec.jpg}
+        \caption{Dumping Linux address space using kdump and kexec}
+        \label{Dumping Linux address space using kdump and kexec}
+    \end{figure}
+
 \end{itemize}
+
+
+
+
 Once a dump file was generated, it can be analysed using GDB or a more specialized utlity like : crash.
 	
 \end{itemize}
 
 
 \subsubsection{Linux hardware debugging with OpenOCD}
+\label{Linux hardware debugging with OpenOCD}
 \textbf{OpenOCD} is an open source project created by \og \textbf{Dominic Rath} \fg . It is supported by a large community which
 maintains the source codes at {\color{blue}\url{https://sourceforge.net/projects/openocd/}}.\\
 \textbf{OpenOCD} provides a high level abstraction to access a debugging hardware interface (\emph{JTAG}, \emph{SWD}, \emph{SPI}). Most
@@ -613,11 +645,14 @@ $ sudo ./src/openocd -s tcl/ -f tcl/interface/adapter_config_file.cfg \
     				\item \textbf{Jtag enabler : } source code is available at : {\color{blue}\url{http://sysprogs.com/VisualKernel/legacy\_tutorials/raspberry/jtagsetup/JtagEnabler.cpp}}.
     				
     				\item \textbf{Edit Jtag enabler : } Jtag enablers seems to work only for Raspberry PI 1, the following lines should be changed as shown below :
+
 		\begin{lstlisting}[style=CStyle]
 #define BCM2708_PERI_BASE	0x3F000000
 #define GPIO_BASE			(BCM2708_PERI_BASE + 0x200000)
 		\end{lstlisting}
 					\item \textbf{Execute Jtag enabler : } as shown \textbf{Figure \ref{Enable JTAG Debugging on Raspberry PI 3}}
+					
+
 		\begin{figure}[H]
 			\centering
         	\includegraphics[scale=0.32]{img/solution/jtag-enabler-raspberry-pi-3.png}
@@ -645,18 +680,23 @@ $ sudo ./src/openocd -s tcl/ -f tcl/interface/adapter_config_file.cfg \
 		
 	
 	
-	\item \textbf{OpenOCD made easy with OESdebug : } OpenOCD is quiet difficult and complex to setup. We have provided a tool called \og OpenOCD-wrapper \fg (OpenEasy Debug is written in python3) as a high level wrapper around \textbf{OpenOCD}.\\
+	\item \textbf{OpenOCD made easy with OESdebug : } OpenOCD is quiet difficult and complex to setup. We have provided a tool called \og OpenOCD-wrapper \fg (OpenEasy Debug is written in python3) as a high level wrapper around \textbf{OpenOCD}. \emph{It allows even to generate \textbf{OpenOCD} scripts on the fly}.\\
+	\label{OpenOCD made easy with OESdebug}
+
 \begin{center}
-\fbox{
-  \parbox{\textwidth}{
-  	\begin{center}
-	{\Large \textbf{\color{red}OESdebug sources}}\\
-	\vspace{5px}
-	Sources are available at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/DebugSoftware/OpenOCD-wrapper}}.
-	\end{center}	
-  
-  }
-}
+\begin{mdframed}[
+        linecolor=red,linewidth=2pt,% 
+        frametitlerule=true,% 
+        apptotikzsetting={\tikzset{mdfframetitlebackground/.append style={%
+            shade,left color=white, right color=blue!20}}}, 
+        frametitlerulecolor=blue,
+        frametitlerulewidth=1pt, innertopmargin=\topskip,
+        frametitle={OESdebug sources},
+        outerlinewidth=1.25pt
+    ]
+    % ----------
+		Sources are available at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/DebugSoftware/OpenOCD-wrapper}}.
+\end{mdframed}
 \end{center}
 
 	
@@ -702,7 +742,36 @@ $ sudo ./src/openocd -s tcl/ -f tcl/interface/adapter_config_file.cfg \
     	\end{figure}		
 		
 		
+		\item \textbf{Launching OpenOCD : } Once script file is generated, We can start OpenOCD using start OpenOCD button. If the configuration was successful, OpenOCD will recognize the target as shown in \textbf{Figure \ref{Launching OpenOCD from OESdebug on AT32UC3C-EK target}}.		
+		\begin{figure}[H]
+			\centering
+        	\includegraphics[scale=0.32]{img/solution/at32uc3c0512c-found-openocd.png}
+        	\caption{Launching OpenOCD from OESdebug to debug AT32UC3C-EK target}
+        	\label{Launching OpenOCD from OESdebug on AT32UC3C-EK target}
+    	\end{figure}	
+	
+		The AT32UC3C-EK has been successfully detected by OpenOCD (\textit{because OpenOCD returned \textit{tap/device found}}).
+		
+\textbf{\color{orange}Note :} \textbf{OESdebug} defaults the adapter speed to 8 khz (\textit{always use this speed if not sure about adapter's communication speed}). 	 
+\begin{center}
+\begin{mdframed}[
+        linecolor=red,linewidth=2pt,% 
+        frametitlerule=true,% 
+        apptotikzsetting={\tikzset{mdfframetitlebackground/.append style={%
+            shade,left color=white, right color=blue!20}}}, 
+        frametitlerulecolor=blue,
+        frametitlerulewidth=1pt, innertopmargin=\topskip,
+        frametitle={OESdebug Extra features},
+        outerlinewidth=1.25pt
+    ]
+    % ----------
+	\textbf{OESdebug} supports \textbf{Auto probing} (to get TAP ID and Intruction register length) and also \textbf{saving generated scripts}  to share them easily (\textit{see it's Help section}).
+\end{mdframed}
+\end{center}
+
 	\end{enumerate}
+	
+	
 		
 \end{enumerate}
 	
@@ -773,8 +842,17 @@ As a working example, We will are going to trace a module :
 	
 	\item[$\bullet$] \textbf{Kernelshark : }	
 We cannot close the discussion about Ftrace without pointing out an important tool called \og Kernelshark \fg.
-Reading Ftrace report can be quiet difficult ; the third tool released by \og \textbf{Steven Rostedt} \fg is KernelShark which is
-GUI based.
+Reading Ftrace report can be quiet difficult ; the third tool released by \og \textbf{Steven Rostedt} \fg is KernelShark which is GUI based (an example is shown in \textbf{Figure \ref{Kernelshark shows process scheduling after parsing traces of a raspberry PI 3}}).
+
+		\begin{figure}[H]
+			\centering
+        	\includegraphics[scale=0.32]{img/solution/kernelshark-task-schedule.png}
+        	\caption{Kernelshark shows process scheduling after parsing traces of a raspberry PI 3}
+        	\label{Kernelshark shows process scheduling after parsing traces of a raspberry PI 3}
+    	\end{figure}
+
+
+
 
 \end{itemize}
 
@@ -1006,6 +1084,18 @@ An example is shown in \textbf{Figure \ref{Reading recorded sched-switch event -
     				\end{figure}				
 			
 		\end{enumerate}
+	
+
+	\item {Hotspot : } A \textbf{GUI tool} for \textbf{Perf}, able to parse \og perf traces \fg or even make a recording.	An example is shown in \textbf{Figure \ref{Hotspot (a perf GUI tool) in action - generation of flame graphs}}.
+		
+					\begin{figure}[H]
+						\centering
+        				\includegraphics[scale=0.25]{img/solution/perf-hotspot.png}
+        				\caption{Hotspot (a perf GUI tool) in action - generation of flame graphs}
+        				\label{Hotspot (a perf GUI tool) in action - generation of flame graphs}
+    				\end{figure}			
+		
+\textbf{Flame graphs : } Shows callgraph of stack frames. for instace, \og \_clone \fg frame calls \og start\_thread \fg frame in \textbf{Figure \ref{Hotspot (a perf GUI tool) in action - generation of flame graphs}}		
 		
 \end{itemize}
 
@@ -1075,7 +1165,7 @@ Basic syntax of eBPF :
 
 \textbf{\color{orange}Important : } Tracepoints are highly encouraged to be used than kprobes as they are more stable and portable (\textit{function names and prototype can change so kprobes will be incorrect}).
 \subsubsection{Choosing a tracer}
-The following table summarizes quickly important features of some tracers :
+The following table gives a quick summary of important features of some tracers :
 \begin{center}
 	\begin{tabular}{|c|c|c|c|c|c|}
 		\hline
@@ -1095,7 +1185,7 @@ The following table summarizes quickly important features of some tracers :
 	\end{tabular}
 \end{center}
 
-Tracers may be selected depending on requirements, We made a simple benchmarking tool to help us in choosing the most appropriate. The benchmark measures memory and execution time overhead as well as other metrics.
+Tracers may be selected depending on requirements, We made a simple benchmarking tool to help us in choosing the most appropriate. The benchmark measures \textbf{memory} (\textit{captures Maximum Resident Set Size Memory}) and \textbf{execution time overhead} as well as other metrics (context switches and trace file size).
 
 \begin{center}
 \fbox{
@@ -1120,7 +1210,8 @@ Tests were made 10 times (then average was taken) on a machine with initial cond
         			\caption{Target's initial state before experiment - Linux Mint}
         			\label{Target's initial state before experiment - Linux Mint}
    			 \end{figure}
-
+   			 
+Results are shown as follow :
 						\begin{center}
 							\begin{tabular}{|c|c|c|c|c|c|c|}
 								\hline
@@ -1181,7 +1272,7 @@ The code snippet means that the process will be traced by it's father. \\
   }
 }
 \end{center}
-\subsubsection{targeting Kernel Code}
+\subsubsection{Targeting Kernel Code}
 The kernel can be subjected to many threats (like rootkits).
 We can change behaviour of almost any instruction in the kernel (\textit{it's paramters and return value}), and cause
 serious system issues that goes from simple \textbf{Denial of Services to steeling private data}.

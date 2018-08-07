@@ -1,0 +1,41 @@
+\frametitle{Final Year Project Defense}
+
+\framesubtitle{Master 2 Degree - Software for embedded systems}
+
+\begin{verbatim}
+  \begin{lstlisting}[style=CStyle]
+    #include<stdio.h>
+    #include<iostream>
+
+\end{lstlisting}
+ \end{verbatim}
+ %\includegraphics[scale=0.20]{img/gdb-cannot-be-attached.png}
+
+    \end{frame}
+
+
+\section{Conclusion}
+
+    \begin{frame}
+\frametitle{Final Year Project Defense}
+
+\framesubtitle{Master 2 Degree - Software for embedded systems}
+    Conclusion
+
+    \end{frame}
+
+
+
+\section{Results from intership}
+
+    \begin{frame}
+\frametitle{Final Year Project Defense}
+
+\framesubtitle{Master 2 Degree - Software for embedded systems}
+    Results
+
+    \end{frame}
+
+
+
+\end{document}

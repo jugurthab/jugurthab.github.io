@@ -1,50 +1,57 @@
 \select@language {french}
-\contentsline {section}{\numberline {1}Introduction}{3}
-\contentsline {section}{\numberline {2}Internship objectives}{4}
-\contentsline {section}{\numberline {3}Available equipements}{5}
-\contentsline {subsection}{\numberline {3.1}Hardware}{5}
-\contentsline {subsubsection}{\numberline {3.1.1}Beagle Bone Black Wireless}{5}
-\contentsline {subsubsection}{\numberline {3.1.2}Raspberry PI 3 B+}{5}
-\contentsline {subsubsection}{\numberline {3.1.3}stm32f407 Board : }{5}
-\contentsline {subsubsection}{\numberline {3.1.4}AT32UC3C-EK Board : }{6}
-\contentsline {subsubsection}{\numberline {3.1.5}ARM-USB-TINY-H JTAG Adapter : }{6}
-\contentsline {subsection}{\numberline {3.2}Software}{6}
-\contentsline {subsubsection}{\numberline {3.2.1}pycharm}{6}
-\contentsline {subsubsection}{\numberline {3.2.2}Eclipse C/C++}{7}
-\contentsline {section}{\numberline {4}Solutions}{8}
-\contentsline {subsection}{\numberline {4.1}Userspace}{8}
-\contentsline {subsubsection}{\numberline {4.1.1}Querying the filesystem}{8}
-\contentsline {subsubsection}{\numberline {4.1.2}System calls and library calls}{9}
-\contentsline {subsubsection}{\numberline {4.1.3}Valgrind}{10}
-\contentsline {subsubsection}{\numberline {4.1.4}GDB and GDBserver}{11}
-\contentsline {subsubsection}{\numberline {4.1.5}File core dump}{14}
-\contentsline {subsection}{\numberline {4.2}Kernel land}{15}
-\contentsline {subsubsection}{\numberline {4.2.1}KGDB/KDB}{15}
-\contentsline {subsubsection}{\numberline {4.2.2}System faults}{16}
-\contentsline {subsubsection}{\numberline {4.2.3}Core dump and Kernel panic}{18}
-\contentsline {subsubsection}{\numberline {4.2.4}Linux hardware debugging with OpenOCD}{19}
-\contentsline {subsection}{\numberline {4.3}Linux tracers}{23}
-\contentsline {subsubsection}{\numberline {4.3.1}Ftrace}{23}
-\contentsline {subsubsection}{\numberline {4.3.2}LTTng}{24}
-\contentsline {subsubsection}{\numberline {4.3.3}Perf}{26}
-\contentsline {subsubsection}{\numberline {4.3.4}eBPF}{28}
-\contentsline {subsubsection}{\numberline {4.3.5}Choosing a tracer}{30}
-\contentsline {subsection}{\numberline {4.4}Defeating Anti debugging mechanisms}{31}
-\contentsline {subsubsection}{\numberline {4.4.1}Attacking userland}{31}
-\contentsline {subsubsection}{\numberline {4.4.2}targeting Kernel Code}{32}
-\contentsline {section}{\numberline {5}Encountered difficulties}{34}
-\contentsline {subsection}{\numberline {5.1}Hardware issues}{34}
-\contentsline {subsubsection}{\numberline {5.1.1}JTAG}{34}
-\contentsline {subsubsection}{\numberline {5.1.2}OpenOCD hardware interfacing}{34}
-\contentsline {subsection}{\numberline {5.2}Software}{34}
-\contentsline {subsubsection}{\numberline {5.2.1}Debugging symbols}{34}
-\contentsline {subsubsection}{\numberline {5.2.2}Yama blocks ptrace}{34}
-\contentsline {subsubsection}{\numberline {5.2.3}JTAG lockers}{34}
-\contentsline {subsubsection}{\numberline {5.2.4}OpenOCD scripts}{35}
-\contentsline {subsubsection}{\numberline {5.2.5}Tracers in embedded systems}{35}
-\contentsline {subsubsection}{\numberline {5.2.6}DebugFs absent}{35}
-\contentsline {section}{\numberline {6}Conclusion}{36}
-\contentsline {section}{Appendices}{37}
-\contentsline {section}{\numberline {A}eBPF}{37}
-\contentsline {subsection}{\numberline {A.1}Attaching eBPF kprobe}{37}
-\contentsline {subsection}{\numberline {A.2}Enabling eBPF Tracepoint}{37}
+\contentsline {section}{\numberline {1}Acknowledgments}{3}
+\contentsline {section}{\numberline {2}Introduction}{4}
+\contentsline {section}{\numberline {3}General view of internship}{5}
+\contentsline {subsection}{\numberline {3.1}Introducing company}{5}
+\contentsline {subsection}{\numberline {3.2}Internship objectives}{5}
+\contentsline {subsection}{\numberline {3.3}Internship pre-requests}{5}
+\contentsline {subsection}{\numberline {3.4}Internship requirements}{5}
+\contentsline {section}{\numberline {4}Available equipements}{7}
+\contentsline {subsection}{\numberline {4.1}Hardware platforms}{7}
+\contentsline {subsubsection}{\numberline {4.1.1}Beagle Bone Black Wireless}{7}
+\contentsline {subsubsection}{\numberline {4.1.2}Raspberry PI 3 B+}{7}
+\contentsline {subsubsection}{\numberline {4.1.3}stm32f407 Board : }{7}
+\contentsline {subsubsection}{\numberline {4.1.4}AT32UC3C-EK Board : }{8}
+\contentsline {subsubsection}{\numberline {4.1.5}ARM-USB-TINY-H JTAG Adapter : }{8}
+\contentsline {subsection}{\numberline {4.2}Software}{9}
+\contentsline {subsubsection}{\numberline {4.2.1}Pycharm IDE}{9}
+\contentsline {subsubsection}{\numberline {4.2.2}Eclipse C/C++ IDE}{9}
+\contentsline {subsubsection}{\numberline {4.2.3}OpenOCD}{9}
+\contentsline {section}{\numberline {5}Internship solutions summary}{10}
+\contentsline {subsection}{\numberline {5.1}Userspace}{10}
+\contentsline {subsubsection}{\numberline {5.1.1}Querying the filesystem}{10}
+\contentsline {subsubsection}{\numberline {5.1.2}System calls and library calls}{11}
+\contentsline {subsubsection}{\numberline {5.1.3}Valgrind}{12}
+\contentsline {subsubsection}{\numberline {5.1.4}GDB and GDBserver}{13}
+\contentsline {subsubsection}{\numberline {5.1.5}File core dump}{16}
+\contentsline {subsection}{\numberline {5.2}Kernel land}{17}
+\contentsline {subsubsection}{\numberline {5.2.1}KGDB/KDB}{17}
+\contentsline {subsubsection}{\numberline {5.2.2}System faults}{18}
+\contentsline {subsubsection}{\numberline {5.2.3}Core dump and Kernel panic}{20}
+\contentsline {subsubsection}{\numberline {5.2.4}Linux hardware debugging with OpenOCD}{22}
+\contentsline {subsection}{\numberline {5.3}Linux tracers}{26}
+\contentsline {subsubsection}{\numberline {5.3.1}Ftrace}{26}
+\contentsline {subsubsection}{\numberline {5.3.2}LTTng}{27}
+\contentsline {subsubsection}{\numberline {5.3.3}Perf}{29}
+\contentsline {subsubsection}{\numberline {5.3.4}eBPF}{32}
+\contentsline {subsubsection}{\numberline {5.3.5}Choosing a tracer}{33}
+\contentsline {subsection}{\numberline {5.4}Defeating Anti debugging mechanisms}{34}
+\contentsline {subsubsection}{\numberline {5.4.1}Attacking userland}{34}
+\contentsline {subsubsection}{\numberline {5.4.2}Targeting Kernel Code}{35}
+\contentsline {section}{\numberline {6}Encountered difficulties}{37}
+\contentsline {subsection}{\numberline {6.1}Hardware issues}{37}
+\contentsline {subsubsection}{\numberline {6.1.1}JTAG tampering}{37}
+\contentsline {subsubsection}{\numberline {6.1.2}OpenOCD hardware interfacing}{37}
+\contentsline {subsubsection}{\numberline {6.1.3}OpenOCD's compliant adapter}{37}
+\contentsline {subsection}{\numberline {6.2}Software}{37}
+\contentsline {subsubsection}{\numberline {6.2.1}Debugging symbols}{37}
+\contentsline {subsubsection}{\numberline {6.2.2}Yama blocks ptrace}{38}
+\contentsline {subsubsection}{\numberline {6.2.3}JTAG lockers}{38}
+\contentsline {subsubsection}{\numberline {6.2.4}Disabled serial communication}{38}
+\contentsline {subsubsection}{\numberline {6.2.5}OpenOCD scripts}{39}
+\contentsline {subsubsection}{\numberline {6.2.6}DebugFs absent}{39}
+\contentsline {section}{\numberline {7}Conclusion}{40}
+\contentsline {section}{Appendices}{41}
+\contentsline {section}{\numberline {A}eBPF}{41}
+\contentsline {subsection}{\numberline {A.1}Attaching eBPF kprobe}{41}
+\contentsline {subsection}{\numberline {A.2}Enabling eBPF Tracepoint}{41}
