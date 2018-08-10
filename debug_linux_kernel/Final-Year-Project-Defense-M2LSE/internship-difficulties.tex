@@ -1,5 +1,5 @@
 \section{Encountered difficulties}
-Debugging is a rare skill, only few resources are available. We can point out some difficulties that We have seen during internship :
+Debugging is a rare skill, only few resources are available. We can point out some difficulties that we have seen during internship :
 
 \subsection{Hardware issues}
 Hardware problems were a real bottlenecks, as they are more difficult to locate and troubleshoot.
@@ -9,7 +9,7 @@ Some manufacturers try to hide \textbf{JTAG connectors} to make it difficult to 
 \textbf{\color{orange}Note : } sometimes JTAG connection is encrypted or even damaged by manufacturers (\textit{but this is rare}). 
 More can be said about \textbf{JTAG} as connectors are different and pinout definition is not always easy to find (solutions like \textbf{JTAGulator} at : {\color{blue}\url{https://hackaday.com/2013/10/02/jtagulator-finds-debug-interfaces/}} may be helpful).
 \subsubsection{OpenOCD hardware interfacing}
-As mentionned previously, \textbf{OpenOCD} is a hardware debugging solution (it is complicated). It took me 1.5 week to understand how to make a correct hardware setup. Interfacing \textbf{OpenOCD} compliant adapter with the target is far to be easy (\textbf{Figure \ref{OpenOCD ACK error due to incorrect TDI connection}}).
+As mentionned previously, \textbf{OpenOCD} is a hardware debugging solution (it is complicated). It took me 1.5 week to understand how to make a correct hardware setup (\textbf{Figure \ref{OpenOCD ACK error due to incorrect TDI connection}}).
 
 
 \begin{figure}[H]
@@ -27,7 +27,7 @@ Adapters are expensive, adapters that are compatible with OpenOCD are difficult 
 \subsection{Software}
 
 \subsubsection{Debugging symbols}
-Most kernels in production are compiled stripping this option. The advantage is to reduce kernel's image size, however, tools like : GDB becomes practically useless as they require debugging symbols (see \textbf{Figure \ref{GDB is practically useless without debugging symbols}}). 
+Most kernels in production are compiled removing this option. The advantage is to reduce kernel's image size, however, tools like : GDB becomes practically useless as they require debugging symbols (see \textbf{Figure \ref{GDB is practically useless without debugging symbols}}). 
 
 \begin{figure}[H]
 		\centering
@@ -37,7 +37,7 @@ Most kernels in production are compiled stripping this option. The advantage is 
     \end{figure}
 
 
-Some solutions exist to reconstruct it (without recompiling the kernel) but works only fine on x86 (see {\color{blue}\url{https://github.com/elfmaster/kdress}}).
+Some solutions exist to reconstruct it (without recompiling the kernel) and works only fine on x86 (see {\color{blue}\url{https://github.com/elfmaster/kdress}}).
 
 
 

@@ -26,32 +26,32 @@
 \contentsline {subsubsection}{\numberline {5.1.5}File core dump}{16}
 \contentsline {subsection}{\numberline {5.2}Kernel land}{17}
 \contentsline {subsubsection}{\numberline {5.2.1}KGDB/KDB}{17}
-\contentsline {subsubsection}{\numberline {5.2.2}System faults}{18}
-\contentsline {subsubsection}{\numberline {5.2.3}Core dump and Kernel panic}{20}
+\contentsline {subsubsection}{\numberline {5.2.2}System faults}{19}
+\contentsline {subsubsection}{\numberline {5.2.3}Core dump and Kernel panic}{21}
 \contentsline {subsubsection}{\numberline {5.2.4}Linux hardware debugging with OpenOCD}{22}
-\contentsline {subsection}{\numberline {5.3}Linux tracers}{26}
-\contentsline {subsubsection}{\numberline {5.3.1}Ftrace}{26}
-\contentsline {subsubsection}{\numberline {5.3.2}LTTng}{27}
-\contentsline {subsubsection}{\numberline {5.3.3}Perf}{29}
-\contentsline {subsubsection}{\numberline {5.3.4}eBPF}{32}
-\contentsline {subsubsection}{\numberline {5.3.5}Choosing a tracer}{33}
-\contentsline {subsection}{\numberline {5.4}Defeating Anti debugging mechanisms}{34}
-\contentsline {subsubsection}{\numberline {5.4.1}Attacking userland}{34}
-\contentsline {subsubsection}{\numberline {5.4.2}Targeting Kernel Code}{35}
-\contentsline {section}{\numberline {6}Encountered difficulties}{37}
-\contentsline {subsection}{\numberline {6.1}Hardware issues}{37}
-\contentsline {subsubsection}{\numberline {6.1.1}JTAG tampering}{37}
-\contentsline {subsubsection}{\numberline {6.1.2}OpenOCD hardware interfacing}{37}
-\contentsline {subsubsection}{\numberline {6.1.3}OpenOCD's compliant adapter}{37}
-\contentsline {subsection}{\numberline {6.2}Software}{37}
-\contentsline {subsubsection}{\numberline {6.2.1}Debugging symbols}{37}
-\contentsline {subsubsection}{\numberline {6.2.2}Yama blocks ptrace}{38}
-\contentsline {subsubsection}{\numberline {6.2.3}JTAG lockers}{38}
-\contentsline {subsubsection}{\numberline {6.2.4}Disabled serial communication}{38}
-\contentsline {subsubsection}{\numberline {6.2.5}OpenOCD scripts}{39}
-\contentsline {subsubsection}{\numberline {6.2.6}DebugFs absent}{39}
-\contentsline {section}{\numberline {7}Conclusion}{40}
-\contentsline {section}{Appendices}{41}
-\contentsline {section}{\numberline {A}eBPF}{41}
-\contentsline {subsection}{\numberline {A.1}Attaching eBPF kprobe}{41}
-\contentsline {subsection}{\numberline {A.2}Enabling eBPF Tracepoint}{41}
+\contentsline {subsection}{\numberline {5.3}Linux tracers}{27}
+\contentsline {subsubsection}{\numberline {5.3.1}Ftrace}{27}
+\contentsline {subsubsection}{\numberline {5.3.2}LTTng}{28}
+\contentsline {subsubsection}{\numberline {5.3.3}Perf}{31}
+\contentsline {subsubsection}{\numberline {5.3.4}eBPF}{34}
+\contentsline {subsubsection}{\numberline {5.3.5}Choosing a tracer}{35}
+\contentsline {subsection}{\numberline {5.4}Defeating Anti debugging mechanisms}{36}
+\contentsline {subsubsection}{\numberline {5.4.1}Attacking userland}{36}
+\contentsline {subsubsection}{\numberline {5.4.2}Targeting Kernel Code}{38}
+\contentsline {section}{\numberline {6}Encountered difficulties}{40}
+\contentsline {subsection}{\numberline {6.1}Hardware issues}{40}
+\contentsline {subsubsection}{\numberline {6.1.1}JTAG tampering}{40}
+\contentsline {subsubsection}{\numberline {6.1.2}OpenOCD hardware interfacing}{40}
+\contentsline {subsubsection}{\numberline {6.1.3}OpenOCD's compliant adapter}{40}
+\contentsline {subsection}{\numberline {6.2}Software}{40}
+\contentsline {subsubsection}{\numberline {6.2.1}Debugging symbols}{40}
+\contentsline {subsubsection}{\numberline {6.2.2}Yama blocks ptrace}{41}
+\contentsline {subsubsection}{\numberline {6.2.3}JTAG lockers}{41}
+\contentsline {subsubsection}{\numberline {6.2.4}Disabled serial communication}{41}
+\contentsline {subsubsection}{\numberline {6.2.5}OpenOCD scripts}{42}
+\contentsline {subsubsection}{\numberline {6.2.6}DebugFs absent}{42}
+\contentsline {section}{\numberline {7}Conclusion}{43}
+\contentsline {section}{Appendices}{44}
+\contentsline {section}{\numberline {A}eBPF}{44}
+\contentsline {subsection}{\numberline {A.1}Attaching eBPF kprobe}{44}
+\contentsline {subsection}{\numberline {A.2}Enabling eBPF Tracepoint}{44}
