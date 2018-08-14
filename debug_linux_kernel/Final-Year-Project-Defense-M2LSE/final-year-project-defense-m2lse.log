@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.3.23)  10 AUG 2018 17:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.3.23)  14 AUG 2018 09:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1041,7 +1041,7 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 \openout2 = `internship-means.aux'.
 
  (./internship-means.tex
-<img/mean/beaglebone-black-wireless.png, id=38, 553.06625pt x 346.29375pt>
+<img/mean/beaglebone-black-wireless.png, id=39, 553.06625pt x 346.29375pt>
 File: img/mean/beaglebone-black-wireless.png Graphic file (type png)
 
 <use img/mean/beaglebone-black-wireless.png>
@@ -1049,13 +1049,13 @@ Package pdftex.def Info: img/mean/beaglebone-black-wireless.png used on input l
 ine 10.
 (pdftex.def)             Requested size: 138.26622pt x 86.57321pt.
 
-<img/mean/rpi3.png, id=39, 301.125pt x 250.9375pt>
+<img/mean/rpi3.png, id=40, 301.125pt x 250.9375pt>
 File: img/mean/rpi3.png Graphic file (type png)
  <use img/mean/rpi3.png>
 Package pdftex.def Info: img/mean/rpi3.png used on input line 23.
 (pdftex.def)             Requested size: 96.36195pt x 80.30164pt.
 
-<img/mean/stm-32.jpg, id=40, 2088.80376pt x 1704.3675pt>
+<img/mean/stm-32.jpg, id=41, 2088.80376pt x 1704.3675pt>
 File: img/mean/stm-32.jpg Graphic file (type jpg)
 
 <use img/mean/stm-32.jpg>
@@ -1070,14 +1070,14 @@ Overfull \hbox (24.38426pt too wide) in paragraph at lines 42--43
 / 3f / e7 / e1 / 4f / 7d / DM00039084 . pdf / files /
  []
 
-<img/mean/avr32.jpeg, id=44, 237.88875pt x 213.79875pt>
+<img/mean/avr32.jpeg, id=45, 237.88875pt x 213.79875pt>
 File: img/mean/avr32.jpeg Graphic file (type jpg)
 
 <use img/mean/avr32.jpeg>
 Package pdftex.def Info: img/mean/avr32.jpeg used on input line 49.
 (pdftex.def)             Requested size: 95.15381pt x 85.51797pt.
 
-<img/mean/arm-usb-tiny-h.jpg, id=45, 493.845pt x 342.27875pt>
+<img/mean/arm-usb-tiny-h.jpg, id=46, 493.845pt x 342.27875pt>
 File: img/mean/arm-usb-tiny-h.jpg Graphic file (type jpg)
 
 <use img/mean/arm-usb-tiny-h.jpg>
@@ -1099,7 +1099,7 @@ pg>]) [9]
 \openout2 = `internship-solution.aux'.
 
  (./internship-solution.tex
-<img/solution/userspace.png, id=54, 1075.01625pt x 583.17876pt>
+<img/solution/userspace.png, id=55, 1075.01625pt x 583.17876pt>
 File: img/solution/userspace.png Graphic file (type png)
 
 <use img/solution/userspace.png>
@@ -1134,7 +1134,7 @@ Overfull \hbox (1.14801pt too wide) in paragraph at lines 77--78
 ithub . com / jugurthab / Linux _ kernel _ debug / tree /
  []
 
-<img/solution/latrace-output.png, id=60, 638.385pt x 134.5025pt>
+<img/solution/latrace-output.png, id=61, 638.385pt x 134.5025pt>
 File: img/solution/latrace-output.png Graphic file (type png)
 
 <use img/solution/latrace-output.png>
@@ -1142,7 +1142,7 @@ Package pdftex.def Info: img/solution/latrace-output.png used on input line 103
 .
 (pdftex.def)             Requested size: 255.34947pt x 53.80003pt.
  [11]
-<img/solution/strace-ltrace-latrace.png, id=68, 713.66624pt x 352.31625pt>
+<img/solution/strace-ltrace-latrace.png, id=69, 713.66624pt x 352.31625pt>
 File: img/solution/strace-ltrace-latrace.png Graphic file (type png)
 
 <use img/solution/strace-ltrace-latrace.png>
@@ -1175,7 +1175,7 @@ Overfull \hbox (24.091pt too wide) in paragraph at lines 159--161
 rland-[]debug / valgrind / callgrind$[] 
  []
 
-<img/solution/basic-usage-gdb.png, id=74, 563.10374pt x 221.82875pt>
+<img/solution/basic-usage-gdb.png, id=75, 563.10374pt x 221.82875pt>
 File: img/solution/basic-usage-gdb.png Graphic file (type png)
 
 <use img/solution/basic-usage-gdb.png>
@@ -1183,7 +1183,7 @@ Package pdftex.def Info: img/solution/basic-usage-gdb.png used on input line 17
 2.
 (pdftex.def)             Requested size: 225.2375pt x 88.72992pt.
 
-<img/solution/gdb-break-continue.png, id=75, 787.94376pt x 333.245pt>
+<img/solution/gdb-break-continue.png, id=76, 787.94376pt x 333.245pt>
 File: img/solution/gdb-break-continue.png Graphic file (type png)
 
 <use img/solution/gdb-break-continue.png>
@@ -1191,7 +1191,7 @@ Package pdftex.def Info: img/solution/gdb-break-continue.png used on input line
  182.
 (pdftex.def)             Requested size: 236.38495pt x 99.97426pt.
 
-<img/solution/gdb-awatch.png, id=76, 786.94pt x 436.63126pt>
+<img/solution/gdb-awatch.png, id=77, 786.94pt x 436.63126pt>
 File: img/solution/gdb-awatch.png Graphic file (type png)
 
 <use img/solution/gdb-awatch.png>
@@ -1199,7 +1199,7 @@ Package pdftex.def Info: img/solution/gdb-awatch.png used on input line 192.
 (pdftex.def)             Requested size: 251.82594pt x 139.72485pt.
  [13 <./img/solution/basic-usage-gdb.png> <./img/solution/gdb-break-continue.pn
 g>]
-<img/solution/gdb-fork-got-catch.png, id=81, 659.46375pt x 389.455pt>
+<img/solution/gdb-fork-got-catch.png, id=82, 659.46375pt x 389.455pt>
 File: img/solution/gdb-fork-got-catch.png Graphic file (type png)
 
 <use img/solution/gdb-fork-got-catch.png>
@@ -1207,7 +1207,7 @@ Package pdftex.def Info: img/solution/gdb-fork-got-catch.png used on input line
  201.
 (pdftex.def)             Requested size: 211.0327pt x 124.62814pt.
 
-<img/solution/gdbAndGDBserver.png, id=82, 947.54pt x 244.915pt>
+<img/solution/gdbAndGDBserver.png, id=83, 947.54pt x 244.915pt>
 File: img/solution/gdbAndGDBserver.png Graphic file (type png)
 
 <use img/solution/gdbAndGDBserver.png>
@@ -1222,7 +1222,7 @@ m / jugurthab / Linux _ kernel _ debug / tree / master / debug-[]examples /
  []
 
 
-<img/solution/starting-ethernet-gdbserver-session-rp3.png, id=87, 332.24126pt x
+<img/solution/starting-ethernet-gdbserver-session-rp3.png, id=88, 332.24126pt x
  65.24374pt>
 File: img/solution/starting-ethernet-gdbserver-session-rp3.png Graphic file (ty
 pe png)
@@ -1231,7 +1231,7 @@ Package pdftex.def Info: img/solution/starting-ethernet-gdbserver-session-rp3.p
 ng used on input line 267.
 (pdftex.def)             Requested size: 149.50717pt x 29.3594pt.
 
-<img/solution/gdb-server-ethernet.png, id=88, 625.33624pt x 332.24126pt>
+<img/solution/gdb-server-ethernet.png, id=89, 625.33624pt x 332.24126pt>
 File: img/solution/gdb-server-ethernet.png Graphic file (type png)
 
 <use img/solution/gdb-server-ethernet.png>
@@ -1239,7 +1239,7 @@ Package pdftex.def Info: img/solution/gdb-server-ethernet.png used on input lin
 e 282.
 (pdftex.def)             Requested size: 206.36159pt x 109.63994pt.
 
-<img/solution/gdb-successfull-debug-over-ethernet.png, id=89, 620.3175pt x 379.
+<img/solution/gdb-successfull-debug-over-ethernet.png, id=90, 620.3175pt x 379.
 4175pt>
 File: img/solution/gdb-successfull-debug-over-ethernet.png Graphic file (type p
 ng)
@@ -1256,7 +1256,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 371--372
 
  []
 
-<img/solution/kernel-debugging-ways.png, id=97, 984.67876pt x 512.91624pt>
+<img/solution/kernel-debugging-ways.png, id=98, 984.67876pt x 512.91624pt>
 File: img/solution/kernel-debugging-ways.png Graphic file (type png)
 
 <use img/solution/kernel-debugging-ways.png>
@@ -1269,14 +1269,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 386--387
  []
 
 [17 <./img/solution/kernel-debugging-ways.png>]
-<img/solution/kgdb-support-raspberry-pi-3.png, id=103, 850.17625pt x 220.825pt>
+<img/solution/kgdb-support-raspberry-pi-3.png, id=104, 850.17625pt x 220.825pt>
 File: img/solution/kgdb-support-raspberry-pi-3.png Graphic file (type png)
 <use img/solution/kgdb-support-raspberry-pi-3.png>
 Package pdftex.def Info: img/solution/kgdb-support-raspberry-pi-3.png used on i
 nput line 415.
 (pdftex.def)             Requested size: 297.56615pt x 77.2899pt.
 
-<img/solution/kdb-beagle-bone-black.png, id=104, 489.83pt x 333.245pt>
+<img/solution/kdb-beagle-bone-black.png, id=105, 489.83pt x 333.245pt>
 File: img/solution/kdb-beagle-bone-black.png Graphic file (type png)
 
 <use img/solution/kdb-beagle-bone-black.png>
@@ -1288,7 +1288,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 456--458
 
  []
 
-<img/solution/oops-error-kernel.png, id=109, 535.2497pt x 55.70813pt>
+<img/solution/oops-error-kernel.png, id=110, 535.2497pt x 55.70813pt>
 File: img/solution/oops-error-kernel.png Graphic file (type png)
 
 <use img/solution/oops-error-kernel.png>
@@ -1297,7 +1297,7 @@ Package pdftex.def Info: img/solution/oops-error-kernel.png used on input line
 (pdftex.def)             Requested size: 267.62419pt x 27.85399pt.
  [19 <./img/solution/kdb-beagle-bone-black.png> <./img/solution/oops-error-kern
 el.png>]
-<img/solution/oops-error-kernel-smp.png, id=113, 210.03468pt x 21.07875pt>
+<img/solution/oops-error-kernel-smp.png, id=114, 210.03468pt x 21.07875pt>
 File: img/solution/oops-error-kernel-smp.png Graphic file (type png)
 
 <use img/solution/oops-error-kernel-smp.png>
@@ -1305,7 +1305,7 @@ Package pdftex.def Info: img/solution/oops-error-kernel-smp.png used on input l
 ine 506.
 (pdftex.def)             Requested size: 115.51942pt x 11.59332pt.
 
-<img/solution/decodeKernelOops.png, id=114, 928.46875pt x 302.12875pt>
+<img/solution/decodeKernelOops.png, id=115, 928.46875pt x 302.12875pt>
 File: img/solution/decodeKernelOops.png Graphic file (type png)
 
 <use img/solution/decodeKernelOops.png>
@@ -1317,7 +1317,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 526--530
 
  []
 
-<img/solution/alt-sysrq-l.png, id=115, 486.81876pt x 112.42pt>
+<img/solution/alt-sysrq-l.png, id=116, 486.81876pt x 112.42pt>
 File: img/solution/alt-sysrq-l.png Graphic file (type png)
 
 <use img/solution/alt-sysrq-l.png>
@@ -1331,7 +1331,7 @@ Overfull \hbox (12.04126pt too wide) in paragraph at lines 587--589
  []
 
 
-<img/solution/gdb-kcore-proc-navigation.png, id=120, 956.57375pt x 318.18875pt>
+<img/solution/gdb-kcore-proc-navigation.png, id=121, 956.57375pt x 318.18875pt>
 File: img/solution/gdb-kcore-proc-navigation.png Graphic file (type png)
 <use img/solution/gdb-kcore-proc-navigation.png>
 Package pdftex.def Info: img/solution/gdb-kcore-proc-navigation.png used on inp
@@ -1339,14 +1339,14 @@ ut line 606.
 (pdftex.def)             Requested size: 382.62271pt x 127.27324pt.
  [21 <./img/solution/alt-sysrq-l.png> <./img/solution/gdb-kcore-proc-navigation
 .png>]
-<img/solution/kdump-kexec.jpg, id=124, 640.3925pt x 480.79625pt>
+<img/solution/kdump-kexec.jpg, id=125, 640.3925pt x 480.79625pt>
 File: img/solution/kdump-kexec.jpg Graphic file (type jpg)
 
 <use img/solution/kdump-kexec.jpg>
 Package pdftex.def Info: img/solution/kdump-kexec.jpg used on input line 620.
 (pdftex.def)             Requested size: 352.21696pt x 264.43874pt.
  [22 <./img/solution/kdump-kexec.jpg>]
-<img/solution/openOCDDiagram.png, id=128, 1014.79124pt x 565.11125pt>
+<img/solution/openOCDDiagram.png, id=129, 1014.79124pt x 565.11125pt>
 File: img/solution/openOCDDiagram.png Graphic file (type png)
 
 <use img/solution/openOCDDiagram.png>
@@ -1354,7 +1354,7 @@ Package pdftex.def Info: img/solution/openOCDDiagram.png used on input line 649
 .
 (pdftex.def)             Requested size: 284.1396pt x 158.23006pt.
 
-<img/solution/raspberry-PI-3-openocd-wiring.png, id=129, 449.68pt x 339.669pt>
+<img/solution/raspberry-PI-3-openocd-wiring.png, id=130, 449.68pt x 339.669pt>
 File: img/solution/raspberry-PI-3-openocd-wiring.png Graphic file (type png)
 
 <use img/solution/raspberry-PI-3-openocd-wiring.png>
@@ -1369,7 +1369,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-<img/solution/jtag-enabler-raspberry-pi-3.png, id=135, 442.65375pt x 131.49126p
+<img/solution/jtag-enabler-raspberry-pi-3.png, id=136, 442.65375pt x 131.49126p
 t>
 File: img/solution/jtag-enabler-raspberry-pi-3.png Graphic file (type png)
  <use img/solution/jtag-enabler-raspberry-pi-3.png>
@@ -1377,7 +1377,7 @@ Package pdftex.def Info: img/solution/jtag-enabler-raspberry-pi-3.png used on i
 nput line 693.
 (pdftex.def)             Requested size: 199.19234pt x 59.1705pt.
 
-<img/solution/openocd-bcm2837-launched.png, id=136, 1110.1475pt x 403.5075pt>
+<img/solution/openocd-bcm2837-launched.png, id=137, 1110.1475pt x 403.5075pt>
 File: img/solution/openocd-bcm2837-launched.png Graphic file (type png)
 
 <use img/solution/openocd-bcm2837-launched.png>
@@ -1389,7 +1389,7 @@ Package mdframed Info: Not enough space on this page on input line 734.
 cm2837-launched.png>]
 Package mdframed Info: Not enough space on this page on input line 734.
 
-<img/solution/OESdebug-detect-OpenOCD.png, id=141, 557.08125pt x 362.35374pt>
+<img/solution/OESdebug-detect-OpenOCD.png, id=142, 557.08125pt x 362.35374pt>
 File: img/solution/OESdebug-detect-OpenOCD.png Graphic file (type png)
 
 <use img/solution/OESdebug-detect-OpenOCD.png>
@@ -1397,7 +1397,7 @@ Package pdftex.def Info: img/solution/OESdebug-detect-OpenOCD.png used on input
  line 749.
 (pdftex.def)             Requested size: 250.68425pt x 163.05768pt.
 
-<img/solution/OESdebug-adapterSupport.png, id=142, 495.8525pt x 242.9075pt>
+<img/solution/OESdebug-adapterSupport.png, id=143, 495.8525pt x 242.9075pt>
 File: img/solution/OESdebug-adapterSupport.png Graphic file (type png)
 
 <use img/solution/OESdebug-adapterSupport.png>
@@ -1405,7 +1405,7 @@ Package pdftex.def Info: img/solution/OESdebug-adapterSupport.png used on input
  line 758.
 (pdftex.def)             Requested size: 223.13156pt x 109.30736pt.
 
-<img/solution/OESdebug-new-board.png, id=143, 431.6125pt x 368.37625pt>
+<img/solution/OESdebug-new-board.png, id=144, 431.6125pt x 368.37625pt>
 File: img/solution/OESdebug-new-board.png Graphic file (type png)
 
 <use img/solution/OESdebug-new-board.png>
@@ -1414,7 +1414,7 @@ Package pdftex.def Info: img/solution/OESdebug-new-board.png used on input line
 (pdftex.def)             Requested size: 151.06664pt x 128.93361pt.
  [25 <./img/solution/OESdebug-detect-OpenOCD.png> <./img/solution/OESdebug-adap
 terSupport.png>]
-<img/solution/OESdebug-generatedScript.png, id=147, 482.80376pt x 322.20375pt>
+<img/solution/OESdebug-generatedScript.png, id=148, 482.80376pt x 322.20375pt>
 File: img/solution/OESdebug-generatedScript.png Graphic file (type png)
 
 <use img/solution/OESdebug-generatedScript.png>
@@ -1422,7 +1422,7 @@ Package pdftex.def Info: img/solution/OESdebug-generatedScript.png used on inpu
 t line 774.
 (pdftex.def)             Requested size: 265.5429pt x 177.2126pt.
 
-<img/solution/at32uc3c0512c-found-openocd.png, id=148, 728.7225pt x 174.6525pt>
+<img/solution/at32uc3c0512c-found-openocd.png, id=149, 728.7225pt x 174.6525pt>
 File: img/solution/at32uc3c0512c-found-openocd.png Graphic file (type png)
 <use img/solution/at32uc3c0512c-found-openocd.png>
 Package pdftex.def Info: img/solution/at32uc3c0512c-found-openocd.png used on i
@@ -1436,14 +1436,14 @@ Overfull \hbox (46.47531pt too wide) in paragraph at lines 828--829
  []
 
 
-<img/solution/insert-your-module-to-kernel.png, id=152, 624.3325pt x 34.1275pt>
+<img/solution/insert-your-module-to-kernel.png, id=153, 624.3325pt x 34.1275pt>
 File: img/solution/insert-your-module-to-kernel.png Graphic file (type png)
 <use img/solution/insert-your-module-to-kernel.png>
 Package pdftex.def Info: img/solution/insert-your-module-to-kernel.png used on 
 input line 841.
 (pdftex.def)             Requested size: 280.94702pt x 15.35722pt.
 
-<img/solution/trace-cmd-tracing-module.png, id=153, 761.84625pt x 61.22874pt>
+<img/solution/trace-cmd-tracing-module.png, id=154, 761.84625pt x 61.22874pt>
 File: img/solution/trace-cmd-tracing-module.png Graphic file (type png)
 
 <use img/solution/trace-cmd-tracing-module.png>
@@ -1451,7 +1451,7 @@ Package pdftex.def Info: img/solution/trace-cmd-tracing-module.png used on inpu
 t line 850.
 (pdftex.def)             Requested size: 327.5875pt x 26.32784pt.
 
-<img/solution/interacting-driver-trace-cmd.png, id=154, 462.72874pt x 45.16875p
+<img/solution/interacting-driver-trace-cmd.png, id=155, 462.72874pt x 45.16875p
 t>
 File: img/solution/interacting-driver-trace-cmd.png Graphic file (type png)
  <use img/solution/interacting-driver-trace-cmd.png>
@@ -1460,7 +1460,7 @@ input line 858.
 (pdftex.def)             Requested size: 185.08821pt x 18.06717pt.
  [27 <./img/solution/insert-your-module-to-kernel.png> <./img/solution/trace-cm
 d-tracing-module.png>]
-<img/solution/trace-cmd-report-module.png, id=158, 860.21375pt x 106.3975pt>
+<img/solution/trace-cmd-report-module.png, id=159, 860.21375pt x 106.3975pt>
 File: img/solution/trace-cmd-report-module.png Graphic file (type png)
 
 <use img/solution/trace-cmd-report-module.png>
@@ -1468,7 +1468,7 @@ Package pdftex.def Info: img/solution/trace-cmd-report-module.png used on input
  line 867.
 (pdftex.def)             Requested size: 344.07939pt x 42.55824pt.
 
-<img/solution/kernelshark-task-schedule.png, id=159, 798.985pt x 576.1525pt>
+<img/solution/kernelshark-task-schedule.png, id=160, 798.985pt x 576.1525pt>
 File: img/solution/kernelshark-task-schedule.png Graphic file (type png)
 
 <use img/solution/kernelshark-task-schedule.png>
@@ -1477,7 +1477,7 @@ ut line 884.
 (pdftex.def)             Requested size: 319.58833pt x 230.45691pt.
  [28 <./img/solution/interacting-driver-trace-cmd.png> <./img/solution/trace-cm
 d-report-module.png> <./img/solution/kernelshark-task-schedule.png>]
-<img/solution/create-session-lttng.png, id=163, 634.37pt x 111.41624pt>
+<img/solution/create-session-lttng.png, id=164, 634.37pt x 111.41624pt>
 File: img/solution/create-session-lttng.png Graphic file (type png)
 
 <use img/solution/create-session-lttng.png>
@@ -1485,7 +1485,7 @@ Package pdftex.def Info: img/solution/create-session-lttng.png used on input li
 ne 917.
 (pdftex.def)             Requested size: 266.43358pt x 46.7945pt.
 
-<img/solution/lttng-select-event.png, id=164, 635.37375pt x 56.21pt>
+<img/solution/lttng-select-event.png, id=165, 635.37375pt x 56.21pt>
 File: img/solution/lttng-select-event.png Graphic file (type png)
 
 <use img/solution/lttng-select-event.png>
@@ -1493,7 +1493,7 @@ Package pdftex.def Info: img/solution/lttng-select-event.png used on input line
  928.
 (pdftex.def)             Requested size: 285.91554pt x 25.29425pt.
 
-<img/solution/lttng-start-tracing.png, id=165, 636.3775pt x 57.21375pt>
+<img/solution/lttng-start-tracing.png, id=166, 636.3775pt x 57.21375pt>
 File: img/solution/lttng-start-tracing.png Graphic file (type png)
 
 <use img/solution/lttng-start-tracing.png>
@@ -1501,7 +1501,7 @@ Package pdftex.def Info: img/solution/lttng-start-tracing.png used on input lin
 e 938.
 (pdftex.def)             Requested size: 286.36723pt x 25.74594pt.
 
-<img/solution/lttng-stop-session.png, id=166, 367.3725pt x 62.2325pt>
+<img/solution/lttng-stop-session.png, id=167, 367.3725pt x 62.2325pt>
 File: img/solution/lttng-stop-session.png Graphic file (type png)
 
 <use img/solution/lttng-stop-session.png>
@@ -1509,7 +1509,7 @@ Package pdftex.def Info: img/solution/lttng-stop-session.png used on input line
  947.
 (pdftex.def)             Requested size: 176.33678pt x 29.87125pt.
 
-<img/solution/babel-trace.png, id=167, 877.2775pt x 190.7125pt>
+<img/solution/babel-trace.png, id=168, 877.2775pt x 190.7125pt>
 File: img/solution/babel-trace.png Graphic file (type png)
 
 <use img/solution/babel-trace.png>
@@ -1530,7 +1530,7 @@ master / debug-[]examples / Chap3-[]tracers /
  []
 
 
-<img/solution/lttng-analyses-automatic-record.png, id=171, 650.43pt x 156.585pt
+<img/solution/lttng-analyses-automatic-record.png, id=172, 650.43pt x 156.585pt
 >
 File: img/solution/lttng-analyses-automatic-record.png Graphic file (type png)
  <use img/solution/lttng-analyses-automatic-record.png>
@@ -1538,7 +1538,7 @@ Package pdftex.def Info: img/solution/lttng-analyses-automatic-record.png used
 on input line 991.
 (pdftex.def)             Requested size: 260.16739pt x 62.63287pt.
 
-<img/solution/lttng-schedlog.png, id=172, 1027.84pt x 304.13625pt>
+<img/solution/lttng-schedlog.png, id=173, 1027.84pt x 304.13625pt>
 File: img/solution/lttng-schedlog.png Graphic file (type png)
 
 <use img/solution/lttng-schedlog.png>
@@ -1547,7 +1547,7 @@ Package pdftex.def Info: img/solution/lttng-schedlog.png used on input line 100
 (pdftex.def)             Requested size: 359.74939pt x 106.44928pt.
  [30 <./img/solution/babel-trace.png> <./img/solution/lttng-analyses-automatic-
 record.png> <./img/solution/lttng-schedlog.png>]
-<img/solution/basic-statistics-using-perf.png, id=177, 1076.02pt x 409.53pt>
+<img/solution/basic-statistics-using-perf.png, id=178, 1076.02pt x 409.53pt>
 File: img/solution/basic-statistics-using-perf.png Graphic file (type png)
 
 <use img/solution/basic-statistics-using-perf.png>
@@ -1555,7 +1555,7 @@ Package pdftex.def Info: img/solution/basic-statistics-using-perf.png used on i
 nput line 1039.
 (pdftex.def)             Requested size: 269.00435pt x 102.38225pt.
 
-<img/solution/filter-statistics-using-perf.png, id=178, 1405.25pt x 268.00125pt
+<img/solution/filter-statistics-using-perf.png, id=179, 1405.25pt x 268.00125pt
 >
 File: img/solution/filter-statistics-using-perf.png Graphic file (type png)
  <use img/solution/filter-statistics-using-perf.png>
@@ -1567,7 +1567,7 @@ Overfull \hbox (79.00084pt too wide) in paragraph at lines 1061--1062
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-<img/solution/record-hole-system-perf.png, id=179, 733.74126pt x 87.32625pt>
+<img/solution/record-hole-system-perf.png, id=180, 733.74126pt x 87.32625pt>
 File: img/solution/record-hole-system-perf.png Graphic file (type png)
 
 <use img/solution/record-hole-system-perf.png>
@@ -1576,7 +1576,7 @@ Package pdftex.def Info: img/solution/record-hole-system-perf.png used on input
 (pdftex.def)             Requested size: 366.86974pt x 43.66301pt.
  [31 <./img/solution/basic-statistics-using-perf.png> <./img/solution/filter-st
 atistics-using-perf.png>]
-<img/solution/basic-display-record-mode-perf.png, id=183, 734.745pt x 299.1175p
+<img/solution/basic-display-record-mode-perf.png, id=184, 734.745pt x 299.1175p
 t>
 File: img/solution/basic-display-record-mode-perf.png Graphic file (type png)
  <use img/solution/basic-display-record-mode-perf.png>
@@ -1584,7 +1584,7 @@ Package pdftex.def Info: img/solution/basic-display-record-mode-perf.png used o
 n input line 1082.
 (pdftex.def)             Requested size: 404.111pt x 164.51512pt.
 
-<img/solution/check-sched-switch-support-perf.png, id=184, 592.2125pt x 75.2812
+<img/solution/check-sched-switch-support-perf.png, id=185, 592.2125pt x 75.2812
 5pt>
 File: img/solution/check-sched-switch-support-perf.png Graphic file (type png)
  <use img/solution/check-sched-switch-support-perf.png>
@@ -1592,7 +1592,7 @@ Package pdftex.def Info: img/solution/check-sched-switch-support-perf.png used
 on input line 1107.
 (pdftex.def)             Requested size: 325.71788pt x 41.4048pt.
 
-<img/solution/trace-sched-switch-perf.png, id=185, 755.82375pt x 375.4025pt>
+<img/solution/trace-sched-switch-perf.png, id=186, 755.82375pt x 375.4025pt>
 File: img/solution/trace-sched-switch-perf.png Graphic file (type png)
 
 <use img/solution/trace-sched-switch-perf.png>
@@ -1601,7 +1601,7 @@ Package pdftex.def Info: img/solution/trace-sched-switch-perf.png used on input
 (pdftex.def)             Requested size: 302.32414pt x 150.15834pt.
  [32 <./img/solution/record-hole-system-perf.png> <./img/solution/basic-display
 -record-mode-perf.png> <./img/solution/check-sched-switch-support-perf.png>]
-<img/solution/read-perf-trace-sched-switch.png, id=190, 1405.25pt x 593.21625pt
+<img/solution/read-perf-trace-sched-switch.png, id=191, 1405.25pt x 593.21625pt
 >
 File: img/solution/read-perf-trace-sched-switch.png Graphic file (type png)
  <use img/solution/read-perf-trace-sched-switch.png>
@@ -1609,7 +1609,7 @@ Package pdftex.def Info: img/solution/read-perf-trace-sched-switch.png used on
 input line 1127.
 (pdftex.def)             Requested size: 351.31165pt x 148.3037pt.
 
-<img/solution/perf-hotspot.png, id=191, 849.1725pt x 400.49625pt>
+<img/solution/perf-hotspot.png, id=192, 849.1725pt x 400.49625pt>
 File: img/solution/perf-hotspot.png Graphic file (type png)
 
 <use img/solution/perf-hotspot.png>
@@ -1617,7 +1617,7 @@ Package pdftex.def Info: img/solution/perf-hotspot.png used on input line 1139.
 
 (pdftex.def)             Requested size: 212.2926pt x 100.12381pt.
 
-<img/solution/security-monitoring-with-ebpf-11-638.jpg, id=192, 640.3925pt x 36
+<img/solution/security-monitoring-with-ebpf-11-638.jpg, id=193, 640.3925pt x 36
 0.34625pt>
 File: img/solution/security-monitoring-with-ebpf-11-638.jpg Graphic file (type 
 jpg)
@@ -1627,7 +1627,7 @@ used on input line 1154.
 (pdftex.def)             Requested size: 256.15245pt x 144.13594pt.
  [33 <./img/solution/trace-sched-switch-perf.png> <./img/solution/read-perf-tra
 ce-sched-switch.png> <./img/solution/perf-hotspot.png>]
-<img/solution/sys_mkdir_detected.png, id=197, 726.715pt x 217.81375pt>
+<img/solution/sys_mkdir_detected.png, id=198, 726.715pt x 217.81375pt>
 File: img/solution/sys_mkdir_detected.png Graphic file (type png)
 
 <use img/solution/sys_mkdir_detected.png>
@@ -1635,7 +1635,7 @@ Package pdftex.def Info: img/solution/sys_mkdir_detected.png used on input line
  1182.
 (pdftex.def)             Requested size: 290.68085pt x 87.12395pt.
 
-<img/solution/creating-ebpf-tracepoint.png, id=198, 706.64pt x 244.915pt>
+<img/solution/creating-ebpf-tracepoint.png, id=199, 706.64pt x 244.915pt>
 File: img/solution/creating-ebpf-tracepoint.png Graphic file (type png)
 
 <use img/solution/creating-ebpf-tracepoint.png>
@@ -1654,7 +1654,7 @@ Overfull \hbox (14.63321pt too wide) in paragraph at lines 1246--1247
  []
 
 
-<img/solution/cmptracers-target-information.png, id=202, 771.88374pt x 332.2412
+<img/solution/cmptracers-target-information.png, id=203, 771.88374pt x 332.2412
 6pt>
 File: img/solution/cmptracers-target-information.png Graphic file (type png)
  <use img/solution/cmptracers-target-information.png>
@@ -1681,35 +1681,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 1317--1318
 
  []
 
-<img/solution/gdb-cannot-be-attached.png, id=210, 706.64pt x 180.675pt>
+<img/solution/gdb-cannot-be-attached.png, id=211, 706.64pt x 180.675pt>
 File: img/solution/gdb-cannot-be-attached.png Graphic file (type png)
 
 <use img/solution/gdb-cannot-be-attached.png>
 Package pdftex.def Info: img/solution/gdb-cannot-be-attached.png used on input 
 line 1322.
-(pdftex.def)             Requested size: 317.98506pt x 81.303pt.
+(pdftex.def)             Requested size: 353.31914pt x 90.33727pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1326--1327
 
  []
 
-<img/solution/ptrace-reverse-anti-debug.png, id=211, 648.4225pt x 182.6825pt>
+<img/solution/ptrace-reverse-anti-debug.png, id=212, 648.4225pt x 182.6825pt>
 File: img/solution/ptrace-reverse-anti-debug.png Graphic file (type png)
 
 <use img/solution/ptrace-reverse-anti-debug.png>
 Package pdftex.def Info: img/solution/ptrace-reverse-anti-debug.png used on inp
 ut line 1337.
-(pdftex.def)             Requested size: 291.78743pt x 82.20634pt.
+(pdftex.def)             Requested size: 324.21045pt x 91.34102pt.
 
-<img/solution/jumpMadeUsingGDB.png, id=212, 432.61626pt x 92.345pt>
+<img/solution/jumpMadeUsingGDB.png, id=213, 432.61626pt x 92.345pt>
 File: img/solution/jumpMadeUsingGDB.png Graphic file (type png)
 
 <use img/solution/jumpMadeUsingGDB.png>
 Package pdftex.def Info: img/solution/jumpMadeUsingGDB.png used on input line 1
 346.
-(pdftex.def)             Requested size: 194.6755pt x 41.55486pt.
+(pdftex.def)             Requested size: 216.3076pt x 46.17238pt.
 
-<img/solution/reverse-engineering-debugged.png, id=213, 360.34625pt x 62.2325pt
+<img/solution/reverse-engineering-debugged.png, id=214, 360.34625pt x 62.2325pt
 >
 File: img/solution/reverse-engineering-debugged.png Graphic file (type png)
  <use img/solution/reverse-engineering-debugged.png>
@@ -1741,7 +1741,7 @@ Overfull \hbox (30.9536pt too wide) in paragraph at lines 1386--1387
 nel-[]security / kernel / module-[]tampering$[]\T1/lmr/m/n/12 ) 
  []
 
-<img/solution/combining-modules-linux.png, id=217, 655.44875pt x 162.6075pt>
+<img/solution/combining-modules-linux.png, id=218, 655.44875pt x 162.6075pt>
 File: img/solution/combining-modules-linux.png Graphic file (type png)
 
 <use img/solution/combining-modules-linux.png>
@@ -1749,33 +1749,68 @@ Package pdftex.def Info: img/solution/combining-modules-linux.png used on input
  line 1393.
 (pdftex.def)             Requested size: 294.9492pt x 73.1727pt.
 
-Overfull \hbox (24.24686pt too wide) in paragraph at lines 1405--1407
+Overfull \hbox (7.5095pt too wide) in paragraph at lines 1398--1399
+[]\T1/lmr/m/n/12 kernel-module-infected.ko is merly a com-bi-na-tion of kernel-
+module-safe.ko and kernel-module-
+ []
+
+[38 <./img/solution/reverse-engineering-debugged.png> <./img/solution/combining
+-modules-linux.png>]
+Overfull \hbox (55.78256pt too wide) in paragraph at lines 1408--1409
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.06673pt too wide) in paragraph at lines 1412--1413
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+lmss on input line 141
+7.
+LaTeX Font Info:    No file OMSlmss.fd. on input line 1417.
+
+LaTeX Font Warning: Font shape `OMS/lmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textasteriskcentered' on input line 1417.
+
+
+Overfull \hbox (24.24686pt too wide) in paragraph at lines 1420--1422
 \T1/lmr/m/n/12 All what is left is for-cing ^^S init_module ^^Tto point to our 
 ma-li-cious sym-bol ^^S fak_module_init ^^T(\T1/lmr/m/it/12 at
  []
 
-<img/solution/infected-module-dumped.png, id=218, 600.2425pt x 313.17pt>
+
+Overfull \hbox (43.10901pt too wide) in paragraph at lines 1423--1424
+\T1/lmtt/m/n/12 blob / master / debug-[]examples / Chap6-[]kernel-[]security / 
+kernel / module-[]tampering / elfchger .
+ []
+
+<img/solution/infected-module-dumped.png, id=222, 600.2425pt x 313.17pt>
 File: img/solution/infected-module-dumped.png Graphic file (type png)
 
 <use img/solution/infected-module-dumped.png>
 Package pdftex.def Info: img/solution/infected-module-dumped.png used on input 
-line 1417.
-(pdftex.def)             Requested size: 210.08801pt x 109.61113pt.
- [38 <./img/solution/reverse-engineering-debugged.png> <./img/solution/combinin
-g-modules-linux.png>]
-<img/solution/hacked-module.png, id=222, 1066.98625pt x 184.69pt>
+line 1432.
+(pdftex.def)             Requested size: 300.12051pt x 156.58461pt.
+
+<img/solution/hacked-module.png, id=223, 1066.98625pt x 184.69pt>
 File: img/solution/hacked-module.png Graphic file (type png)
 
 <use img/solution/hacked-module.png>
-Package pdftex.def Info: img/solution/hacked-module.png used on input line 1427
+Package pdftex.def Info: img/solution/hacked-module.png used on input line 1442
 .
-(pdftex.def)             Requested size: 373.45079pt x 64.64246pt.
-) [39 <./img/solution/infected-module-dumped.png> <./img/solution/hacked-module
-.png>]
+(pdftex.def)             Requested size: 533.49182pt x 92.34476pt.
+
+Overfull \hbox (33.00783pt too wide) in paragraph at lines 1442--1443
+ [][] 
+ []
+
+[39 <./img/solution/infected-module-dumped.png>]) [40 <./img/solution/hacked-mo
+dule.png>]
 \openout2 = `internship-difficulties.aux'.
 
  (./internship-difficulties.tex
-<img/issues/tdi-not-connected-openocd.png, id=226, 1052.93375pt x 291.0875pt>
+<img/issues/tdi-not-connected-openocd.png, id=231, 1052.93375pt x 291.0875pt>
 File: img/issues/tdi-not-connected-openocd.png Graphic file (type png)
 
 <use img/issues/tdi-not-connected-openocd.png>
@@ -1789,13 +1824,13 @@ m/n/12 https : / / www . olimex . com / Products / ARM / JTAG / ARM-[]USB-[]TIN
 Y-[]H/$[]\T1/lmr/m/n/12 )
  []
 
-<img/issues/no-debug-symbol.png, id=227, 627.34375pt x 180.675pt>
+<img/issues/no-debug-symbol.png, id=232, 627.34375pt x 180.675pt>
 File: img/issues/no-debug-symbol.png Graphic file (type png)
 
 <use img/issues/no-debug-symbol.png>
 Package pdftex.def Info: img/issues/no-debug-symbol.png used on input line 34.
 (pdftex.def)             Requested size: 250.93304pt x 72.2687pt.
- [40
+ [41
 
 
  <./img/issues/tdi-not-connected-openocd.png>]
@@ -1809,7 +1844,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
  []
 
 
-<img/issues/USB-Serial-cable-To-Raspberry-PI-3_bb.png, id=231, 542.025pt x 331.
+<img/issues/USB-Serial-cable-To-Raspberry-PI-3_bb.png, id=236, 542.025pt x 331.
 639pt>
 File: img/issues/USB-Serial-cable-To-Raspberry-PI-3_bb.png Graphic file (type p
 ng)
@@ -1828,8 +1863,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
-[41 <./img/issues/no-debug-symbol.png> <./img/issues/USB-Serial-cable-To-Raspbe
-rry-PI-3_bb.png>]) [42]
+[42 <./img/issues/no-debug-symbol.png> <./img/issues/USB-Serial-cable-To-Raspbe
+rry-PI-3_bb.png>]) [43]
 \openout2 = `internship-conclusion.aux'.
 
  (./internship-conclusion.tex
@@ -1842,7 +1877,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
-) [43
+) [44
 
 
 ]
@@ -1857,40 +1892,45 @@ Overfull \hbox (84.91353pt too wide) in paragraph at lines 44--45
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[44
+[45
 
 
-]) [45] (./final-year-project-defense-m2lse.aux
+]) [46] (./final-year-project-defense-m2lse.aux
 (./internship-acknowledgement.aux) (./internship-introduction.aux)
 (./internship-objectives.aux) (./internship-means.aux)
 (./internship-solution.aux) (./internship-difficulties.aux)
-(./internship-conclusion.aux) (./appendix.aux)) ) 
+(./internship-conclusion.aux) (./appendix.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 25306 strings out of 494883
- 486324 string characters out of 6178693
- 533028 words of memory out of 5000000
- 28077 multiletter control sequences out of 15000+600000
- 107894 words of font info for 69 fonts, out of 8000000 for 9000
+ 25343 strings out of 494883
+ 486773 string characters out of 6178693
+ 533039 words of memory out of 5000000
+ 28112 multiletter control sequences out of 15000+600000
+ 107833 words of font info for 69 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 67i,10n,79p,10421b,1780s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share
-/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
-12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/font
-s/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></u
-sr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/p
-ublic/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/shar
-e/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on final-year-project-defense-m2lse.pdf (46 pages, 4156116 bytes
+ 67i,10n,79p,10421b,1796s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathsy.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/
+lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/
+lmtti10.pfb>
+Output written on final-year-project-defense-m2lse.pdf (47 pages, 4157579 bytes
 ).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
+ 316 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  359 words of extra memory for PDF output out of 10000 (max. 10000000)
 

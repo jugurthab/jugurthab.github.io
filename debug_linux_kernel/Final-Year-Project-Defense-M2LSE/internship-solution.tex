@@ -1319,7 +1319,7 @@ The code snippet means that the process will be traced by it's father. \\
 \textbf{\color{red}Problem : } only one debugger can be attached to a running process at time t (see \textbf{Figure \ref{GDB cannot attach to the program due to Anti-debugging}}).
     		\begin{figure}[H]
 					\centering
-        			\includegraphics[scale=0.45]{img/solution/gdb-cannot-be-attached.png}
+        			\includegraphics[scale=0.5]{img/solution/gdb-cannot-be-attached.png}
         			\caption{GDB cannot attach to the program due to Anti-debugging}
         			\label{GDB cannot attach to the program due to Anti-debugging}
    			 \end{figure}
@@ -1334,20 +1334,20 @@ Ptrace attacks are very basic and be defeated quickly :
 	\item[$\ast$] \textbf{Place a breakpoint :} in order to jump to a given location, the program must running which means that We need at least one breakpoint. Let's place it at the beginning of the \emph{ptrace} function and run the program (\textbf{Figure \ref{Placing a breakpoint at the beginning of ptrace}}).
 			\begin{figure}[H]
 					\centering
-        			\includegraphics[scale=0.45]{img/solution/ptrace-reverse-anti-debug.png}
+        			\includegraphics[scale=0.5]{img/solution/ptrace-reverse-anti-debug.png}
         			\caption{Placing a breakpoint at the beginning of ptrace}
         			\label{Placing a breakpoint at the beginning of ptrace}
    			 \end{figure}
 		
 	
-	\item[$\ast$] \textbf{Get the destination address : } it is enough to print the location of \emph{getchar()} in memory and jump there using gdb (\textbf{Figure \ref{Jump to getchar function location}}).
+	\item[$\ast$] \textbf{Get the destination address : } retrieve the location of \emph{getchar()} in memory and jump there using gdb (\textbf{Figure \ref{Jump to getchar function location}}).
 	\begin{figure}[H]
 					\centering
-        			\includegraphics[scale=0.45]{img/solution/jumpMadeUsingGDB.png}
+        			\includegraphics[scale=0.5]{img/solution/jumpMadeUsingGDB.png}
         			\caption{Jump to getchar function location}
         			\label{Jump to getchar function location}
    			 \end{figure}
-\textbf{\color{orange}Remark :} We have forced our program to jump to memory. location 0x7ffff7a83160	
+\textbf{\color{orange}Remark :} We have forced our program to jump to memory location 0x7ffff7a83160	
 	\item[$\ast$] \textbf{Carry on program execution : } At the moment that We made the jump, a blinking cursor was waiting for a character input (this is the behaviour of getchar()), We can provide it with a character as shown in \textbf{Figure \ref{Reversing ptrace anti-debug}}
 			\begin{figure}[H]
 					\centering
@@ -1395,17 +1395,32 @@ More advanced attacks like module tampering : ({\color{blue}\url{https://github.
         			\label{Meging modules using ld}
    			 \end{figure}	
 	
-	
+	kernel-module-infected.ko is merly a combination of kernel-module-safe.ko and kernel-module-to-inject.ko
 	
 	\item \textbf{Analyse the resulting module :} We can dump module's symbol table of as follow :
 \begin{lstlisting}[style=BashInputStyle]
 $ objdump -t kernel-module-infected.ko
+
+kernel-module-infected.ko:     format de fichier elf32-i386
+
+SYMBOL TABLE:
+............
+00000000 l     F .init.text	00000014 mon_module_init # init function of kernel-module-safe.ko
+00000000 l     F .exit.text	00000012 mon_module_cleanup
+............
+............
+00000014 l     F .init.text	00000014 fak_module_init # init function of kernel-module-to-inject.ko
+............
+............
+00000000 g     F .exit.text	00000012 cleanup_module
+00000000 g     F .init.text	00000014 init_module
+00000000         *UND*	00000000 printk
 \end{lstlisting}
 
 The reader can notice that \og fak\_module\_init \fg has been linked correctly.\\
-All what is left is forcing \og init\_module \fg to point to our malicious symbol \og fak\_module\_init \fg (\emph{at relative location 00000014}).
+All what is left is forcing \og init\_module \fg to point to our malicious symbol \og fak\_module\_init \fg (\emph{at location 00000014}).
 
-\item \textbf{Make init\_module as an alias of fak\_module\_evil : } We must change the relative address of init\_module to execute our malicious function as shown below.
+\item \textbf{Make init\_module as an alias of fak\_module\_evil : } init\_module should point to our malicious function. One may do it by tampering the sections of kernel-module-infected.ko but a knwoledge of ELF file format is required. A program called elfchger can edit ELF files quickly and easily ({\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/blob/master/debug-examples/Chap6-kernel-security/kernel/module-tampering/elfchger.c}}) as shown below :
 \begin{lstlisting}[style=BashInputStyle]
 ./elfchger -s init_module -v 00000014 kernel-module-infected.ko
 \end{lstlisting}
@@ -1414,7 +1429,7 @@ Dumping the infected module using \og objdump -t kernel-module-infected.ko \fg i
 
 \begin{figure}[H]
 					\centering
-        			\includegraphics[scale=0.35]{img/solution/infected-module-dumped.png}
+        			\includegraphics[scale=0.5]{img/solution/infected-module-dumped.png}
         			\caption{Forcing init\_module to become an alias of a malicious function}
         			\label{Forcing init-module to become an alias of a malicious function}
    			 \end{figure}
@@ -1424,7 +1439,7 @@ Dumping the infected module using \og objdump -t kernel-module-infected.ko \fg i
 
 \begin{figure}[H]
 					\centering
-        			\includegraphics[scale=0.35]{img/solution/hacked-module.png}
+        			\includegraphics[scale=0.5]{img/solution/hacked-module.png}
         			\caption{Infected module executing malicious function}
         			\label{Infected module executing malicious function}
    			 \end{figure}
@@ -1432,5 +1447,6 @@ Dumping the infected module using \og objdump -t kernel-module-infected.ko \fg i
    			 \color{red}
    			 The module is executing the evil function
    			 \end{center}
-	
+
+Once again, this can be detected easily using basic debugging commands tools like "objdump", "readelf" or even "objcopy".
 \end{enumerate}
