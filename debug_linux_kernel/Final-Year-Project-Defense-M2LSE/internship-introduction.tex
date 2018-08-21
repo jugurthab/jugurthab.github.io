@@ -1,7 +1,8 @@
 \section{Introduction}
- Embedded devices are increasingly popular, devices are becoming smaller, smarter, interactive striving for better user experience.\\
+{\setlength{\baselineskip}{2em}
+ Embedded devices are increasingly popular, they are becoming smaller, smarter, interactive striving for better user experience.\\
 
-Such a success was made possible since those tiny devices rely on UNIX-like operating systems (\textbf{Linux is the dominant}). 
+Such a success was made possible since those tiny devices rely on \textbf{UNIX-like} operating systems (\textbf{Linux is the dominant}). 
 
 \begin{itemize}
 	\item[$\bullet$] \textbf{Open Source : } Linux kernel sources are maintained by a large community, the latest stable version is available at {\color{blue}\url{https://www.kernel.org/}}\footnote{The lastest version (not stable) is available at Linus github : {\color{blue}\url{https://github.com/torvalds/linux}}}.
@@ -15,10 +16,11 @@ Such a success was made possible since those tiny devices rely on UNIX-like oper
 
 \vspace{10px}
 
-However, such powerful operating systems are complex. Inconsistencies and logic flow errors can raise at any time (As the rule says : \og {\color{red}More code, more error prone} \fg),
-We need mechanisms that can scale efficiently to track issues and bugs during developement and maintenance. A variety of tools have been adopted (some are even built-in) that help developers to write more stable and efficient applications.\\
+However, such powerful operating systems are complex. Inconsistencies and logic flow errors can raise at any time (\textit{As the rule says : \og {\color{red}More code, more prone to errors} \fg}),
+We need mechanisms that can scale efficiently to track issues and bugs during developement and maintenance. A variety of tools have been adopted (\textit{some are even built-in}) that help developers to write more stable and efficient applications.\\
 
 \vspace{10px}
-
+\setlength{\baselineskip}{1.5em}
 More can be said, as Linux is a multitasking and multiuser system. Every piece of code is checked for permissions. It
-does even distinguish between two distinct spaces : \textbf{userspace} and \textbf{kernel}. each has it's own operating privileges (\textbf{kernel does have all the privileges}) so they must be debugged differently.
+does even distinguish between two distinct spaces : \textbf{userspace} and \textbf{kernel}. each has it's own operating privileges (\textbf{kernel does have all the privileges}) so they must be \textbf{debugged differently}.
+}

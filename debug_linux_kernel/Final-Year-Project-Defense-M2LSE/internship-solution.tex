@@ -24,7 +24,7 @@ The following section discusses results of my intership. We are going to highlig
 
 \subsection{Userspace}
 Understading userspace bottlenecks is an everyday's job for every software developer, performance and even security engineer. Most appreciated debugging mechanisms were gathered as shown in \textbf{Figure \ref{Linux userspace debugging methodologies}}.
-\begin{figure}[H]
+	\begin{figure}[H]
 		\centering
         \includegraphics[scale=0.40]{img/solution/userspace.png}
         \caption{Linux userspace debugging methodologies}
@@ -46,10 +46,10 @@ However, there are important data-structures and information that we require eve
 		\begin{itemize}
 			\item[$\bullet$] \textbf{/proc/pid/maps : } displays virtual address space layout of a given process (\textit{identified by pid}).
 			\item[$\bullet$] \textbf{/proc/pid/status : } returns process specific informations (\emph{process status}, \emph{{\color{red}attached debugger}}, ..., etc).
-			\item[$\bullet$] \textbf{/proc/pid/limits : }						
+			\item[$\bullet$] \textbf{/proc/pid/limits : }	shows limits (number of files to open, size of core dump file, ..., etc) of a given process.					
 		\end{itemize}
 Other files can be also helpful like : \textbf{/proc/meminfo} and \textbf{/proc/cpuinfo} which returns information associated to memory and processors respectively.	
-	\item \textbf{SysFs (/sys): } a more recent filesystem (\emph{more organized than \textbf{procfs}}), We will be concerned with folder \textbf{/sys/module} as it is required to debug modules (\textit{as We will see later}). 
+	\item \textbf{SysFs (/sys): } a more recent filesystem (\emph{more organized than \textbf{procfs}}), one may be concerned with the folder \textbf{/sys/module} as it is required to debug modules (\textit{modules are not part of vmlinux image, We need to know their location}). 
 	
 	
 \end{itemize}
@@ -69,15 +69,15 @@ $ sudo echo 0 > /proc/sys/kernel/yama/ptrace_scope
 Calls are divided into two categories, each using a set of tools to trace them :
 \begin{itemize}
 
-	\item \textbf{System calls (Syscalls) : } a request from userspace to kernel in order to provide a service (open file, close socket, allocate memory, ...,etc). A tool called strace allows to have more insight on Syscalls.
+	\item \textbf{System calls (Syscalls) : } a request from userspace to kernel in order to provide a service (open file, close socket, allocate memory, ...,etc). A tool called strace allows to have more insight on \textbf{Syscalls}.
 	
-Strace is a debugging and diagnostic tool. The \og s \fg stands for \og system call \fg, which means that strace can monitor
-Syscalls and reports them to end users.
+\textbf{Strace} is a debugging and diagnostic tool. The \og s \fg stands for \og system call \fg, which means that \textbf{strace} can monitor
+\textbf{Syscalls} and reports them to end users.
 
 An example is provided at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/strace}}
 
-	\item \textbf{library calls : } Executables rely on external libraries to provide more functions (like the C library). Access to libraries is granted through library calls, ltrace is used to trace them. 
-\og ltrace \fg can record calls made from a binary executable file to shared libraries. \emph{It may save hours of debugging if used correctly}.
+	\item \textbf{library calls : } Executables rely on external libraries to provide more functions (\textit{like the C library}). Access to libraries is granted through \textbf{library calls}, \textbf{ltrace} is used to trace them. 
+\og \textbf{ltrace} \fg can record calls made from a binary executable file to shared libraries. \emph{It may save hours of debugging if used correctly}.
 	
 We have made an example at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/ltrace}}
 
@@ -96,7 +96,7 @@ We have made an example at : {\color{blue}\url{https://github.com/jugurthab/Linu
         outerlinewidth=1.25pt
     ]
     % ----------
-			ltrace has some limitations as it cannot trace calls amongst libraries. For this purpose, one need to use latrace (\textbf{Figure \ref{Catching executable to library and library to library calls - latrace}}).
+			\textbf{ltrace} has some limitations as it cannot trace calls amongst libraries. For this purpose, one need to use \textbf{latrace} (\textbf{Figure \ref{Catching executable to library and library to library calls - latrace}}).
 			
 			\begin{figure}[H]
 		\centering
@@ -127,7 +127,7 @@ We have made an example at : {\color{blue}\url{https://github.com/jugurthab/Linu
 \subsubsection{Valgrind}
 \textbf{Valgrind} is one of the most efficient memory debugging, intrumentation and profiling framework for userspace applications. Valgrind ships with 11 tools , We will go through some of them :
 \begin{itemize}
-	\item \textbf{memcheck : } the default tool used by valgrind's engine. It can detect memory leaks, uninitialized variables, Mismatch allocation and deallocation functions (using malloc then free), reading or writing past-off buffer, ..., etc (see {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/valgrind/memcheck}}).\\
+	\item \textbf{Memcheck : } the default tool used by \textbf{valgrind}'s engine. It can detect memory leaks, uninitialized variables, Mismatch allocation and deallocation functions (\textit{using malloc then free}), reading or writing past-off buffer, ..., etc (\textit{see {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/valgrind/memcheck}}}).\\
 	
 The following record was taken from a report generated by memcheck which locates precisely the memory leak source (40 bytes lost at \textbf{memcheck-memory-leak.c:8}) :
 
@@ -147,17 +147,17 @@ amd64-linux.so)
 ==7369== 
 		\end{lstlisting}
 	
-	\item \textbf{helgrind : } a thread profiler with great support for POSIX pthreads (see {\color{blue} \url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/valgrind/helgrind}})	
+	\item \textbf{Helgrind : } a thread profiler with great support for \textbf{POSIX pthreads} (\textit{a working example is shown at : {\color{blue} \url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/valgrind/helgrind}}}).	
 	
-	\item \textbf{cachegrind : } this tool simulates interactions with the cache hierarchy of the system. Cachegrind will always simulate two cache levels :
+	\item \textbf{Cachegrind : } this tool simulates interactions with the cache hierarchy of the system. Cachegrind will always simulate two cache levels :
 		\begin{enumerate}
 			\item {\textbf{L1 Cache :} Broken down into \emph{L1Data} and \emph{L1Instruction}.}
 			\item {\textbf{Unified L2 Cache :} Data and instructions are mixed together.}
 		\end{enumerate}			
-An example is shown at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/valgrind/cachegrind}}
+\textit{An example is available at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/valgrind/cachegrind}}.}
 	
 	\item \textbf{callgrind : } this is a CPU profiler. The reader is probably familiar with GPROF. Howerver, GPROF is deprecated (it can neither support multithreaded applications nor understand system calls).
-We have provided an example at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/valgrind/callgrind}}
+\textit{We have provided an example at : {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/valgrind/callgrind}}}.
 
 
 \end{itemize}
@@ -166,7 +166,7 @@ We have provided an example at : {\color{blue}\url{https://github.com/jugurthab/
 
 
 \begin{itemize}
-	\item \textbf{GDB : } official build-in debugger from GNU collection. It can  start a program for debugging or attach to an already running process. Basically, gdb offers options shown in \textbf{Figure \ref{Basic features of GDB}}:
+	\item \textbf{GDB : } official build-in debugger from GNU collection. It can  start a program for debugging or attach to an already running process. Basically, \textbf{GDB} offers options shown in \textbf{Figure \ref{Basic features of GDB}}:
 \begin{figure}[H]
 		\centering
         \includegraphics[scale=0.40]{img/solution/basic-usage-gdb.png}
@@ -175,8 +175,8 @@ We have provided an example at : {\color{blue}\url{https://github.com/jugurthab/
     \end{figure}	
 	
 \begin{itemize}
-\item[$\bullet$] \textbf{Breakpoints : } are predefined points where GDB stops when it finds them in a program. They allow us to examine registers status,
-memory dumps, environment variables, ..., etc (\textbf{Figure \ref{Setting GDB breapoints}}).
+\item[$\bullet$] \textbf{Breakpoints : } are predefined points where \textbf{GDB} stops when it finds them in a program. They allow us to examine registers status,
+dumping memory, controlling environment variables, ..., etc (\textbf{Figure \ref{Setting GDB breapoints}}).
 \begin{figure}[H]
 		\centering
         \includegraphics[scale=0.30]{img/solution/gdb-break-continue.png}
@@ -186,7 +186,7 @@ memory dumps, environment variables, ..., etc (\textbf{Figure \ref{Setting GDB b
 
 
 
-\item[$\bullet$] \textbf{Watchpoints : } can monitor a variable or memory location (for read and write operations) and reports its status (\textbf{Figure \ref{Setting a read watchpoint in GDB}}).
+\item[$\bullet$] \textbf{Watchpoints : } can monitor a variable or memory location (\textit{for read and write operations}) and reports its status (\textbf{Figure \ref{Setting a read watchpoint in GDB}}).
 \begin{figure}[H]
 		\centering
         \includegraphics[scale=0.32]{img/solution/gdb-awatch.png}
@@ -195,7 +195,7 @@ memory dumps, environment variables, ..., etc (\textbf{Figure \ref{Setting GDB b
     \end{figure}
     
     
-\item[$\bullet$] \textbf{Catchpoints : } report events like fork , signal reception (SIGUSER1,SIGALRM, ..., etc) and exceptions (\textbf{Figure \ref{Catching process forking using GDB}}).
+\item[$\bullet$] \textbf{Catchpoints : } report events like fork , signal reception (\textit{SIGUSER1, SIGALRM, ..., etc}) and exceptions (\textbf{Figure \ref{Catching process forking using GDB}}).
 \begin{figure}[H]
 		\centering
         \includegraphics[scale=0.32]{img/solution/gdb-fork-got-catch.png}
@@ -209,7 +209,7 @@ memory dumps, environment variables, ..., etc (\textbf{Figure \ref{Setting GDB b
 	
 	\item \textbf{GDBserver : }
 	Local debugging is not always an option and may not be possible especially for embedded devices. Those systems
-have fewer capabilities, a reason that leads us to remote debugging. \textbf{GDBserver} allows a program to be debugged remotely (\textbf{Figure \ref{Remote debugging using GDBserver}}).
+have fewer capabilities, a reason that leads us to use remote debugging. \textbf{GDBserver} allows a program to be debugged remotely (\textbf{Figure \ref{Remote debugging using GDBserver}}).
 
 \begin{figure}[H]
 		\centering
@@ -256,12 +256,12 @@ $ (gdb) target remote /dev/serial-channel
 
 Let's debug a \og \emph{Guess number} \fg program on a \textbf{Raspberry PI 3} running \textbf{GDBserver} \emph{(sources are available at : {\color{blue} \url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap1-userland-debug/gdb/remote-debug/raspberryPI3}})} : 
 \begin{enumerate}
-	\item \textbf{Raspberry PI 3 : } We will start Gdbserver on port 4000 (\emph{You can choose any other port}).
+	\item \textbf{Raspberry PI 3 : } We will start \textbf{GDBserver} on port 4000 (\emph{You can choose any other port}).
 	\begin{lstlisting}[style=BashInputStyle]
 $ gdbserver :4000 ./rpi-number-guess
     \end{lstlisting}
 
-The result of the above command is shown in \textbf{Figure \ref{Starting gdbServer on Raspberry PI 3}}
+The result of the above command is shown in \textbf{Figure \ref{Starting gdbServer on Raspberry PI 3}}.
 \begin{figure}[H]
 		\centering
         \includegraphics[scale=0.45]{img/solution/starting-ethernet-gdbserver-session-rp3.png}
@@ -271,7 +271,7 @@ The result of the above command is shown in \textbf{Figure \ref{Starting gdbServ
 
 
 
-	\item \textbf{Linux desktop machine :} Launch a \textbf{gdb} session from a \textbf{Linux} machine and connect to target as shown in \textbf{Figure \ref{Rasbperry PI 3 - Remote debugging GDB/GDBserver over Ethernet}}
+	\item \textbf{Linux desktop machine :} Launch a \textbf{gdb} session on a \textbf{Linux} machine and connect to target (\emph{Raspberry PI 3}) as shown in \textbf{Figure \ref{Rasbperry PI 3 - Remote debugging GDB/GDBserver over Ethernet}}.
 		\begin{lstlisting}[style=BashInputStyle]
 $ ./arm-none-eabi-gdb -silent ./rpi-number-guess
 $ (gdb) target remote ip_address_raspberryPI:4000	
@@ -291,7 +291,7 @@ Remote debugging from host ip_address_host_GDB
     \end{lstlisting}
     
     
-Now you can place breakpoints, move around (\emph{everything We know from GDB}) or even display generated number as shown in \textbf{Figure \ref{Displaying backtraces on Raspberry PI 3 using GDB/GDBserver over Ethernet}}    
+Now you can place breakpoints, move around (\emph{everything We know from GDB}) or even display generated number as shown in \textbf{Figure \ref{Displaying backtraces on Raspberry PI 3 using GDB/GDBserver over Ethernet}}  (numberGenerated=1).   
 \begin{figure}[H]
 		\centering
         \includegraphics[scale=0.33]{img/solution/gdb-successfull-debug-over-ethernet.png}
@@ -300,7 +300,7 @@ Now you can place breakpoints, move around (\emph{everything We know from GDB}) 
     \end{figure}    
     
 
-\textbf{\color{orange}Note :} Latest versions of \textbf{Raspberry PI} seem to have troubles with Serial communication.	
+%\textbf{\color{orange}Note :} Latest versions of \textbf{Raspberry PI} seem to have troubles with Serial communication.	
 \end{enumerate}
 
 \subsubsection{File core dump}
@@ -319,8 +319,8 @@ $ ulimit -c unlimited
 $ ./myProgram
 Segmentation fault (core dumped)	
 \end{lstlisting}
-\textbf{Remark : } Notice the presence of \og core dump \fg which indicates a generated core dump.	
-	\item \textbf{File crash core analysis : } GDB can be used to analyse the userspace crash dump files, all We have to do is to launch \textbf{GDB} as follow : 
+\textbf{Remark : } Notice the presence of \og core dumped \fg which indicates a generated core dump.	
+	\item \textbf{File crash core analysis : } \textbf{GDB} can be used to analyse the userspace crash dump files, all we have to do is to launch \textbf{GDB} as follow : 
 \begin{lstlisting}[style=BashInputStyle]	
 $ gdb ./myProgram <coreFile>	
 \end{lstlisting}	
@@ -368,8 +368,8 @@ Other specifiers exit like : \%u for real UID. The list is shown at : {\color{bl
 \end{enumerate}
 
 \subsection{Kernel land}
-The kernel is more challenging to debug than userspace. Going through a code that changes a variable value (like userspace) is different from a kernel function that handles interrupts, manages memory, migrates tasks between processors, ..., etc.\\
-\begin{center}
+The kernel is more challenging to debug than userspace. Going through a code that changes a variable value (\textit{like userspace}) is different from a kernel function that handles interrupts, manages memory, migrates tasks between processors, ..., etc.\\
+\begin{center}\color{orange}
 Weird behaviour should be expected when debugging kernel code
 \end{center}  
 
@@ -383,9 +383,9 @@ Weird behaviour should be expected when debugging kernel code
 
 
 \subsubsection{KGDB/KDB}
-KGDB/KDB are the Linux kernel debuggers. KGDB is source level debugging and KDB is raw level.\\
+\textbf{KGDB}/\textbf{KDB} are the Linux kernel debuggers. \textbf{KGDB} is source level debugging and \textbf{KDB} is raw level.\\
 
-The kernel must be built using special parameters in order to support KGDB/KDB as shown below :
+The kernel must be built using special parameters in order to support \textbf{KGDB}/\textbf{KDB} as shown below :
 \begin{itemize}
 	\item \textbf{KGDB : } for KGDB support, the kernel must be compiled with : 
 \begin{lstlisting}[style=BashInputStyle]
@@ -409,7 +409,21 @@ CONFIG_KDB_KEYBOARD=y
 \textbf{\color{orange}Note : } Kernel must be compiled with \textbf{\color{red}debugging symbols}, otherwise \textbf{KGDB}/\textbf{KDB} will be almost useless.
 
 
-Important : We can check for KGDB/KDB support by reading /boot/config file. If this file is missing, one need to look for manufacturer documentation. \textbf{Figure \ref{Check for KGDB support on Raspberry PI 3}} shows how to check \textbf{KGDB}/\textbf{KDB} support on Raspberry PI 3.
+
+\begin{center}
+\begin{mdframed}[
+        linecolor=red,linewidth=2pt,% 
+        frametitlerule=true,% 
+        apptotikzsetting={\tikzset{mdfframetitlebackground/.append style={%
+            shade,left color=white, right color=blue!20}}}, 
+        frametitlerulecolor=blue,
+        frametitlerulewidth=1pt, innertopmargin=\topskip,
+        frametitle={Check kernel KGDB/KDB support and enable them},
+        outerlinewidth=1.25pt
+    ]
+    % ----------
+			
+	 We can check for \textbf{KGDB}/\textbf{KDB} support by reading \textbf{/boot/config} file. If this file is missing, one need to look for manufacturer documentation. \textbf{Figure \ref{Check for KGDB support on Raspberry PI 3}} shows how to check \textbf{KGDB}/\textbf{KDB} support on \textbf{Raspberry PI 3}.
 \begin{figure}[H]
 		\centering
         \includegraphics[scale=0.35]{img/solution/kgdb-support-raspberry-pi-3.png}
@@ -419,16 +433,25 @@ Important : We can check for KGDB/KDB support by reading /boot/config file. If t
 
  
 
-Both KGDB and KDB can be enabled by writing to the same file as illustrated :
+Both \textbf{KGDB} and \textbf{KDB} can be enabled by writing to the same file as illustrated :
 \begin{lstlisting}[style=BashInputStyle]
 # Configure tty console
 pi@raspberrypi:~# echo ttyAMA0 > /sys/module/kgdboc/parameters/kgdboc
 # Halt the kernel
 pi@raspberrypi:~# echo g > /proc/sysrq-trigger
-\end{lstlisting}
+\end{lstlisting}		
+			
+			
+\end{mdframed}
+\end{center} 
 
 
-Once \textbf{KGDB/KDB} is configured on the target, We can establish a debugging session in two different ways :
+
+
+
+
+
+Once \textbf{KGDB}/\textbf{KDB} is configured on the target, We can establish a debugging session in two different ways :
 
 \begin{enumerate}
 	\item \textbf{GDB : } connection will be established with \textbf{KGDB} on the target.
@@ -440,8 +463,8 @@ remote@machine:~# gdb ./vmlinux
 \end{lstlisting}	
 	
 	
-	\item \textbf{telnet : } connection will be received by \textbf{KDB} on the target (an example is shown in \textbf{Figure \ref{Debugging Beaglebone black wireless using KDB}}).
-	A serial communication utility (like putty) must be configured with the correct serial port and baud rate.
+	\item \textbf{Serial communication : } connection will be received by \textbf{KDB} on the target (\textit{an example is shown in \textbf{Figure \ref{Debugging Beaglebone black wireless using KDB}}}).
+	
 	\begin{figure}[H]
 		\centering
         \includegraphics[scale=0.45]{img/solution/kdb-beagle-bone-black.png}
@@ -449,15 +472,15 @@ remote@machine:~# gdb ./vmlinux
         \label{Debugging Beaglebone black wireless using KDB}
 \end{figure}
 	
-	
+	\textbf{Note : } A serial communication utility (\textit{like putty}) must be configured with the correct serial port and baud rate.
 \end{enumerate}
 
 \subsubsection{System faults}
-\textbf{System faults} does not mean \og panic \fg. Kernel Panic is a result of serious fault or a cascading effect of faults that can harm the system.\\
-When a userspace program violates a memory access, a \emph{SIGSEGV} is generated and the faulty process is killed (remember to enable core dump files in order to analyse them). The same is true for the kernel, when a driver tries to dereference an invalid Null pointer or overflows the destination Buffer, it is going to be killed.\\
+\textbf{System faults} do not mean \og panic \fg. Kernel Panic is a result of serious fault or a cascading effect of faults that can harm the system.\\
+When a userspace program violates a memory access, a \emph{SIGSEGV} is generated and the faulty process is killed (\textit{remember to enable core dump files in order to analyse them}). The same is true for the kernel, when a driver tries to dereference an invalid \og null pointer \fg or overflows the destination buffer, it is going to be killed.\\
 
 
-Buggy code in a driver or a module may lead to one of the states : \textbf{kernel oops} and \textbf{system hang}.\\
+Buggy code in a driver or a module may lead to one of the system faults states : \textbf{kernel oops} and \textbf{system hang}.\\
 \vspace{8px}
 
 \begin{itemize}
@@ -482,7 +505,7 @@ Kernel oops can be obtained by reading kernel's ring buffer with : \og \textbf{d
 \end{center}
 	
 \vspace{6px}	
-We are going to take a look at 2 particular messages : 	
+We are going to take a look at 2 particular messages from an oops : 	
 
 	\begin{enumerate}
 		\item \textbf{Error location and type : } The kernel is really accurate in describing the problem (see \textbf{Figure \ref{Error type and location of faulty line - kernel oops}}).
@@ -496,10 +519,10 @@ We are going to take a look at 2 particular messages :
 		
 		
 			\begin{itemize}
-				\item \textbf{BUG : } shows the error name, in our case it \og dereferencing an NULL pointer\fg.				
-				\item \textbf{IP : } Instrcution Pointer shows the location of the error (We will come back to it later).
+				\item \textbf{BUG : } shows the error name, in our case it \og dereferencing a NULL pointer\fg.				
+				\item \textbf{IP : } Instruction Pointer shows the location of the error (We will come back to it later).
 			\end{itemize}					
-		\item \textbf{Reason and number of oops : } oops may have cascading effect and lead to chain of oops (maybe even to kernel panic), the kernel identifies them and reports us the reason that gave rise to them as shown in \textbf{Figure \ref{Kernel Oops error code value - kernel oops}}.
+		\item \textbf{Reason and number of oops : } oops may have cascading effect and lead to chain of oops (maybe even to kernel panic), the kernel  reports us the reason that gave rise to them as shown in \textbf{Figure \ref{Kernel Oops error code value - kernel oops}}.
 
 		\begin{figure}[H]
 			\centering
@@ -528,12 +551,13 @@ The error code \og 0002 \fg must be converted to binary. To understand the inter
 	\vspace{5px}
 Hopefully, We can use a forgotten feature in linux which is \textbf{SysRQ (Magic Keys)}.\\
 
-\textbf{SysRQ} is combination of keyboard keys that executes a low level function. The kernel will always respond to \textbf{SysRQ}
-whatever the state it is undergoing ; though, the only exception for this is \emph{kernel panic}.
+\textbf{SysRQ} is combination of keyboard keys that execute low level kernel functions. The kernel will always respond to \textbf{SysRQ}
+whatever the state it is undergoing ; though, the only exception for this is \emph{kernel panic}.\\
+\vspace{10px}
 \begin{center}
-ALT + SysRq + <command key>
-or
-ALT + Print Screen + <command key>
+\textit{ALT + SysRq + <command key>}
+{\color{blue}or}
+\textit{ALT + Print Screen + <command key>}
 \end{center}
 
 \vspace{5px}
@@ -549,7 +573,7 @@ ALT + Print Screen + <command key>
         outerlinewidth=1.25pt
     ]
     % ----------
-		The kernel pretends a \textbf{QWERTY} keyboard when using \textbf{SysRq}.
+		The kernel assumes a \textbf{QWERTY} keyboard when using \textbf{SysRq}.
 \end{mdframed}
 \end{center}
 
@@ -573,8 +597,8 @@ SysRq are not enabled by default on some systems (especially the old ones), they
     \end{figure}		
 		
 		
-		\item[$\bullet$] \textbf{ALT + SysRq (Print Screen) + m :} prints memory dump
-		\item[$\bullet$] \textbf{ALT + SysRq (Print Screen) + p :} displays registers related information
+		\item[$\bullet$] \textbf{ALT + SysRq (Print Screen) + m :} prints memory dump.
+		\item[$\bullet$] \textbf{ALT + SysRq (Print Screen) + p :} displays registers related information.
 		\item[$\bullet$] \textbf{ALT + SysRq (Print Screen) + c :} Forces a kernel panic, suitable if there is a \textbf{crashdump} utility installed on the system (\emph{more in the next section}).
 	\end{itemize}
 \end{itemize}
@@ -589,9 +613,9 @@ If the kernel was not compiled using debugging symbols, one may try to add them 
 
 
 \begin{itemize}
-	\item[$\bullet$] \textbf{Live kernel anaylysis /proc/kcore : } a file used to explore the Linux adress space.
+	\item[$\bullet$] \textbf{Live kernel analysis /proc/kcore : } a file used to explore the Linux adress space.
 		\begin{enumerate}
-			\item \textbf{Generating vmlinux (optional) : } If the linux image was compiled without debugging symbols, We can try to construct them. \og kdress \fg was written by elfmaster is used for this purpose (kdress is available at : {\color{blue}\url{https://github.com/elfmaster/kdress}}).
+			\item \textbf{Generating vmlinux (optional) : } If the linux image was compiled without debugging symbols, We can try to construct them. \og kdress \fg was written by Ryan O'Neill (\textit{known as elfmaster}) is used for this purpose (\textit{kdress is available at : {\color{blue}\url{https://github.com/elfmaster/kdress}}}).
 			
 			
 			\item \textbf{Accessing the /proc/kcore : }  We can play around the kcore using GDB, let's first create a GDB session as follow :
@@ -599,7 +623,7 @@ If the kernel was not compiled using debugging symbols, one may try to add them 
 # sudo gdb -q vmlinux /proc/kcore
 	\end{lstlisting}			
 
-			\item \textbf{Navigating through the /proc/kcore : } technically, We can obtain every information by walking through this file (see \textbf{Figure \ref{Navigating through /proc/kcore using gdb}}).
+			\item \textbf{Navigating through the /proc/kcore : } technically, we can obtain every information by walking through this file (see \textbf{Figure \ref{Navigating through /proc/kcore using gdb}}).
 	
 	\begin{figure}[H]
 		\centering
@@ -614,7 +638,7 @@ As shown in \textbf{Figure \ref{Navigating through /proc/kcore using gdb}}, We h
 \begin{itemize}
 	
 	\item \textbf{kexec : } which allows to load quickly a new kernel from a running one (\textit{it does not perform any basic setup initialization like those made by BIOS}).
-	\item \textbf{kdump : } uses kexec to start a new kernel when Panic is detected in the current one. Then dumps virtual memory (what can be dumped can be configured) of the crashed kernel from the newly launched one and saves result into a core dump file (can be stored in disk or sent through network which is ideal for embedded devices) as shown in \textbf{Figure \ref{Dumping Linux address space using kdump and kexec} - taken from Adrien Mahieux presentation- Linux crashdump analysis}. 
+	\item \textbf{kdump : } uses kexec to start a new kernel when Panic is detected in the current one. Then dumps virtual memory (what can be dumped can be configured) of the crashed kernel from the newly launched one and saves result into a core dump file (can be stored in disk or sent through network which is ideal for embedded devices) as shown in \textbf{Figure \ref{Dumping Linux address space using kdump and kexec} (taken from Adrien Mahieux presentation- Linux crashdump analysis}). 
 	\begin{figure}[H]
 		\centering
         \includegraphics[scale=0.55]{img/solution/kdump-kexec.jpg}
@@ -627,7 +651,7 @@ As shown in \textbf{Figure \ref{Navigating through /proc/kcore using gdb}}, We h
 
 
 
-Once a dump file has been generated, it can be analysed using GDB or a more specialized utility like : crash (a full course can be found at : {\color{blue}\url{https://www.dedoimedo.com/computers/crash-analyze.html}}).\\
+Once a dump file has been generated, it can be analysed using GDB or a more specialized utility like \textbf{crash} (\textit{a full course can be found at : {\color{blue}\url{https://www.dedoimedo.com/computers/crash-analyze.html}}}).\\
 Crash can display the list of active processes, memory usage, backtraces, calltraces and may even point to error locations (\emph{can be used to show kernel oops}).
 	
 \end{itemize}
@@ -652,14 +676,14 @@ Let's summarize the working internals of OpenOCD and experiment on a Raspberry P
     	\end{figure}
 	
 		\begin{enumerate}
-			\item {User starts OpenOCD with configuration files (at least adapter and target config files)}
+			\item {User starts OpenOCD with configuration files (\textit{at least adapter and target config files})}
 			
-			\item {If OpenOCD succeds to recognize the target, We can start debugging it by using OpenOCD's commands (\textit{OpenOCD receives commands from GDB or Telnet})}.
+			\item {If OpenOCD succeeds to recognize the target, We can start debugging it by using OpenOCD's commands (\textit{OpenOCD receives commands from GDB or Telnet})}.
 			
-			\item {OpenOCD executes executes the commands on the target and returns back the result to the user}.
+			\item {OpenOCD executes the commands on the target and returns back the result to the user}.
 		\end{enumerate}		
 	
-	\item \textbf{General syntax Of OpenOCD : }	OpenOCD requires at least 2 configuration files (one for the target and one for the adapter), file depencies (if any)  must be also included using the option -s :
+	\item \textbf{General syntax Of OpenOCD : }	OpenOCD requires at least 2 configuration files (one for the target and one for the adapter), file dependencies (if any)  must be also included using the option -s :
 	
 	\begin{lstlisting}[style=BashInputStyle]	
 $ sudo ./src/openocd -s tcl/ -f tcl/interface/adapter_config_file.cfg \ 
@@ -690,7 +714,7 @@ $ sudo ./src/openocd -s tcl/ -f tcl/interface/adapter_config_file.cfg \
 
 		\begin{figure}[H]
 			\centering
-        	\includegraphics[scale=0.45]{img/solution/jtag-enabler-raspberry-pi-3.png}
+        	\includegraphics[scale=0.42]{img/solution/jtag-enabler-raspberry-pi-3.png}
         	\caption{Enable JTAG Debugging on Raspberry PI 3}
         	\label{Enable JTAG Debugging on Raspberry PI 3}
     	\end{figure}					
@@ -703,7 +727,7 @@ $ sudo ./src/openocd -s tcl/ -f tcl/interface/adapter_config_file.cfg \
 
 		\begin{figure}[H]
 			\centering
-        	\includegraphics[scale=0.40]{img/solution/openocd-bcm2837-launched.png}
+        	\includegraphics[scale=0.37]{img/solution/openocd-bcm2837-launched.png}
         	\caption{Hardwiring ARM-USB-TINY-H to raspberry PI 3}
         	\label{Hardwiring ARM-USB-TINY-H to raspberry PI 3}
     	\end{figure}	
@@ -768,7 +792,7 @@ $ sudo ./src/openocd -s tcl/ -f tcl/interface/adapter_config_file.cfg \
         	\label{Creating a new target config file - OESdebug}
     	\end{figure}
     			
-		\item \textbf{Generating configuration file : } Now, We can click on "Generate" to get a working OpenOCD script (\textbf{Figure \ref{Generating OpenOCD config file - OESdebug}}).
+		\item \textbf{Generating configuration file : } Now, we can click on "Generate" to get a working OpenOCD script (\textbf{Figure \ref{Generating OpenOCD config file - OESdebug}}).
 		\begin{figure}[H]
 			\centering
         	\includegraphics[scale=0.55]{img/solution/OESdebug-generatedScript.png}
@@ -817,7 +841,7 @@ $ sudo ./src/openocd -s tcl/ -f tcl/interface/adapter_config_file.cfg \
 Tracing is the opposite of security, if security wants to hide what's happening in the kernel then tracing does the complete opposite; it shows every event.
 
 \subsubsection{Ftrace}
-Ftrace is the official linux tracing tool created by \og \textbf{Steven Rostedt} \fg that has been merged to linux mainline since version \emph{2.6.31}.
+Ftrace is the official linux tracing tool created by \og \textbf{Steven Rostedt} \fg that has been merged to linux mainline since version \emph{2.6.27}.
 
 \begin{itemize}
 	\item[$\bullet$] \textbf{Trace-cmd : }
@@ -852,7 +876,7 @@ As a working example, We will are going to trace a module :
         	\label{Tracing functions in a module using trace-cmd}
     	\end{figure}	
 	
-	\item \textbf{Interact with the module : } after starting Ftrace, We must call one of the functions of our module. let's make a simple read on it (\textbf{Figure \ref{Interacting with the kernel device module}})
+	\item \textbf{Interact with the module : } after starting Ftrace, we must call one of the functions of our module. let's make a simple read on it (\textbf{Figure \ref{Interacting with the kernel device module}})
 		\begin{figure}[H]
 			\centering
         	\includegraphics[scale=0.40]{img/solution/interacting-driver-trace-cmd.png}
@@ -861,7 +885,7 @@ As a working example, We will are going to trace a module :
     	\end{figure}		
 	
 	
-	\item \textbf{Reading report : } (\textbf{Figure \ref{Reading module trace report with Trace-cmd}})
+	\item \textbf{Reading report : } the trace file can be read as shown in \textbf{Figure \ref{Reading module trace report with Trace-cmd}}.
 			\begin{figure}[H]
 			\centering
         	\includegraphics[scale=0.40]{img/solution/trace-cmd-report-module.png}
@@ -877,7 +901,7 @@ As a working example, We will are going to trace a module :
 	
 	\item[$\bullet$] \textbf{Kernelshark : }	
 We cannot close the discussion about Ftrace without pointing out an important tool called \og Kernelshark \fg.
-Reading Ftrace report can be quiet difficult ; the third tool released by \og \textbf{Steven Rostedt} \fg is KernelShark which is GUI based (an example is shown in \textbf{Figure \ref{Kernelshark shows process scheduling after parsing traces of a raspberry PI 3}}).
+Reading Ftrace report on a terminal can be quite difficult for interpretation; the third tool released by \og \textbf{Steven Rostedt} \fg is KernelShark which is GUI parser for trace-cmd's traces (an example is shown in \textbf{Figure \ref{Kernelshark shows process scheduling after parsing traces of a raspberry PI 3}}).
 
 		\begin{figure}[H]
 			\centering
@@ -893,7 +917,7 @@ Reading Ftrace report can be quiet difficult ; the third tool released by \og \t
 
 
 \subsubsection{LTTng}
-LTTng is an instrumentation toolkit created by \textbf{Mathieu Desnoyers} to trace kernelland and userspace applications efficiently. Unlike Ftrace and Perf, LTTng has not been merged to the Linux mainline:
+LTTng is an instrumentation toolkit created by \textbf{Mathieu Desnoyers} to trace kernel-land and userspace applications efficiently. Unlike Ftrace and Perf, LTTng has not been merged to the Linux mainline but can be easily installed :
 
 		\begin{lstlisting}[style=BashInputStyle]
 $ apt-get install lttng-tools
@@ -901,13 +925,13 @@ $ apt-get install lttng-modules-dkms
 $ apt-get install liblttng-ust-dev
 	\end{lstlisting}	
 	
-A complet documentation is available on LTTng website : {\color{blue}\url{apt-get install liblttng-ust-dev}}.
+An exhaustive documentation is available on LTTng's website : {\color{blue}\url{https://lttng.org/docs/v2.10/}}.
 
-LTTng has the advantage of being able to collect events within the kernel (no context switches are made) which results in low system's overhead (this is not the case for Ftrace and Perf).
+LTTng has the advantage of being able to collect events within the kernel (\emph{no context switches are made}) which results in low system's overhead (\emph{this is not the case for Ftrace and Perf}).
 
 The simplest way to use LTTng can be illustrated as follow :
 \begin{enumerate}
-	\item \textbf{Create a session :} Every LTTng record must be made within a session (the session name can be anything We want) :
+	\item \textbf{Create a session :} Every LTTng record must be made within a session (the session name can be anything we want) :
 		\begin{lstlisting}[style=BashInputStyle]
 # lttng create <mySessionName>
 	\end{lstlisting}	
@@ -918,9 +942,9 @@ The simplest way to use LTTng can be illustrated as follow :
         	\caption{Creating a session in LTTng}
         	\label{Creating a session in LTTng}
     	\end{figure}	
-Note : LTTng shows the location of where traces will be saved (/root/lttng-traces/my-trace-SMILE-20180404-164642)	
+\textbf{\color{orange}Note :} \textbf{LTTng} shows the location of where traces will be saved (\textit{\textbf{/root/lttng-traces/my-trace-SMILE-20180404-164642}}).	
 	
-	\item \textbf{Select a tracepoint (instrumentation point) : } We may select one or multiple (or even all) tracepoints.\\
+	\item \textbf{Select a tracepoint (instrumentation point) : } we may select one or multiple (or even all) tracepoints.\\
 We will choose for example to trace \og sched\_switch \fg :
 
 		\begin{figure}[H]
@@ -932,7 +956,7 @@ We will choose for example to trace \og sched\_switch \fg :
 
 
 
-	\item \textbf{Start the tracing session :} We can start tracing at this point, LTTng will record all \og sched\_switch \fg events
+	\item \textbf{Start the tracing session :} we can start tracing at this point, \textbf{LTTng} will record all \og sched\_switch \fg events.
 		\begin{figure}[H]
 			\centering
         	\includegraphics[scale=0.45]{img/solution/lttng-start-tracing.png}
@@ -949,7 +973,7 @@ We will choose for example to trace \og sched\_switch \fg :
         	\label{Stop tracing using LTTng}
     	\end{figure}
 	
-	\item \textbf{Destroy LTTng session :} We need to stop and destroy the current session.
+	\item \textbf{Destroy LTTng session :} we need to stop and destroy the current session.
 			\begin{lstlisting}[style=BashInputStyle]
 # lttng destroy
 	\end{lstlisting}
@@ -957,15 +981,15 @@ We will choose for example to trace \og sched\_switch \fg :
 		\item \textbf{Visualize the trace report : } 
 		
 			\begin{itemize}
-				\item[$\bullet$] \textbf{babeltrace : } We can view LTTng report in the console, however, when We record a lot of events for a
-long time, viewing the result in text-based mode is far to be easy
+				\item[$\bullet$] \textbf{babeltrace : } we can view \textbf{LTTng} report in the console as shown in \textbf{Figure \ref{Reading LTTng trace report using babeltrace}}.
 		\begin{figure}[H]
 			\centering
         	\includegraphics[scale=0.40]{img/solution/babel-trace.png}
         	\caption{Reading LTTng trace report using babeltrace}
         	\label{Reading LTTng trace report using babeltrace}
     	\end{figure}				
-				
+	However, when we record a lot of events for a
+long time, viewing results in text-based mode is far to be easy.			
 				
 				\item[$\bullet$] \textbf{trace compass : } This is a visual GUI to display the LTTng traces in a more convinient way. \emph{\color{orange}Trace compass is an Eclipse C/C++ pluggin}.
 			\end{itemize}
@@ -978,14 +1002,14 @@ We can say even more on LTTng :
 \begin{itemize}
 	\item \textbf{LTTng USDT : } LTTng enables to attach User Statically Defined Tracepoints to userspace applications (\emph{something not possible using Ftrace or perf}). It can trace \textbf{C/C++} code (as shown at : \textbf{\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap3-tracers/Lttng-examples/Tracing-Userspace-C-App}}), \textbf{Python} scripts ({\color{blue} \url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap3-tracers/Lttng-examples/Tracing-Userspace-Python-App}}) and even \textbf{Java}. 
 	
-	\item {LTTng Logger file : } when \textbf{LTTng} deamon is running (lttngd), it creates a special file in \textbf{ProFs} : \textbf{\color{red}\url{/proc/lttng-logger}}.
-		Applications can log their messages to this file (usefull for debugging), however it is not reliable as \textbf{LTTng USDT}.
+	\item \textbf{LTTng Logger file : } when \textbf{LTTng} deamon is running (lttngd), it creates a special file in \textbf{ProFs} : \textbf{\color{red}\url{/proc/lttng-logger}}.
+		Applications can log their messages to this file (useful for debugging), however it is not reliable as \textbf{LTTng USDT}.
 	
 	\item \textbf{LTTng toolkit analyses : }
-LTTng provides a powerfull toolkit called \og LTTng analyses \fg to extract most relevant data from recorded traces ({\color{blue} \url{https://github.com/lttng/lttng-analyses}}). We are going to show two examples :
+LTTng provides a powerful toolkit called \og LTTng analyses \fg to extract most relevant data from recorded traces ({\color{blue} \url{https://github.com/lttng/lttng-analyses}}). We are going to show two examples :
 
 		\begin{itemize}
-			\item \textbf{lttng-analyses-record : } which record an automatic LTTng session (instead of manual recording as We did) as shown in \textbf{Figure \ref{Automatic session recording - LTTng toolkit analyses}}
+			\item \textbf{lttng-analyses-record : } which record an automatic LTTng session (instead of manual recording as we did) as shown in \textbf{Figure \ref{Automatic session recording - LTTng toolkit analyses}}
 					\begin{figure}[H]
 						\centering
         				\includegraphics[scale=0.40]{img/solution/lttng-analyses-automatic-record.png}
@@ -994,7 +1018,7 @@ LTTng provides a powerfull toolkit called \og LTTng analyses \fg to extract most
     				\end{figure}
 			
 			
-			\item \textbf{lttng-schedlog : } shows task scheduling in chronogical order (\textbf{Figure \ref{Getting sched-switch logs from traces - LTTng toolkit analyses}}).
+			\item \textbf{lttng-schedlog : } shows task scheduling in chronological order (\textbf{Figure \ref{Getting sched-switch logs from traces - LTTng toolkit analyses}}).
 					\begin{figure}[H]
 						\centering
         				\includegraphics[scale=0.35]{img/solution/lttng-schedlog.png}
@@ -1018,8 +1042,8 @@ The most perf's used commands are :
 	\item \textbf{stat :} counts the number of occurrence of an event (group of events or all the events) in the system or
 particular program.
 	\item \textbf{record :} samples an application (or the entire system) and shows the callgraph of functions.
-	\item \textbf{report :} parses and displays the report generated by perf (perf list or perf record).
-	\item \textbf{script :} Prints trace as text so that it can be parsed by other tools.
+	\item \textbf{report :} parses and displays the report generated by perf (\emph{perf stat} or \emph{perf record}).
+	\item \textbf{script :} prints trace as text so that it can be parsed by other tools.
 \end{itemize}
 
 \vspace{20px}
@@ -1028,7 +1052,7 @@ Perf can be used in different ways :
 	\item[$\bullet$] \textbf{Perf to gather statistics : } perf count statistics related to programs (or system).
 	
 		\begin{enumerate}
-			\item \textbf{Collecting statistics : } genarl syntax is illustrated as follow :
+			\item \textbf{Collecting statistics : } general syntax is illustrated as follow :
 	\begin{lstlisting}[style=BashInputStyle]
 # perf stat ./program [arguments_program]
 	\end{lstlisting}		
@@ -1058,7 +1082,8 @@ An example is shown in \textbf{Figure \ref{Gather program's statistics - perf}}.
 	\begin{itemize}
 		\item \textbf{record phase : } general syntax is shown below :
 	\begin{lstlisting}[style=BashInputStyle]
-# perf record -F <frequency_rate> [optional perf arguments] ./program [arguments_program]
+# perf record -F <frequency_rate> [optional perf arguments] ./program 
+> [arguments_program]
 	\end{lstlisting}	
 	
 	
@@ -1076,14 +1101,14 @@ An example is shown in \textbf{Figure \ref{Sampling function calls and stack tra
     	$ sudo perf report -g	
     \end{lstlisting}	
 Reports are displayed with functions sorted according to their execution time
-(\textit{time exhaustive functions are on the top and shown in red})  as shown in \textbf{Figure \ref{Displaying Perf records in Basic mode}}.			
+(\textit{time exhaustive functions are on the top and shown in red})  as illustrated in \textbf{Figure \ref{Displaying Perf records in Basic mode}}.			
 					\begin{figure}[H]
 						\centering
         				\includegraphics[scale=0.55]{img/solution/basic-display-record-mode-perf.png}
         				\caption{Displaying Perf records in Basic mode}
         				\label{Displaying Perf records in Basic mode}
     				\end{figure}
- \textbf{Remark : } We can display a tree view report using : 
+ \textbf{\color{orange}Remark : } We can display a tree view report using : 
  	\begin{lstlisting}[style=BashInputStyle]   	
     	$ sudo perf report -g --stdio 
     \end{lstlisting} 
@@ -1099,7 +1124,7 @@ Reports are displayed with functions sorted according to their execution time
 	
 	
 	
-	\item[$\bullet$] \textbf{Perf as a tracing tool : }
+	\item[$\bullet$] \textbf{Perf as a tracing tool : } Perf was designed for performance testing, but it has been extended to cover tracing.
 		\begin{enumerate}
 			\item \textbf{Choose a tracepoint : } tracepoints must be supported by perf as shown in \textbf{Figure \ref{Check tracepoint support - perf}}.
 					\begin{figure}[H]
@@ -1132,11 +1157,11 @@ An example is shown in \textbf{Figure \ref{Reading recorded sched-switch event -
 		\end{enumerate}
 	
 
-	\item {Hotspot : } A \textbf{GUI tool} for \textbf{Perf}, able to parse \og perf traces \fg or even make a recording.	An example is shown in \textbf{Figure \ref{Hotspot (a perf GUI tool) in action - generation of flame graphs}}.
+	\item[$\bullet$] {Hotspot : } A \textbf{GUI tool} for \textbf{Perf}, able to parse \og perf traces \fg or even make a entire perf session recording.	An example is shown in \textbf{Figure \ref{Hotspot (a perf GUI tool) in action - generation of flame graphs}}.
 		
 					\begin{figure}[H]
 						\centering
-        				\includegraphics[scale=0.25]{img/solution/perf-hotspot.png}
+        				\includegraphics[scale=0.4]{img/solution/perf-hotspot.png}
         				\caption{Hotspot (a perf GUI tool) in action - generation of flame graphs}
         				\label{Hotspot (a perf GUI tool) in action - generation of flame graphs}
     				\end{figure}			
@@ -1147,8 +1172,8 @@ An example is shown in \textbf{Figure \ref{Reading recorded sched-switch event -
 
 
 \subsubsection{eBPF}
-BPF (\textit{Berkeley Packet Filter}) is the famous virtual machine (\textit{running inside the kernel}) used by {\color{blue}\url{https://www.tcpdump.org/}}.
-eBPF (\textbf{Extended Berkeley Packet Filter}) is the extension of \textbf{BPF}. Hopefully, it does much more than handling packets, it can serve as an observability , DDos mitigation , Intrusion detection , Tracing , ..., etc ( \textbf{Figure \ref{Linux EBPF internal and usage}} - taken from Brenden Gregg's blog)
+BPF (\textit{Berkeley Packet Filter}) is the famous virtual machine (\textit{running inside the kernel}) used by \textbf{tcpdump} ({\color{blue}\url{https://www.tcpdump.org/}}).
+eBPF (\textbf{Extended Berkeley Packet Filter}) is the extension of \textbf{BPF}. Hopefully, it does much more than handling packets, it can serve for observability , DDos mitigation , Intrusion detection , Tracing , ..., etc ( \textbf{Figure \ref{Linux EBPF internal and usage}} - taken from Brenden Gregg's blog).
 					\begin{figure}[H]
 						\centering
         				\includegraphics[scale=0.4]{img/solution/security-monitoring-with-ebpf-11-638.jpg}
@@ -1156,7 +1181,7 @@ eBPF (\textbf{Extended Berkeley Packet Filter}) is the extension of \textbf{BPF}
         				\label{Linux EBPF internal and usage}
     				\end{figure}	
 
-eBPF is difficult to use (We must write C codes), BCC ( BPF Compiler Collection ) was made to make it easier.
+eBPF is difficult to use (\emph{we must write a flavor C codes}), BCC (\textit{BPF Compiler Collection}) was made to make it easier.
 BCC is a front-end toolkit of eBPF which can be found at the following link : {\color{blue}\url{https://github.com/iovisor/bcc}}.
 
 
@@ -1167,7 +1192,7 @@ BCC is a front-end toolkit of eBPF which can be found at the following link : {\
 		\begin{itemize}
 			\item \textbf{BCC provided scripts : } BCC ships with tools that handles everyday's common tasks. One can try them as shown in : {\color{blue}https://github.com/iovisor/bcc}
 			
-			\item \textbf{Creating scripts from scratch : } We can write custom eBPF scripts {\color{blue}\url{https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md}}
+			\item \textbf{Creating scripts from scratch : } we can write custom eBPF scripts (Formal eBPF/bcc documentation can be found at : {\color{blue}\url{https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md}}
 						
 			
 		\end{itemize}			
@@ -1183,7 +1208,7 @@ Basic syntax of eBPF :
         				\caption{Tapping sys\_mkdir using eBPF - kprobe}
         				\label{Tapping sys-mkdir using eBPF}
     				\end{figure}	
-	
+	eBPF is catching \og sys\_mkdir \fg events and reports them to end user.
 	
 	\item[$\bullet$] \textbf{Creating tracepoint : } an example is shown in \textbf{\color{red}Appendix {\color{blue}\ref{Enabling eBPF Tracepoint}}} 	 (\textit{see \textbf{Figure \ref{Tapping module loading event using eBPF - tracepoint}}}).	
 	
@@ -1194,7 +1219,7 @@ Basic syntax of eBPF :
         				\label{Tapping module loading event using eBPF - tracepoint}
     				\end{figure}		
 	
-	
+	eBPF has captured module's loading with success.
 \end{itemize}
 
 \begin{center}
@@ -1220,9 +1245,9 @@ The following table gives a quick summary of important features of some tracers 
 						\rowcolor{LightCyan}   
 			 & \textbf{support} & \textbf{tool} & \textbf{tracing} & \textbf{tools} & \textbf{tracing} \\	 		
    		\hline
-	    	\textbf{Ftrace} & since linux 2.7 & Trace-cmd & yes & KernelShark & no \\
+	    	\textbf{Ftrace} & since linux 2.6.27 & Trace-cmd & yes & KernelShark & no \\
 	    \hline
-	    	\textbf{Perf\_event} & since linux 2.8 & Perf & no & Hotspot & no \\
+	    	\textbf{Perf} & since linux 2.6.31 & Perf & no & Hotspot & no \\
 		\hline     
         	\textbf{LTTng} & no & Lttng & yes & Trace compass & no \\
 		\hline     
@@ -1231,7 +1256,7 @@ The following table gives a quick summary of important features of some tracers 
 	\end{tabular}
 \end{center}
 
-Tracers may be selected depending on requirements, We made a simple benchmarking tool to help us in choosing the most appropriate. The benchmark measures \textbf{memory} (\textit{captures Maximum Resident Set Size Memory}) and \textbf{execution time overhead} as well as other metrics (context switches and trace file size).
+Tracers may be selected depending on requirements, we have made a simple benchmarking tool to help us in choosing the most appropriate. The benchmark measures \textbf{memory} (\textit{captures Maximum Resident Set Size Memory}) and \textbf{execution time overhead} as well as other metrics (context switches and trace file size).
 
 \begin{center}
 \fbox{
@@ -1257,15 +1282,17 @@ Tests were made 10 times (then average was taken) on a machine with initial cond
         			\label{Target's initial state before experiment - Linux Mint}
    			 \end{figure}
    			 
-Results are shown as follow :
+Results are illustrated as follow :
 						\begin{center}
 							\begin{tabular}{|c|c|c|c|c|c|c|}
 								\hline
+								\rowcolor{LightCyan}
 								\textbf{Tool} & \textbf{Execution} & \textbf{Max}  & \textbf{V.C} & \textbf{Inv.C} & \textbf{Minor page} & \textbf{Size of}\\
+								\rowcolor{LightCyan}
 							& 	\textbf{time (s)} & \textbf{RSS} & \textbf{Switches} & \textbf{Switches} & \textbf{faults} & \textbf{file (KB)} \\
 								   	
 								\hline
-	    						\textbf{qsort} & 0.19 & 8818 & 1 & 79 & 1194 &  0 \\								   		
+	    						\textbf{Qsort} & 0.19 & 8818 & 1 & 79 & 1194 &  0 \\								   		
    								\hline
 	    						\textbf{Ftrace} & 4.04 & 8848 & 170 & 261 & 1323 & 29418  \\
 								\hline     
@@ -1279,7 +1306,7 @@ Results are shown as follow :
 						\end{center}
 
 
-\textbf{\color{red}Important : } eBPF requires Linux4.9 to access full functionnalities (or at least Linux4.4 for partial support).
+\textbf{\color{red}Important : } eBPF requires \textbf{Linux-4.9} to access full functionalities (\textit{or at least Linux4.4 for partial support}).
 
 \subsection{Defeating Anti debugging mechanisms}
 Security is a concern for every modern device, It has become crucial to keep the data safe and avoid them from leaking.\\
@@ -1302,9 +1329,9 @@ Security is a concern for every modern device, It has become crucial to keep the
 \end{center}
 
 
-Bugs are not only introduced as a result of programming mistakes (No one writes perfect code), they can be caused by malicious code injected on purpose by attackers.
+Bugs are not only introduced as a result of programming mistakes (\textit{no one writes perfect code}), they can be caused by malicious code injected on purpose by attackers.
 
-\subsubsection{Attacking userland}
+\subsubsection{Attacking userland and blocking GDB and strace}
 Attacking the userland is a wide spread practice and requires only few setup to achieve the desired result.\\
 
 The simplest example is the use of ptrace as shown below :
@@ -1331,7 +1358,7 @@ Ptrace attacks are very basic and be defeated quickly :
 
 
 \begin{itemize}
-	\item[$\ast$] \textbf{Place a breakpoint :} in order to jump to a given location, the program must running which means that We need at least one breakpoint. Let's place it at the beginning of the \emph{ptrace} function and run the program (\textbf{Figure \ref{Placing a breakpoint at the beginning of ptrace}}).
+	\item[$\ast$] \textbf{Place a breakpoint :} in order to jump to a given location, the program must be running which means that we need at least one breakpoint. Let's place it at the beginning of the \emph{ptrace} function and run the program (\textbf{Figure \ref{Placing a breakpoint at the beginning of ptrace}}).
 			\begin{figure}[H]
 					\centering
         			\includegraphics[scale=0.5]{img/solution/ptrace-reverse-anti-debug.png}
@@ -1340,18 +1367,18 @@ Ptrace attacks are very basic and be defeated quickly :
    			 \end{figure}
 		
 	
-	\item[$\ast$] \textbf{Get the destination address : } retrieve the location of \emph{getchar()} in memory and jump there using gdb (\textbf{Figure \ref{Jump to getchar function location}}).
+	\item[$\ast$] \textbf{Get the destination address : } retrieve the location of \emph{getchar()} in memory and jump there using GDB (\textbf{Figure \ref{Jump to getchar function location}}).
 	\begin{figure}[H]
 					\centering
         			\includegraphics[scale=0.5]{img/solution/jumpMadeUsingGDB.png}
         			\caption{Jump to getchar function location}
         			\label{Jump to getchar function location}
    			 \end{figure}
-\textbf{\color{orange}Remark :} We have forced our program to jump to memory location 0x7ffff7a83160	
-	\item[$\ast$] \textbf{Carry on program execution : } At the moment that We made the jump, a blinking cursor was waiting for a character input (this is the behaviour of getchar()), We can provide it with a character as shown in \textbf{Figure \ref{Reversing ptrace anti-debug}}
+\textbf{\color{orange}Remark :} We have forced our program to jump to memory location \emph{0x7ffff7a83160}.	
+	\item[$\ast$] \textbf{Carry on program execution : } At the moment that we made the jump, a blinking cursor was waiting for a character input (\emph{this is the behaviour of getchar()}), We can provide it with a character as shown in \textbf{Figure \ref{Reversing ptrace anti-debug}}
 			\begin{figure}[H]
 					\centering
-        			\includegraphics[scale=0.45]{img/solution/reverse-engineering-debugged.png}
+        			\includegraphics[scale=0.55]{img/solution/reverse-engineering-debugged.png}
         			\caption{Reversing ptrace anti-debug}
         			\label{Reversing ptrace anti-debug}
    			 \end{figure}
@@ -1375,7 +1402,7 @@ Ptrace attacks are very basic and be defeated quickly :
   }
 }
 \end{center}
-\subsubsection{Targeting Kernel Code}
+\subsubsection{Targeting Kernel Code and changing modules behaviour}
 The kernel can be subjected to many threats (like rootkits).
 We can change behaviour of almost any instruction in the kernel (\textit{it's parameters and return value}), and cause
 serious system issues that goes from simple \textbf{Denial of Services to steeling private data}.
@@ -1383,21 +1410,21 @@ serious system issues that goes from simple \textbf{Denial of Services to steeli
 Some basic attacks like : \textbf{Jprobes} ({\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap6-kernel-security/kernel/jprobes}}) and \textbf{Kprobes} ({\color{blue}\url{https://github.com/jugurthab/Linux\_kernel\_debug/tree/master/debug-examples/Chap6-kernel-security/kernel/kprobes}}).
 
 
-More advanced attacks like module tampering : ({\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap6-kernel-security/kernel/module-tampering}})
+We are going to illustrate module tampering (\textit{found at {\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/tree/master/debug-examples/Chap6-kernel-security/kernel/module-tampering}}}) as shown below  : 
 
 
 \begin{enumerate}
 	\item \textbf{Merge modules : } ld assembles modules to produce a final one as shown in \textbf{Figure \ref{Meging modules using ld}}.
     		\begin{figure}[H]
 					\centering
-        			\includegraphics[scale=0.45]{img/solution/combining-modules-linux.png}
+        			\includegraphics[scale=0.5]{img/solution/combining-modules-linux.png}
         			\caption{Meging modules using ld}
         			\label{Meging modules using ld}
    			 \end{figure}	
 	
-	kernel-module-infected.ko is merly a combination of kernel-module-safe.ko and kernel-module-to-inject.ko
+	\textbf{kernel-module-infected.ko} is merly a combination of \textbf{kernel-module-safe.ko} and \textbf{kernel-module-to-inject.ko}.
 	
-	\item \textbf{Analyse the resulting module :} We can dump module's symbol table of as follow :
+	\item \textbf{Analyse the resulting module :} We can dump module's symbols table (objdump is helpful when debugging ELF files) of as follow :
 \begin{lstlisting}[style=BashInputStyle]
 $ objdump -t kernel-module-infected.ko
 
@@ -1405,11 +1432,13 @@ kernel-module-infected.ko:     format de fichier elf32-i386
 
 SYMBOL TABLE:
 ............
-00000000 l     F .init.text	00000014 mon_module_init # init function of kernel-module-safe.ko
+# init function of kernel-module-safe.ko
+00000000 l     F .init.text	00000014 mon_module_init 
 00000000 l     F .exit.text	00000012 mon_module_cleanup
 ............
 ............
-00000014 l     F .init.text	00000014 fak_module_init # init function of kernel-module-to-inject.ko
+# init function of kernel-module-to-inject.ko
+00000014 l     F .init.text	00000014 fak_module_init 
 ............
 ............
 00000000 g     F .exit.text	00000012 cleanup_module
@@ -1417,25 +1446,25 @@ SYMBOL TABLE:
 00000000         *UND*	00000000 printk
 \end{lstlisting}
 
-The reader can notice that \og fak\_module\_init \fg has been linked correctly.\\
-All what is left is forcing \og init\_module \fg to point to our malicious symbol \og fak\_module\_init \fg (\emph{at location 00000014}).
+The reader can notice that \og \textbf{fak\_module\_init} \fg has been linked correctly.\\
+All what is left is forcing \og \textbf{init\_module} \fg to point to our malicious symbol \\ \og \textbf{fak\_module\_init} \fg  (\emph{at location 00000014}).
 
-\item \textbf{Make init\_module as an alias of fak\_module\_evil : } init\_module should point to our malicious function. One may do it by tampering the sections of kernel-module-infected.ko but a knwoledge of ELF file format is required. A program called elfchger can edit ELF files quickly and easily ({\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/blob/master/debug-examples/Chap6-kernel-security/kernel/module-tampering/elfchger.c}}) as shown below :
+\item \textbf{Make init\_module as an alias of fak\_module\_evil : } init\_module should point to our malicious function. One may do it by tampering the sections of \textbf{kernel-module-infected.ko} but a knowledge of ELF file format is required. A program called \og elfchger \fg can edit ELF files quickly and easily ({\color{blue}\url{https://github.com/jugurthab/Linux_kernel_debug/blob/master/debug-examples/Chap6-kernel-security/kernel/module-tampering/elfchger.c}}) as shown below :
 \begin{lstlisting}[style=BashInputStyle]
 ./elfchger -s init_module -v 00000014 kernel-module-infected.ko
 \end{lstlisting}
 
-Dumping the infected module using \og objdump -t kernel-module-infected.ko \fg is shown in \textbf{Figure \ref{Forcing init-module to become an alias of a malicious function}}
+Dumping the infected module using \og objdump -t kernel-module-infected.ko \fg is demonstrated in \textbf{Figure \ref{Forcing init-module to become an alias of a malicious function}}
 
 \begin{figure}[H]
 					\centering
-        			\includegraphics[scale=0.5]{img/solution/infected-module-dumped.png}
+        			\includegraphics[scale=0.65]{img/solution/infected-module-dumped.png}
         			\caption{Forcing init\_module to become an alias of a malicious function}
         			\label{Forcing init-module to become an alias of a malicious function}
    			 \end{figure}
    			 
 
-\item \textbf{Insert infected module into kernel : } see \textbf{Figure \ref{Infected module executing malicious function}}
+\item \textbf{Insert infected module into kernel : } After loading the buffer into the kernel, one can see that malicious function has been executed (see \textbf{Figure \ref{Infected module executing malicious function}}).
 
 \begin{figure}[H]
 					\centering
@@ -1443,10 +1472,7 @@ Dumping the infected module using \og objdump -t kernel-module-infected.ko \fg i
         			\caption{Infected module executing malicious function}
         			\label{Infected module executing malicious function}
    			 \end{figure}
-   			 \begin{center}
-   			 \color{red}
-   			 The module is executing the evil function
-   			 \end{center}
 
-Once again, this can be detected easily using basic debugging commands tools like "objdump", "readelf" or even "objcopy".
+
+Once again, this has been detected easily using basic debugging commands tools like "objdump", "readelf" or even "objcopy".
 \end{enumerate}

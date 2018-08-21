@@ -1,11 +1,12 @@
 \section{Conclusion}
+{ {\setlength{\baselineskip}{2em}
  A long journey was made with Linux debugging, testing tools and documenting results. We have crossed through the userspace, then went exploring various tools like : \emph{GDB}, \emph{Valgrind}, \emph{strace} and \emph{ltrace}.\\
 
-We moved to Kernel-land and learnt to solve it's issues through debuggers (KGDB/KDB, Kernel oops and Magic SysRq). We provided a step by step guide for writing custom OpenOCD scripts for JTAG debugging (We also have made a wrapper tool to make it easier). 
+We have moved to Kernel-land and learnt to solve it's issues through debuggers (\textit{KGDB/KDB}, \textit{Kernel oops} and \textit{Magic SysRq}). We have provided a step by step guide for writing custom OpenOCD scripts for JTAG debugging (\textit{a wrapper tool has been written to make scripts generation easier}). 
 
-We also made a big step in understanding Linux working internals with tracers (Ftrace, Perf, LTTng). We have seen their usages, front-end tools and compared them to help us choosing the most appropriate for a given situation. We have also discovered eBPF which is the most prominent Linux tracer.
+We also made a big step in understanding Linux working internals with tracers (\textit{Ftrace}, \textit{Perf}, \textit{LTTng}). We have seen their usages, front-end tools and compared them to help us choosing the most appropriate for a given situation. We have also discovered eBPF which is the most prominent Linux tracer.
 \vspace{10px}
-We must keep in mind that debugging is not only made to trace bugs, but also reverse malicious code (another reason to sharpen our debugging skills). Such scenarios are quite common today, and being able to detect them is a crucial requirement.
+We must keep in mind that debugging is not only made to trace bugs, but also reverse malicious code. Such scenarios are quite common today, and being able to detect them is a crucial requirement.
 
 \vspace{5px}
 Once again, We should stress out that debugging can save hours of trying to troubleshoot a problem. We must keep in mind that developpers work in team, each has it's coding style and not everyone checks for return values, null pointers, buffer overflows, ..., etc.
@@ -13,14 +14,14 @@ Once again, We should stress out that debugging can save hours of trying to trou
 
 
 \vspace{7px}
-Reader must keep in mind that printf(printk) works great with small codes, however can overwhelm a system with messages, making it slow and even unresponsive. Industrial projects can goes beyond of million lines of code.\\
-
+A solution like printf (\textit{or printk}) works great with small codes, however can overwhelm a system with messages, making it slow with strange behaviour side effect (\textit{or completely unresponsive}). Industrial projects goes beyond millions lines of code.\\
 
 
 \begin{center}
 \color{red}
-Personally, I enjoyed SMILE's internship, It prepared me for real world industry and tought me that we need more than coding skills to be a good developper.  I had a lot of fun debugging Linux, gathering performances and stack traces and I loved OpenOCD as Hardware JTAG debugging allows a complet control over target.
+Personally, I have enjoyed SMILE's internship, It prepared me for real world industry and tought me that we need more than coding skills to be a good developer.  I had a lot of fun debugging Linux; gathering performances, stack traces and I loved getting full control over a target using OpenOCD.
 \end{center}
 
+}
 
 
