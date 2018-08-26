@@ -1,12 +1,12 @@
 \select@language {french}
 \contentsline {section}{\numberline {1}Acknowledgments}{3}
 \contentsline {section}{\numberline {2}Introduction}{4}
-\contentsline {section}{\numberline {3}General view of internship}{5}
+\contentsline {section}{\numberline {3}General overview of internship}{5}
 \contentsline {subsection}{\numberline {3.1}Introducing company}{5}
 \contentsline {subsection}{\numberline {3.2}Internship objectives}{5}
 \contentsline {subsection}{\numberline {3.3}Internship pre-requests}{6}
 \contentsline {subsection}{\numberline {3.4}Internship requirements}{6}
-\contentsline {section}{\numberline {4}Available equipements}{7}
+\contentsline {section}{\numberline {4}Internship required equipements}{7}
 \contentsline {subsection}{\numberline {4.1}Hardware platforms}{7}
 \contentsline {subsubsection}{\numberline {4.1.1}Beagle Bone Black Wireless}{7}
 \contentsline {subsubsection}{\numberline {4.1.2}Raspberry PI 3 B+}{7}
