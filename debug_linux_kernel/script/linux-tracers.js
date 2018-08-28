@@ -36,6 +36,8 @@ var animateScene =false;
 
 var NUMBER_OF_EVENTS = 4;
 
+
+var user_image;
 $(document).ready(function(e){
                 var canvasTracers = $("#linuxTracersAnim");
                 var contextTracers = canvasTracers.get(0).getContext("2d");
@@ -111,10 +113,19 @@ $(document).ready(function(e){
 			CounterallowedKernelEvents =new Array(0, 0, 0, 0);
 			text = "<table>";
 			counter = 0;
+			if($("#selectTool").val()=="tracer"){
+				text+="<tr><th style=\"background-color:red;\">Timestamp</th><th>Event Type</th></tr>";
+		        } else if($("#selectTool").val()=="profiler"){
+				text+="<tr><th style=\"background-color:red;\">Event Type</th><th>Number of occurences</th></tr>";
+			}
+
+
 			for(var i=0;i<NUMBER_OF_EVENTS;i++){
-		                if($("#selectTool").val()=="tracer")			{					counter+=Math.floor(Math.random()*5);
+		                if($("#selectTool").val()=="tracer")			{					
+	
+					counter+=Math.floor(Math.random()*5);
 					counterTimestamp[i] = counter;
-					text += "<tr><td>Timestamp : " + counterTimestamp[i] + " </td><td> Event " + eventContainerArray[i].text + "</td></tr>";
+					text += "<tr><td style=\"font-weight:bold;\">" + counterTimestamp[i] + " </td><td> " + eventContainerArray[i].text + "</td></tr>";
 				}
 
 				else if($("#selectTool").val()=="profiler"){
@@ -127,7 +138,13 @@ $(document).ready(function(e){
 
 			if($("#selectTool").val()=="profiler"){
 				for(var i = 0; i < CounterallowedKernelEvents.length; i++){
-					text += "<tr><td>Event : " + allowedKernelEvents[i] + " </td><td> " + CounterallowedKernelEvents[i] + " times</td></tr>";
+					if(CounterallowedKernelEvents[i]>1){
+						text += "<tr><td style=\"font-weight:bold;\">" + allowedKernelEvents[i] + " </td><td> " + CounterallowedKernelEvents[i] + " times</td></tr>";
+
+					} else {
+						text += "<tr><td style=\"font-weight:bold;\">" + allowedKernelEvents[i] + " </td><td> " + CounterallowedKernelEvents[i] + " time</td></tr>";
+
+					}
 				}
 			}
 
@@ -142,7 +159,62 @@ $(document).ready(function(e){
 
 		function drawGraph(){
 
-			if($("#selectTool").val()=="profiler"){			
+			contextTracers.beginPath(); 
+				contextTracers.moveTo(20+linux_container_userspace.x , linux_container_userspace.y +linux_container_userspace.height-40);
+				contextTracers.lineTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/4, linux_container_userspace.y +linux_container_userspace.height-40);
+				contextTracers.closePath(); 
+			contextTracers.stroke();
+
+
+			contextTracers.beginPath(); 
+				contextTracers.fillStyle= "rgb(0,255,255)";
+				contextTracers.moveTo(-20+linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/4 , linux_container_userspace.y +linux_container_userspace.height-50);
+				contextTracers.lineTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/4, linux_container_userspace.y +linux_container_userspace.height-40);
+				contextTracers.lineTo(-20+linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/4, linux_container_userspace.y +linux_container_userspace.height-30);
+				contextTracers.closePath();  
+			contextTracers.fill();
+
+
+			if($("#selectTool").val()=="profiler"){	
+
+					contextTracers.beginPath(); 
+					contextTracers.moveTo(40+linux_container_userspace.x , linux_container_userspace.y +linux_container_userspace.y + linux_container_userspace.height -40 - NUMBER_OF_EVENTS * 90);
+
+					contextTracers.lineTo(40+linux_container_userspace.x, linux_container_userspace.y + linux_container_userspace.height-10);
+
+
+					contextTracers.closePath(); 
+				contextTracers.stroke();
+
+
+
+				contextTracers.beginPath(); 
+					contextTracers.fillStyle="rgb(255,0,0)";
+					contextTracers.moveTo(40+linux_container_userspace.x , linux_container_userspace.y +linux_container_userspace.y/2 + linux_container_userspace.height -10 - NUMBER_OF_EVENTS * 90);
+
+					contextTracers.lineTo(30+linux_container_userspace.x, linux_container_userspace.y +linux_container_userspace.y/2 + linux_container_userspace.height -20 - NUMBER_OF_EVENTS * 80);
+
+
+					contextTracers.lineTo(50+linux_container_userspace.x, linux_container_userspace.y +linux_container_userspace.y/2 + linux_container_userspace.height -20 - NUMBER_OF_EVENTS * 80);
+
+
+					contextTracers.closePath(); 
+				contextTracers.fill();
+
+
+
+
+
+					contextTracers.fillStyle = "rgb(255,0,128)";
+					contextTracers.font = "20px serif";
+					contextTracers.fillText("Profiling report",linux_container_userspace.x + linux_container_userspace.width/2 -100, linux_container_userspace.y+linux_container_userspace.height/2-120);
+
+
+
+				
+
+
+				contextTracers.lineWidth = 5;
 				for(var i=0;i<NUMBER_OF_EVENTS;i++){
 					contextTracers.beginPath(); 
 					contextTracers.moveTo(60+ linux_container_userspace.x + linux_container_userspace.width/5 * i, linux_container_userspace.y + linux_container_userspace.height -40);
@@ -158,26 +230,23 @@ $(document).ready(function(e){
 					contextTracers.font = "20px serif";
 					contextTracers.fillText(allowedKernelEvents[i], linux_container_userspace.x + linux_container_userspace.width/5 * i +55, linux_container_userspace.y + linux_container_userspace.height -10);
 
-
-
-
-
-
-
-
 					// draw vertical scale axis
 					contextTracers.fillStyle = eventContainerArray[i].colorText;
 					contextTracers.font = "20px serif";
 					contextTracers.fillText(i, linux_container_userspace.x +20, linux_container_userspace.y + linux_container_userspace.height -40 - i * 70);
 	
 
-				}	
+				}
+
+				contextTracers.lineWidth = 1;	
 
 			}
 
 		
 			else if($("#selectTool").val()=="tracer"){
-				console.log("hi");
+				contextTracers.fillStyle = "rgb(255,0,128)";
+				contextTracers.font = "20px serif";
+				contextTracers.fillText("Tracing report",linux_container_userspace.x + linux_container_userspace.width/2 -100, linux_container_userspace.y+linux_container_userspace.height/2-120);
 
 				for(var i=0;i<NUMBER_OF_EVENTS;i++){
 					
@@ -321,8 +390,17 @@ $(document).ready(function(e){
 		}
 
 
+		function drawUser(){
+			user_image = new Image();
+			user_image.src = "img/user_tracing.png";
+			$(user_image).on("load",function() {
+				contextTracers.drawImage(user_image, linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/4, linux_container_userspace.y+linux_container_userspace.height/2, linux_container_userspace.width/4, linux_container_userspace.height/2);
+			});
+		}
+
+
 		function drawTracersProfilersScene(){
-           		 contextTracers.clearRect(0, 0, canvasWidthTracers, canvasHeightTracers);
+           		contextTracers.clearRect(0, 0, canvasWidthTracers, canvasHeightTracers);
 
 
 			drawContainerMachine();
@@ -345,7 +423,10 @@ $(document).ready(function(e){
 			drawLinesEventToTracer();
 
 			drawEvents();
+			drawUser();
 			drawGraph();
+
+			
 
 			drawKeyMap();
 			if(animateScene){
@@ -357,7 +438,7 @@ $(document).ready(function(e){
                     if(timerJavascript)
                         clearTimeout(timerJavascript);
                     canvasTracers.attr("width",$(window).get(0).innerWidth - 100);
-                    canvasTracers.attr("height",$(window).get(0).innerHeight - 250);
+                    canvasTracers.attr("height",$(window).get(0).innerHeight - 350);
                     canvasWidthTracers = canvasTracers.width();
                     canvasHeightTracers = canvasTracers.height();
                     
