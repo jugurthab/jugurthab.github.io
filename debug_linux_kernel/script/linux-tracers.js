@@ -48,23 +48,24 @@ $(document).ready(function(e){
         	$(window).resize(resizeCanvasTracer);
 
 		var startTracerAnimation = $("#playAnimationB");
+		$("#selectTool").on("change",resizeCanvasTracer);
 		startTracerAnimation.on("click",function() {
 			
 			if(animateScene){
 				animateScene = false;
-				startTracerAnimation.text('Start Tracing');
+				
 			
 			}
 			else {
 				animateScene = true;
-				startTracerAnimation.text('Stop Tracing');
+				
 			}
 				
 			resizeCanvasTracer();
 			
 		});
 
-		$("#selectTool").on("change",resizeCanvasTracer);
+		
 		
 
 
@@ -197,7 +198,6 @@ $(document).ready(function(e){
 
 					contextTracers.lineTo(50+linux_container_userspace.x, linux_container_userspace.y +linux_container_userspace.y/2 + linux_container_userspace.height -20 - NUMBER_OF_EVENTS * 80);
 
-
 					contextTracers.closePath(); 
 				contextTracers.fill();
 
@@ -207,20 +207,18 @@ $(document).ready(function(e){
 
 					contextTracers.fillStyle = "rgb(255,0,128)";
 					contextTracers.font = "20px serif";
-					contextTracers.fillText("Profiling report",linux_container_userspace.x + linux_container_userspace.width/2 -100, linux_container_userspace.y+linux_container_userspace.height/2-120);
-
-
-
-				
-
+					contextTracers.fillText("Profiling report",linux_container_userspace.x + linux_container_userspace.width/2 -100, linux_container_userspace.y+linux_container_userspace.height/5);
 
 				contextTracers.lineWidth = 5;
 				for(var i=0;i<NUMBER_OF_EVENTS;i++){
 					contextTracers.beginPath(); 
-					contextTracers.moveTo(60+ linux_container_userspace.x + linux_container_userspace.width/5 * i, linux_container_userspace.y + linux_container_userspace.height -40);
+					//contextTracers.moveTo(60+ linux_container_userspace.x + linux_container_userspace.width/5 * i, linux_container_userspace.y + linux_container_userspace.height -40);
 
-					contextTracers.lineTo(60+linux_container_userspace.x + linux_container_userspace.width/5 * i, linux_container_userspace.y + linux_container_userspace.height -40 - CounterallowedKernelEvents[i] * 70);
+					//contextTracers.lineTo(60+linux_container_userspace.x + linux_container_userspace.width/5 * i, linux_container_userspace.y + linux_container_userspace.height -40 - CounterallowedKernelEvents[i] * 70);
 
+					contextTracers.moveTo(60+ linux_container_userspace.x + linux_container_userspace.width/6 * i, linux_container_userspace.y + linux_container_userspace.height -40);
+
+					contextTracers.lineTo(60+linux_container_userspace.x + linux_container_userspace.width/6 * i, linux_container_userspace.y + linux_container_userspace.height -40 - CounterallowedKernelEvents[i] * 55);
 
 					contextTracers.closePath(); 
 					contextTracers.stroke();
@@ -228,18 +226,14 @@ $(document).ready(function(e){
 
 					contextTracers.fillStyle = "rgb(255,0,0)";
 					contextTracers.font = "20px serif";
-					contextTracers.fillText(allowedKernelEvents[i], linux_container_userspace.x + linux_container_userspace.width/5 * i +55, linux_container_userspace.y + linux_container_userspace.height -10);
+					contextTracers.fillText(allowedKernelEvents[i], linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height -10);
 
 					// draw vertical scale axis
 					contextTracers.fillStyle = eventContainerArray[i].colorText;
 					contextTracers.font = "20px serif";
-					contextTracers.fillText(i, linux_container_userspace.x +20, linux_container_userspace.y + linux_container_userspace.height -40 - i * 70);
-	
-
+					contextTracers.fillText(i, linux_container_userspace.x +20, linux_container_userspace.y + linux_container_userspace.height -40 - i * 55);
 				}
-
-				contextTracers.lineWidth = 1;	
-
+				contextTracers.lineWidth = 1;
 			}
 
 		
@@ -251,9 +245,9 @@ $(document).ready(function(e){
 				for(var i=0;i<NUMBER_OF_EVENTS;i++){
 					
 					contextTracers.beginPath(); 
-					contextTracers.moveTo( linux_container_userspace.x + linux_container_userspace.width/5 * i +55, linux_container_userspace.y + linux_container_userspace.height -40);
+					contextTracers.moveTo( linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height -40);
 
-					contextTracers.lineTo(linux_container_userspace.x + linux_container_userspace.width/5 * i +55, linux_container_userspace.y + linux_container_userspace.height/2 -10);
+					contextTracers.lineTo(linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height/2 -10);
 
 
 					contextTracers.closePath(); 
@@ -262,12 +256,12 @@ $(document).ready(function(e){
 
 					contextTracers.fillStyle = "rgb(255,0,0)";
 					contextTracers.font = "20px serif";
-					contextTracers.fillText(eventContainerArray[i].text, linux_container_userspace.x + linux_container_userspace.width/5 * i +55, linux_container_userspace.y + linux_container_userspace.height/2 -10);
+					contextTracers.fillText(eventContainerArray[i].text, linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height/2 -10);
 
 					
 					contextTracers.fillStyle = "rgb(255,255,255)";
 					contextTracers.font = "20px serif";
-					contextTracers.fillText(counterTimestamp[i], linux_container_userspace.x + linux_container_userspace.width/5 * i +55, linux_container_userspace.y + linux_container_userspace.height -10);
+					contextTracers.fillText(counterTimestamp[i], linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height -10);
 
 
 
@@ -431,6 +425,15 @@ $(document).ready(function(e){
 			drawKeyMap();
 			if(animateScene){
              			timerJavascript = setTimeout(drawTracersProfilersScene, 1000);
+				if($("#selectTool").val()=="tracer")
+					$("#playAnimationB").text('Stop Tracing');
+				else
+					$("#playAnimationB").text('Stop Profiling');
+			} else {
+				if($("#selectTool").val()=="tracer")
+					$("#playAnimationB").text('Start Tracing');
+				else
+					$("#playAnimationB").text('Start Profiling');
 			}
  		}
 
@@ -442,6 +445,7 @@ $(document).ready(function(e){
                     canvasWidthTracers = canvasTracers.width();
                     canvasHeightTracers = canvasTracers.height();
                     
+			
 
 		    
                     drawTracersProfilersScene();
