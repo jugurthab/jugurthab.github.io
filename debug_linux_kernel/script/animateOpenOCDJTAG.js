@@ -1998,7 +1998,7 @@ BypassData.push(new streamDataUnit(canvasWidthJTAG/2.5 + realSOCJTAG.x +realSOCJ
                 function resizeCanvasJTAG(){
                     if(timerJavascript)
                         clearTimeout(timerJavascript);
-                    canvasJTAG.attr("width",$(window).get(0).innerWidth - 450);
+                    canvasJTAG.attr("width",$(window).get(0).innerWidth - 250);
                     canvasWidthJTAG = canvasJTAG.width();
                     canvasHeightJTAG = canvasJTAG.height();
                     
