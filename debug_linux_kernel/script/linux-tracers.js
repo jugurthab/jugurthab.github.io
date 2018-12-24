@@ -35,7 +35,7 @@ var main_container, linux_container, linux_container_userspace, linux_container_
 var timerJavascript = false;
 var animateScene =false;
 
-var NUMBER_OF_EVENTS = 1;
+var NUMBER_OF_EVENTS = 4;
 
 var NUMBER_MAX_EVENTS = 20;
 
@@ -85,19 +85,19 @@ $(document).ready(function(e){
 			for(var i=0;i<NUMBER_OF_EVENTS;i++){
 				contextTracers.fillStyle=allowedKernelEventsColor[i];
 				contextTracers.beginPath();
-				contextTracers.arc(60+ 170 * i,40, eventContainerArray[i].radius, 0, Math.PI*2, false);
+				contextTracers.arc(main_container.x + eventContainerArray[i].radius + 170 * i,40, eventContainerArray[i].radius, 0, Math.PI*2, false);
 				contextTracers.closePath();
 				contextTracers.fill();
 
 				contextTracers.fillStyle="rgb(255,255,255)";
 				contextTracers.font = "20px serif";
-				contextTracers.fillText(allowedKernelEvents[i], 60+ 170 * i-8, 47);
+				contextTracers.fillText(allowedKernelEvents[i], main_container.x + eventContainerArray[i].radius + 170 * i-8, 47);
 
 
 
 				contextTracers.fillStyle="rgb(255,255,255)";
 				contextTracers.font = "15px serif";
-				contextTracers.fillText(allowedKernelEventsMeaning[i], 80+ 170 * i, 47);
+				contextTracers.fillText(allowedKernelEventsMeaning[i], main_container.x + eventContainerArray[i].radius + 25+ 170 * i, 44);
 
 			}
 
@@ -121,30 +121,39 @@ $(document).ready(function(e){
 
 
 		function drawEvents(){
-			//CounterallowedKernelEvents =new Array(0, 0, 0, 0);
-			text = "<table>";
-			//counter = 0;
+			
+			//text = "<table>";
+		
 			if($("#selectTool").val()=="tracer"){
-				text+="<tr><th style=\"background-color:red;\">Timestamp</th><th>Event Type</th></tr>";
-		        } else if($("#selectTool").val()=="profiler"){
-				text+="<tr><th style=\"background-color:red;\">Event Type</th><th>Number of occurences</th></tr>";
+				//text+="<tr><th style=\"background-color:red;\">Timestamp</th><th>Event Type</th></tr>";
+                contextTracers.fillText("Timestamp", linux_container_userspace.x + 20, linux_container_userspace.y + 70);
+                contextTracers.fillText("Event Type", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 70);
+		    } else if($("#selectTool").val()=="profiler"){
+				//text+="<tr><th style=\"background-color:red;\">Event Type</th><th>Number of occurences</th></tr>";   
+                contextTracers.fillText("Event Type", linux_container_userspace.x + 20, linux_container_userspace.y + 70);
+                contextTracers.fillText("Number of", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 70);
+                contextTracers.fillText("occurences", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 90);
 
-                 
+
 			}
 
 
 			for(var i=0;i<NUMBER_OF_EVENTS;i++){
-		                if($("#selectTool").val()=="tracer")			{					
+		          if($("#selectTool").val()=="tracer"){					
 	
-					counter+=Math.floor(Math.random()*5);
-					counterTimestamp[i] = counter;
-					text += "<tr><td style=\"font-weight:bold;\">" + counterTimestamp[i] + " </td><td> " + eventContainerArray[i].text + "</td></tr>";
-				}
+					    counter+=Math.floor(Math.random()*5);
+					    counterTimestamp[i] = counter;
+					    //text += "<tr><td style=\"font-weight:bold;\">" + ("0000000"+counterTimestamp[i]).slice(-7) + " </td><td> " + eventContainerArray[i].text + "</td></tr>";
 
-				else if($("#selectTool").val()=="profiler"){
+                        
+                        contextTracers.fillText(("0000000"+counterTimestamp[i]).slice(-7), linux_container_userspace.x + 20, linux_container_userspace.y + 35*i + 130);
+
+                        contextTracers.fillText(eventContainerArray[i].text, linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 35*i + 130);
+
+				  } else if($("#selectTool").val()=="profiler"){
 					index = allowedKernelEvents.indexOf(eventContainerArray[i].text);
 					CounterallowedKernelEvents[index]++;
-				}
+				  }
 
 			}
 			
@@ -152,150 +161,23 @@ $(document).ready(function(e){
 			if($("#selectTool").val()=="profiler"){
 				for(var i = 0; i < CounterallowedKernelEvents.length; i++){
 					if(CounterallowedKernelEvents[i]>1){
-						text += "<tr><td style=\"font-weight:bold;\">" + allowedKernelEvents[i] + " </td><td> " + CounterallowedKernelEvents[i] + " times</td></tr>";
+						//text += "<tr><td style=\"font-weight:bold;\">" + allowedKernelEvents[i] + " </td><td> " + CounterallowedKernelEvents[i] + " times</td></tr>";
+                        contextTracers.fillText(allowedKernelEvents[i], linux_container_userspace.x + 20, linux_container_userspace.y + 35*i + 130);
 
+                        contextTracers.fillText(CounterallowedKernelEvents[i] + " times", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 35*i + 130);
 					} else {
-						text += "<tr><td style=\"font-weight:bold;\">" + allowedKernelEvents[i] + " </td><td> " + CounterallowedKernelEvents[i] + " time</td></tr>";
+						//text += "<tr><td style=\"font-weight:bold;\">" + allowedKernelEvents[i] + " </td><td> " + CounterallowedKernelEvents[i] + " time</td></tr>";
+                        contextTracers.fillText(allowedKernelEvents[i], linux_container_userspace.x + 20, linux_container_userspace.y+ 35*i + 130);
+                        contextTracers.fillText(CounterallowedKernelEvents[i] + " time", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 35*i + 130);
 
 					}
 				}
 			}
 
-			text+="</table>";
-			$("#logData").empty();
-			$("#logData").append(text);
-
-			//counterTimestamp.sort(function(a, b){return a-b});
+			//text+="</table>";
+			//$("#logData").empty();
+			//$("#logData").append(text);
 			
-		}
-
-
-		function drawGraph(){
-
-			contextTracers.beginPath(); 
-				contextTracers.moveTo(20+linux_container_userspace.x , linux_container_userspace.y +linux_container_userspace.height-40);
-				contextTracers.lineTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/4, linux_container_userspace.y +linux_container_userspace.height-40);
-				contextTracers.closePath(); 
-			contextTracers.stroke();
-
-
-			contextTracers.beginPath(); 
-				contextTracers.fillStyle= "rgb(0,255,255)";
-				contextTracers.moveTo(-20+linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/4 , linux_container_userspace.y +linux_container_userspace.height-50);
-				contextTracers.lineTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/4, linux_container_userspace.y +linux_container_userspace.height-40);
-				contextTracers.lineTo(-20+linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/4, linux_container_userspace.y +linux_container_userspace.height-30);
-				contextTracers.closePath();  
-			contextTracers.fill();
-
-
-			if($("#selectTool").val()=="profiler"){	
-
-					contextTracers.beginPath(); 
-					contextTracers.moveTo(40+linux_container_userspace.x , linux_container_userspace.y +linux_container_userspace.y + linux_container_userspace.height -40 - NUMBER_OF_EVENTS * 90);
-
-					contextTracers.lineTo(40+linux_container_userspace.x, linux_container_userspace.y + linux_container_userspace.height -50 - NUMBER_MAX_EVENTS*2);
-
-
-					contextTracers.closePath(); 
-				contextTracers.stroke();
-
-
-
-				contextTracers.beginPath(); 
-					contextTracers.fillStyle="rgb(255,0,0)";
-					contextTracers.moveTo(40+linux_container_userspace.x , linux_container_userspace.y +linux_container_userspace.y/2 + linux_container_userspace.height -10 - NUMBER_OF_EVENTS * 90);
-
-					contextTracers.lineTo(30+linux_container_userspace.x, linux_container_userspace.y +linux_container_userspace.y/2 + linux_container_userspace.height -20 - NUMBER_OF_EVENTS * 80);
-
-
-					contextTracers.lineTo(50+linux_container_userspace.x, linux_container_userspace.y +linux_container_userspace.y/2 + linux_container_userspace.height -20 - NUMBER_OF_EVENTS * 80);
-
-					contextTracers.closePath(); 
-				contextTracers.fill();
-
-
-
-
-
-					contextTracers.fillStyle = "rgb(255,0,128)";
-					contextTracers.font = "20px serif";
-					contextTracers.fillText("Profiling report",linux_container_userspace.x + linux_container_userspace.width/2 -100, linux_container_userspace.y+linux_container_userspace.height/5);
-
-				contextTracers.lineWidth = 5;
-				for(var i=0;i<4;i++){
-					contextTracers.beginPath(); 
-					
-					contextTracers.moveTo(60+ linux_container_userspace.x + linux_container_userspace.width/6 * i, linux_container_userspace.y + linux_container_userspace.height -40);
-
-					contextTracers.lineTo(60+linux_container_userspace.x + linux_container_userspace.width/6 * i, linux_container_userspace.y + linux_container_userspace.height -40 - CounterallowedKernelEvents[i]*2);
-
-					contextTracers.closePath(); 
-					contextTracers.stroke();
-				
-
-					contextTracers.fillStyle = "rgb(255,0,0)";
-					contextTracers.font = "20px serif";
-					contextTracers.fillText(allowedKernelEvents[i], linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height -10);
-
-					// draw vertical scale axis
-					/*contextTracers.fillStyle = eventContainerArray[i].colorText;
-					contextTracers.font = "20px serif";
-					contextTracers.fillText(i, linux_container_userspace.x +20, linux_container_userspace.y + linux_container_userspace.height -40 - i * 55);*/
-				}
-				contextTracers.lineWidth = 1;
-			}
-
-		
-			else if($("#selectTool").val()=="tracer"){
-				contextTracers.fillStyle = "rgb(255,0,128)";
-				contextTracers.font = "20px serif";
-				contextTracers.fillText("Tracing report",linux_container_userspace.x + linux_container_userspace.width/2 -100, linux_container_userspace.y+linux_container_userspace.height/2-120);
-
-				for(var i=0;i<eventTracerName.length;i++){
-					
-                    var index_Event_Name = allowedKernelEvents.indexOf(eventTracerName[i]);
-
-                    contextTracers.beginPath(); 
-    					contextTracers.moveTo( linux_container_userspace.x + linux_container_userspace.width/30 * i +15, linux_container_userspace.y + linux_container_userspace.height -80);
-
-    					contextTracers.lineTo(linux_container_userspace.x + linux_container_userspace.width/30 * i +15, linux_container_userspace.y + linux_container_userspace.height/2 -10 - index_Event_Name);
-
-
-					contextTracers.closePath(); 
-					contextTracers.stroke();
-
-
-
-
-
-
-
-					/*contextTracers.beginPath(); 
-					contextTracers.moveTo( linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height -40);
-
-					contextTracers.lineTo(linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height/2 -10);
-
-
-					contextTracers.closePath(); 
-					contextTracers.stroke();
-
-
-					contextTracers.fillStyle = "rgb(255,0,0)";
-					contextTracers.font = "20px serif";
-					contextTracers.fillText(eventContainerArray[i].text, linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height/2 -10);
-
-					
-					contextTracers.fillStyle = "rgb(255,255,255)";
-					contextTracers.font = "20px serif";
-					contextTracers.fillText(counterTimestamp[i], linux_container_userspace.x + linux_container_userspace.width/6 * i +55, linux_container_userspace.y + linux_container_userspace.height -10);
-
-*/
-
-
-				}				
-   			}
-
-	
 		}
 
 		function drawTracerOrProfiler(){
@@ -401,7 +283,7 @@ $(document).ready(function(e){
 
 
 		function drawLinux(){
-			linux_container = new mainContainer(canvasWidthTracers/40,60,canvasWidthTracers - canvasWidthTracers/20,canvasHeightTracers/2+ canvasHeightTracers/3 -60,"#C1403D", "Linux OS","rgba(255,255,255,1.0)");
+			linux_container = new mainContainer(canvasWidthTracers/40,100,canvasWidthTracers - canvasWidthTracers/20,canvasHeightTracers/2+ canvasHeightTracers/3 -60,"#C1403D", "Linux OS","rgba(255,255,255,1.0)");
 
 			contextTracers.fillStyle = linux_container.color;
 			contextTracers.fillRect(linux_container.x, linux_container.y, linux_container.width, linux_container.height);
@@ -421,7 +303,7 @@ $(document).ready(function(e){
 			
 			contextTracers.fillStyle = main_container.colorText;
 			contextTracers.font = "40px serif";
-			contextTracers.fillText(main_container.text, main_container.x + main_container.width/2 - 140, main_container.y+35);
+			contextTracers.fillText(main_container.text, main_container.x + main_container.width/2 - 125, main_container.y+75);
 		}
 
 
@@ -459,10 +341,7 @@ $(document).ready(function(e){
 
 			drawEvents();
 			drawUser();
-			drawGraph();
-
-			
-
+	
 			drawKeyMap();
 			if(animateScene){
              			timerJavascript = setTimeout(drawTracersProfilersScene, 1000);
@@ -482,7 +361,7 @@ $(document).ready(function(e){
                     if(timerJavascript)
                         clearTimeout(timerJavascript);
                     canvasTracers.attr("width",$(window).get(0).innerWidth - 100);
-                    canvasTracers.attr("height",$(window).get(0).innerHeight - 350);
+                    canvasTracers.attr("height",$(window).get(0).innerHeight - 150);
                     canvasWidthTracers = canvasTracers.width();
                     canvasHeightTracers = canvasTracers.height();
                     
