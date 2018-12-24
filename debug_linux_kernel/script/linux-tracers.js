@@ -121,33 +121,60 @@ $(document).ready(function(e){
 
 
 		function drawEvents(){
-			
-			//text = "<table>";
-		
+            contextTracers.font = "bold 18px serif";
+
+            contextTracers.beginPath(); 
+            contextTracers.moveTo(linux_container_userspace.x + 15, linux_container_userspace.y + 50);
+
+            contextTracers.lineTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2+88, linux_container_userspace.y + 50);
+            contextTracers.closePath(); 
+            contextTracers.stroke();
+
+            contextTracers.beginPath(); 
+            contextTracers.moveTo(linux_container_userspace.x + 15, linux_container_userspace.y + 100);
+
+            contextTracers.lineTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2+88, linux_container_userspace.y + 100);
+            contextTracers.closePath(); 
+            contextTracers.stroke();
+
 			if($("#selectTool").val()=="tracer"){
-				//text+="<tr><th style=\"background-color:red;\">Timestamp</th><th>Event Type</th></tr>";
+                contextTracers.fillStyle = "rgb(255,0,0)";
+				
                 contextTracers.fillText("Timestamp", linux_container_userspace.x + 20, linux_container_userspace.y + 70);
-                contextTracers.fillText("Event Type", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 70);
+                contextTracers.fillStyle = "rgb(0,0,255)";
+                contextTracers.fillText("Event Type", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2-5, linux_container_userspace.y + 70);
 		    } else if($("#selectTool").val()=="profiler"){
-				//text+="<tr><th style=\"background-color:red;\">Event Type</th><th>Number of occurences</th></tr>";   
+				contextTracers.fillStyle = "rgb(255,0,0)";  
                 contextTracers.fillText("Event Type", linux_container_userspace.x + 20, linux_container_userspace.y + 70);
+                contextTracers.fillStyle = "rgb(0,0,255)";
                 contextTracers.fillText("Number of", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 70);
                 contextTracers.fillText("occurences", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 90);
 
 
 			}
-
-
+            
+             
+             
+             contextTracers.fillStyle = "rgb(0,0,0)";
 			for(var i=0;i<NUMBER_OF_EVENTS;i++){
+                    contextTracers.beginPath(); 
+                        contextTracers.moveTo(linux_container_userspace.x + 15, linux_container_userspace.y + 140 + 35 * i);
+
+                        contextTracers.lineTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2+88, linux_container_userspace.y + 140 + 35 * i);
+                        contextTracers.closePath(); 
+                        contextTracers.stroke();
 		          if($("#selectTool").val()=="tracer"){					
-	
+	                    
+                        
+
 					    counter+=Math.floor(Math.random()*5);
 					    counterTimestamp[i] = counter;
-					    //text += "<tr><td style=\"font-weight:bold;\">" + ("0000000"+counterTimestamp[i]).slice(-7) + " </td><td> " + eventContainerArray[i].text + "</td></tr>";
+					    
 
-                        
+                        contextTracers.font = "bold 18px serif";
                         contextTracers.fillText(("0000000"+counterTimestamp[i]).slice(-7), linux_container_userspace.x + 20, linux_container_userspace.y + 35*i + 130);
 
+                        contextTracers.font = "18px serif";
                         contextTracers.fillText(eventContainerArray[i].text, linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 35*i + 130);
 
 				  } else if($("#selectTool").val()=="profiler"){
@@ -161,23 +188,48 @@ $(document).ready(function(e){
 			if($("#selectTool").val()=="profiler"){
 				for(var i = 0; i < CounterallowedKernelEvents.length; i++){
 					if(CounterallowedKernelEvents[i]>1){
-						//text += "<tr><td style=\"font-weight:bold;\">" + allowedKernelEvents[i] + " </td><td> " + CounterallowedKernelEvents[i] + " times</td></tr>";
+						contextTracers.font = "bold 18px serif";
                         contextTracers.fillText(allowedKernelEvents[i], linux_container_userspace.x + 20, linux_container_userspace.y + 35*i + 130);
 
+                        contextTracers.font = "18px serif";
                         contextTracers.fillText(CounterallowedKernelEvents[i] + " times", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 35*i + 130);
 					} else {
-						//text += "<tr><td style=\"font-weight:bold;\">" + allowedKernelEvents[i] + " </td><td> " + CounterallowedKernelEvents[i] + " time</td></tr>";
+						contextTracers.font = "bold 18px serif";
                         contextTracers.fillText(allowedKernelEvents[i], linux_container_userspace.x + 20, linux_container_userspace.y+ 35*i + 130);
+
+                        contextTracers.font = "18px serif";
                         contextTracers.fillText(CounterallowedKernelEvents[i] + " time", linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2, linux_container_userspace.y + 35*i + 130);
 
 					}
 				}
 			}
 
-			//text+="</table>";
-			//$("#logData").empty();
-			//$("#logData").append(text);
 			
+
+            /* Left most table bar userspace report */
+            contextTracers.beginPath(); 
+            contextTracers.moveTo(linux_container_userspace.x + 15, linux_container_userspace.y + 50);
+
+            contextTracers.lineTo(linux_container_userspace.x + 15, linux_container_userspace.y + 247);
+            contextTracers.closePath(); 
+            contextTracers.stroke();
+
+            /* Middle table bar userspace report */
+            contextTracers.beginPath(); 
+            contextTracers.moveTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2 - 10, linux_container_userspace.y + 50);
+
+            contextTracers.lineTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2 - 10, linux_container_userspace.y + 247);
+            contextTracers.closePath(); 
+            contextTracers.stroke();
+
+            /* Right most table bar userspace report */
+            contextTracers.beginPath(); 
+            contextTracers.moveTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2 + 88, linux_container_userspace.y + 50);
+
+            contextTracers.lineTo(linux_container_userspace.x+linux_container_userspace.width-linux_container_userspace.width/2 + 88, linux_container_userspace.y + 247);
+            contextTracers.closePath(); 
+            contextTracers.stroke();
+
 		}
 
 		function drawTracerOrProfiler(){
@@ -194,7 +246,7 @@ $(document).ready(function(e){
 			contextTracers.font = "30px serif";
             		contextTracers.save();
 			contextTracers.rotate(-Math.PI/2);
-			contextTracers.fillText(main_tracer_profiler.text, -main_tracer_profiler.y - main_tracer_profiler.height/2 -50, main_tracer_profiler.x + main_tracer_profiler.width/2+8);
+			contextTracers.fillText(main_tracer_profiler.text, -main_tracer_profiler.y - main_tracer_profiler.height/2 -40, main_tracer_profiler.x + main_tracer_profiler.width/2+8);
             contextTracers.restore();
 
 			main_tracer_profiler_probe = new mainContainer(main_tracer_profiler.x-50, linux_container_kernel.y + linux_container_kernel.height/2-canvasHeightTracers/16, 50, canvasHeightTracers/8,"#03353E", "Probe","rgba(255,255,255,1.0)");
@@ -214,12 +266,12 @@ $(document).ready(function(e){
 
 		function generateKernelEvents(){
 
-             if(counterEvents>NUMBER_MAX_EVENTS){
+            /* if(counterEvents>NUMBER_MAX_EVENTS){
                     counterEvents =0;
                     CounterallowedKernelEvents =new Array(0, 0, 0, 0);
                     eventTracerName = new Array();
                     eventTracerCounter = new Array();
-             }		
+             }	*/	
 			for(var i=0;i<NUMBER_OF_EVENTS;i++){
 
 
@@ -265,7 +317,7 @@ $(document).ready(function(e){
 			
 			contextTracers.fillStyle = linux_container_userspace.colorText;
 			contextTracers.font = "30px serif";
-			contextTracers.fillText(linux_container_userspace.text, linux_container_userspace.x + linux_container_userspace.width/2 - 80, linux_container_userspace.y+35);
+			contextTracers.fillText(linux_container_userspace.text, linux_container_userspace.x + linux_container_userspace.width/2 - 65, linux_container_userspace.y+35);
 		}
 
 
@@ -361,7 +413,7 @@ $(document).ready(function(e){
                     if(timerJavascript)
                         clearTimeout(timerJavascript);
                     canvasTracers.attr("width",$(window).get(0).innerWidth - 100);
-                    canvasTracers.attr("height",$(window).get(0).innerHeight - 150);
+                    canvasTracers.attr("height",$(window).get(0).innerHeight - 120);
                     canvasWidthTracers = canvasTracers.width();
                     canvasHeightTracers = canvasTracers.height();
                     
