@@ -13,84 +13,175 @@
                 padding:0;
                 overflow: hidden;                
             }
+
+            #controlButton{
+                text-align:center;
+            }
+            button{
+	            background-color: #72A2C0;
+	            border-radius: 4px;
+	            color:white;
+
+                width: 80%;
+	            padding: 12px 20px;
+	            margin: 8px 0;
+	            display: inline-block;
+	            border: 1px solid #ccc;
+	            border-radius: 4px;
+	            box-sizing: border-box;
+	            font-size:150%;
+            }
+            button:hover{
+	            cursor:pointer;
+	            background-color: #1D65A6;	
+            }
         </style>
 
 	</head>
 
 	<body>
-		<div id="ebpfInAction" width="500px" height="450px">
+		<canvas id="ebpfInAction" width="500px" height="450px">
 
-        </div>
+        </canvas>
 			
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/95/three.js"></script>	
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.2/dat.gui.js"></script>
-
+        <div id="controlButton">
+		    <button id="animEBPF">Start eBPF</button>
+        </div>
         <script>
-            $(document).ready(function(){
-                var scene = new THREE.Scene();
-                var camera = new THREE.PerspectiveCamera(45, window.innerWidth /window.innerHeight, 0.1, 1000);
-                var renderer = new THREE.WebGLRenderer();
-                renderer.setClearColor(0xEEEEEE);
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                var axes = new THREE.AxesHelper( 20 );
-                scene.add(axes);
+            var timerJavascripteBPF = false;
+            var canvasWidtheBPF;
+            var canvasHeighteBPF;
+
+            var canvaseBPF;
+            var contexteBPF;
+  
+            var animateSceneEBPF = true;
+
+
+            var mainContainer = function(x, y, width, height,color, text, colorText){
+	            this.x = x;
+	            this.y = y;
+	            this.width = width;
+	            this.height = height;
+	            this.color = color;
+	            this.text = text;
+	            this.colorText = colorText;
+	
+            }
+
+            var linux_container_userspace; 
+            var linux_container_kernel;
+            var linux_container_kernel_EBPF_VM;
+
+
+            $(document).ready(function(e){
                 
-
-                var spotLight = new THREE.SpotLight( 0xffffff );
-                spotLight.position.set( -40, 60, -10 );
-                scene.add( spotLight );
-
-                var sphereGeometry = new THREE.SphereGeometry(40,20,20);
-                var sphereMaterial = new THREE.MeshPhongMaterial(
-                {color: 0x7777ff, wireframe: true});
-                var sphere = new THREE.Mesh(sphereGeometry,sphereMaterial);
-                sphere.position.x = 0;
-                sphere.position.y = 4;
-                sphere.position.z = 2;
-                scene.add(sphere);
+                canvaseBPF = $("#ebpfInAction");
+                contexteBPF = canvaseBPF.get(0).getContext("2d");
+                canvasWidtheBPF = canvaseBPF.width();
+                canvasHeighteBPF = canvaseBPF.height();
 
 
-                var cubeGeometry = new THREE.CubeGeometry(4,4,4);
-                var cubeMaterial = new THREE.MeshPhongMaterial(
-                {color: 0xff0000, wireframe: false});
-                var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-                cube.position.x = -4;
-                cube.position.y = 3;
-                cube.position.z = 0;
-                scene.add(cube);
+                resizeCanvaseBPF();
+        	    $(window).resize(resizeCanvaseBPF);
 
-
-                var controls = new function() {
-                    this.rotationSpeed = 0.02;
-                    this.bouncingSpeed = 0.03;
-                }
-
-                var gui = new dat.GUI();
-                gui.add(controls, 'rotationSpeed',0,0.5);
-                gui.add(controls, 'bouncingSpeed',0,0.5);
-
-                camera.position.x = -30;
-                camera.position.y = 40;
-                camera.position.z = 30;
-                camera.lookAt(scene.position);
-                $("#ebpfInAction").append(renderer.domElement);
-                renderScene();
-
-                function renderScene() {
- 
-                    sphere.rotation.x += 0.02;
-                    //sphere.rotation.y += 0.02;
-                    sphere.rotation.z += 0.02;
-
-                    cube.rotation.x += controls.rotationSpeed;;
-                    cube.rotation.y += 0.02;
-                    requestAnimationFrame(renderScene);
-                    renderer.render(scene, camera);
-                }
+               
+		        
+		        $("#animEBPF").on("click",function() {
+			
+			        if(animateSceneEBPF){
+				        animateSceneEBPF = false;
+				
+			
+			        }
+			        else {
+				        animateSceneEBPF = true;
+				
+			        }
+				
+			        resizeCanvaseBPF();
+			
+		        });
 
             });
+
+
+            function drawUserSpaceEBPF(){
+			    linux_container_userspace = new mainContainer(canvasWidtheBPF/12,50,canvasWidtheBPF/2.5,canvasHeighteBPF - 100,"#D9AC2A", "Userspace","rgba(255,255,255,1.0)");
+
+			    contexteBPF.fillStyle = linux_container_userspace.color;
+			    contexteBPF.fillRect(linux_container_userspace.x, linux_container_userspace.y, linux_container_userspace.width, linux_container_userspace.height);
+
+			
+			    contexteBPF.fillStyle = linux_container_userspace.colorText;
+			    contexteBPF.font = "30px serif";
+			    contexteBPF.fillText(linux_container_userspace.text, linux_container_userspace.x + linux_container_userspace.width/2 - 65, linux_container_userspace.y+35);
+		    }
+
+
+
+            function drawUserKernelEBPF(){
+			    linux_container_kernel = new mainContainer(canvasWidtheBPF/2,50,canvasWidtheBPF/2,canvasHeighteBPF - 100,"#00AC2A", "Kernel","rgba(255,255,255,1.0)");
+
+			    contexteBPF.fillStyle = linux_container_kernel.color;
+			    contexteBPF.fillRect(linux_container_kernel.x, linux_container_kernel.y, linux_container_kernel.width, linux_container_kernel.height);
+
+			
+			    contexteBPF.fillStyle = linux_container_kernel.colorText;
+			    contexteBPF.font = "30px serif";
+			    contexteBPF.fillText(linux_container_kernel.text, linux_container_kernel.x + linux_container_kernel.width/2 - 50, linux_container_kernel.y+35);
+		    }
+
+
+
+            function drawUserKernelEBPF_VM(){
+			    linux_container_kernel_EBPF_VM = new mainContainer(linux_container_kernel.x,50,linux_container_kernel.width/3,linux_container_kernel.height/3, "#00ACBB", "eBPF","rgba(255,255,255,1.0)");
+
+			    contexteBPF.fillStyle = linux_container_kernel_EBPF_VM.color;
+			    contexteBPF.fillRect(linux_container_kernel_EBPF_VM.x + (linux_container_kernel.width-linux_container_kernel_EBPF_VM.width)/2, linux_container_kernel_EBPF_VM.y + (linux_container_kernel.height-linux_container_kernel_EBPF_VM.height)/2, linux_container_kernel_EBPF_VM.width, linux_container_kernel_EBPF_VM.height);
+
+			
+			    contexteBPF.fillStyle = linux_container_kernel_EBPF_VM.colorText;
+			    contexteBPF.font = "30px serif";
+			    contexteBPF.fillText(linux_container_kernel_EBPF_VM.text, linux_container_kernel_EBPF_VM.x + (linux_container_kernel.width-linux_container_kernel_EBPF_VM.width)/2 + linux_container_kernel_EBPF_VM.width/2 - 33, linux_container_kernel_EBPF_VM.y+35 + (linux_container_kernel.height-linux_container_kernel_EBPF_VM.height)/2);
+
+                contexteBPF.fillText("VM", linux_container_kernel_EBPF_VM.x + linux_container_kernel_EBPF_VM.width/2 - 25 + (linux_container_kernel.width-linux_container_kernel_EBPF_VM.width)/2, linux_container_kernel_EBPF_VM.y+linux_container_kernel_EBPF_VM.height/2+13 + (linux_container_kernel.height-linux_container_kernel_EBPF_VM.height)/2);
+		    }
+
+
+            function drawEBPFScene(){
+           		contexteBPF.clearRect(0, 0, canvasWidtheBPF, canvasHeighteBPF);
+
+
+            
+                drawUserSpaceEBPF();
+                drawUserKernelEBPF();
+                drawUserKernelEBPF_VM();
+
+
+                if(animateSceneEBPF){
+                        $("#animEBPF").text('Start eBPF');
+             			timerJavascript = setTimeout(drawEBPFScene, 1000);
+
+                }
+
+
+				else{
+					$("#animEBPF").text('Stop eBPF');
+			    }
+            }
+
+
+            function resizeCanvaseBPF(){
+                if(timerJavascripteBPF)
+                    clearTimeout(timerJavascripteBPF);
+                canvaseBPF.attr("width",$(window).get(0).innerWidth - 100);
+                canvaseBPF.attr("height",$(window).get(0).innerHeight - 120);
+                canvasWidtheBPF = canvaseBPF.width();
+                canvasHeighteBPF = canvaseBPF.height();
+                    
+                drawEBPFScene();                        
+            }
         </script>
 
 	</body>
